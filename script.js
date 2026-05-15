@@ -1,374 +1,359 @@
 /**
- * BRACU Architecture '25 Executive ArchiveMainframe Core Runtime Engine
- * Architecture Logic Written & Built by Sadeed Ahmed
+ * BRACU Architecture Summer '26 - Mainframe Core Framework Runtime Engine
+ * Core Application Engine Engineered & Structured completely by Sadeed Ahmed
  */
 
 document.addEventListener("DOMContentLoaded", () => {
     
     // ==========================================================================
-    // 01. STATIC ENCRYPTED PROFILE MATRIX DATA STRUCTURE
+    // 01. MANUAL COHORT DATABASE STRUCTURE (MANAGE RECORDS HERE)
     // ==========================================================================
     const architectureCohortDatabase = [
-        { id: "AR25-001", name: "Placeholder Alpha", roll: "20101001", studio: "Studio VII", focus: "Climate Resilience Architecture", git: "#", lnk: "#", fb: "#", port: "#", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80" },
-        { id: "AR25-002", name: "Placeholder Beta", roll: "20101002", studio: "Studio VI", focus: "Parametric Algorithmic Tectonics", git: "#", lnk: "#", fb: "#", port: "#", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80" },
-        { id: "AR25-003", name: "Placeholder Gamma", roll: "20101003", studio: "Studio VII", focus: "Digital Fabrication Systems", git: "#", lnk: "#", fb: "#", port: "#", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80" },
-        { id: "AR25-004", name: "Placeholder Delta", roll: "20101004", studio: "Studio VI", focus: "Deltaic Micro-Urbanisms", git: "#", lnk: "#", fb: "#", port: "#", img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=600&q=80" },
-        { id: "AR25-005", name: "Placeholder Epsilon", roll: "20101005", studio: "Studio VII", focus: "Sustainable Vernacular Forms", git: "#", lnk: "#", fb: "#", port: "#", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80" },
-        { id: "AR25-006", name: "Placeholder Zeta", roll: "20101006", studio: "Studio VI", focus: "High-Density Tectonic Formulations", git: "#", lnk: "#", fb: "#", port: "#", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" }
+        { id: "AS26-01", name: "Architect Candidate Alpha", roll: "22101001", studio: "Studio X", focus: "Sustainable Climate Adaptations", git: "https://github.com", lnk: "https://linkedin.com", fb: "https://facebook.com", port: "#" },
+        { id: "AS26-02", name: "Architect Candidate Beta", roll: "22101002", studio: "Studio IX", focus: "Parametric Fluid Urbanism", git: "https://github.com", lnk: "https://linkedin.com", fb: "https://facebook.com", port: "#" },
+        { id: "AS26-03", name: "Architect Candidate Gamma", roll: "22101003", studio: "Studio X", focus: "Deltaic Structural Integration", git: "https://github.com", lnk: "https://linkedin.com", fb: "https://facebook.com", port: "#" },
+        { id: "AS26-04", name: "Architect Candidate Delta", roll: "22101004", studio: "Studio IX", focus: "High-Density Resilient Modules", git: "https://github.com", lnk: "https://linkedin.com", fb: "https://facebook.com", port: "#" }
     ];
 
-    // Expand template matrices to scale dynamically to fulfill structural blocks smoothly
-    while(architectureCohortDatabase.length < 24) {
-        let currentLen = architectureCohortDatabase.length;
+    /**
+     * STAGE GENERATOR LOOP NOTE:
+     * This block scales up the base records array using mock rows so you can view 
+     * search and layout responsiveness immediately.
+     * REMOVE OR COMMENT OUT THIS LOOP when adding true graduate records.
+     */
+    while(architectureCohortDatabase.length < 16) {
+        let currentSize = architectureCohortDatabase.length;
         architectureCohortDatabase.push({
-            id: `AR25-0${currentLen+1}`,
-            name: `ARCHITECT RECORD TEMPLATE AR-${1000 + currentLen}`,
-            roll: `2010${1000 + currentLen}`,
-            studio: currentLen % 2 === 0 ? "Studio VII" : "Studio VI",
-            focus: ["Urban Systems Integration", "Parametric Logic Design", "Digital Prototyping Labs", "Deltaic Geographies"][currentLen % 4],
-            git: "#", lnk: "#", fb: "#", port: "#",
-            img: `https://picsum.photos/id/${(currentLen * 7) % 150}/600/600`
+            id: `AS26-${currentSize + 1}`,
+            name: `GRADUATE TEMPLATE CARD AS-${100 + currentSize}`,
+            roll: `22101${100 + currentSize}`,
+            studio: currentSize % 2 === 0 ? "Studio X" : "Studio IX",
+            focus: ["Urban Systems Design", "Parametric Fluidity", "Ecological Mapping", "Tectonic Fabrication"][currentSize % 4],
+            git: "https://github.com", lnk: "https://linkedin.com", fb: "https://facebook.com", port: "#"
         });
     }
 
     // ==========================================================================
-    // 02. PRELOADER & INITIALIZATION ENGINE CONTROLLERS
+    // 02. APPLICATION VIEW CONTROLLER SWITCH SYSTEM (SINGLE PAGE SPA ROUTING)
     // ==========================================================================
-    const preloaderElement = document.getElementById("preloader");
-    window.addEventListener("load", () => {
-        setTimeout(() => {
-            preloaderElement.classList.add("fade-out");
-            document.body.classList.remove("loading");
-            executeScrollRevealEngine();
-            initializeCountersEngine();
-        }, 1000);
-    });
+    const appSectionsList = document.querySelectorAll(".spa-section");
+    const globalAppNavLinks = document.querySelectorAll("[data-target]");
 
-    // ==========================================================================
-    // 03. AMBIENT AUDIO SYSTEM CONTROLLER MODULE
-    // ==========================================================================
-    const audioControlWidget = document.getElementById("audio-control");
-    const audioToggleText = audioControlWidget.querySelector(".audio-text");
-    let syntheticAmbientAudioEngine = null;
-    let isAmbientSoundActive = false;
+    function switchApplicationActiveView(targetSectionId) {
+        if (!document.getElementById(targetSectionId)) return;
 
-    audioControlWidget.addEventListener("click", () => {
-        if (!syntheticAmbientAudioEngine) {
-            syntheticAmbientAudioEngine = new Audio("https://assets.mixkit.co/active_storage/sfx/2568/2568-84.wav");
-            syntheticAmbientAudioEngine.loop = true;
-            syntheticAmbientAudioEngine.volume = 0.15;
-        }
-        
-        if (!isAmbientSoundActive) {
-            syntheticAmbientAudioEngine.play().catch(e => console.log("Audio pipeline requires manual trigger authorization codes."));
-            audioControlWidget.classList.add("playing");
-            audioToggleText.textContent = "AMBIENT: ACTIVE";
-            isAmbientSoundActive = true;
-        } else {
-            syntheticAmbientAudioEngine.pause();
-            audioControlWidget.classList.remove("playing");
-            audioToggleText.textContent = "AMBIENT: OFF";
-            isAmbientSoundActive = false;
-        }
-    });
+        // Force viewport top coordination transition
+        window.scrollTo({ top: 0, behavior: "instant" });
 
-    // ==========================================================================
-    // 04. PREMIUM MOUSE TRAILING CURSOR ENGINE
-    // ==========================================================================
-    const operationalCursorDot = document.getElementById("custom-cursor");
-    const operationalCursorBlur = document.getElementById("cursor-blur");
-
-    document.addEventListener("mousemove", (event) => {
-        operationalCursorDot.style.left = `${event.clientX}px`;
-        operationalCursorDot.style.top = `${event.clientY}px`;
-        
-        // Add subtle interpolation delay logic to surrounding blur ring asset
-        operationalCursorBlur.animate({
-            left: `${event.clientX}px`,
-            top: `${event.clientY}px`
-        }, { duration: 400, fill: "forwards" });
-    });
-
-    // Handle button scale magnification triggers automatically
-    document.querySelectorAll("a, button, .filter-tab, .secure-student-shield").forEach(element => {
-        element.addEventListener("mouseenter", () => {
-            operationalCursorBlur.style.width = "60px";
-            operationalCursorBlur.style.height = "60px";
-            operationalCursorBlur.style.borderColor = "var(--primary-neon)";
-            operationalCursorBlur.style.background = "rgba(255, 51, 68, 0.05)";
-        });
-        element.addEventListener("mouseleave", () => {
-            operationalCursorBlur.style.width = "40px";
-            operationalCursorBlur.style.height = "40px";
-            operationalCursorBlur.style.borderColor = "var(--primary-neon)";
-            operationalCursorBlur.style.background = "transparent";
-        });
-    });
-
-    // ==========================================================================
-    // 05. SCROLL ACTION REVEAL & STICKY NAVBAR HIGH-LIGHTER TRACKER
-    // ==========================================================================
-    const mainNavigationWrapperElement = document.querySelector(".navbar-wrapper");
-    const staticViewSections = document.querySelectorAll("section");
-    const operationalNavLinks = document.querySelectorAll(".nav-link, .mobile-nav-row");
-
-    function executeScrollRevealEngine() {
-        const structuralRevealTargets = document.querySelectorAll(".scroll-reveal");
-        
-        const scrollObserverConfig = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("revealed");
-                }
-            });
-        }, { threshold: 0.15 });
-
-        structuralRevealTargets.forEach(target => scrollObserverConfig.observe(target));
-    }
-
-    window.addEventListener("scroll", () => {
-        // Sticky dynamic glass styling mutation switch
-        if (window.scrollY > 50) {
-            mainNavigationWrapperElement.classList.add("scrolled");
-        } else {
-            mainNavigationWrapperElement.classList.remove("scrolled");
-        }
-
-        // Active link tracking updates
-        let operationalActiveId = "";
-        staticViewSections.forEach(section => {
-            const coordinateY = section.offsetTop - 120;
-            if (window.scrollY >= coordinateY) {
-                operationalActiveId = section.getAttribute("id");
+        appSectionsList.forEach(section => {
+            section.classList.remove("active");
+            if (section.id === targetSectionId) {
+                section.classList.add("active");
             }
         });
 
-        operationalNavLinks.forEach(link => {
+        // Maintain synchronized navigation active highlight attributes
+        globalAppNavLinks.forEach(link => {
             link.classList.remove("active");
-            if (link.getAttribute("href") === `#${operationalActiveId}`) {
+            if (link.getAttribute("data-target") === targetSectionId && link.classList.contains("nav-link")) {
                 link.classList.add("active");
             }
         });
+
+        // Trigger dynamic metrics tracking engines if entering statistical views
+        if (targetSectionId === "about") {
+            triggerStatisticalCounterIncrements();
+        }
+    }
+
+    // Connect standard programmatic tracking routes across active tags
+    document.addEventListener("click", (event) => {
+        const closestRouteTrigger = event.target.closest("[data-target]");
+        if (closestRouteTrigger) {
+            event.preventDefault();
+            const targetRouteViewId = closestRouteTrigger.getAttribute("data-target");
+            switchApplicationActiveView(targetRouteViewId);
+            
+            // Push location route into address state records implicitly
+            history.pushState(null, null, `#${targetRouteViewId}`);
+        }
+    });
+
+    // Handle deep navigation tracking patterns on system load operations
+    const activeRouteHash = window.location.hash.substring(1);
+    if (activeRouteHash && document.getElementById(activeRouteHash)) {
+        switchApplicationActiveView(activeRouteHash);
+    }
+
+    // ==========================================================================
+    // 03. PRELOADER INITIALIZATION CLOSURES
+    // ==========================================================================
+    const sitePreloaderElement = document.getElementById("preloader");
+    window.addEventListener("load", () => {
+        setTimeout(() => {
+            if (sitePreloaderElement) {
+                sitePreloaderElement.classList.add("fade-out");
+                document.body.classList.remove("loading");
+            }
+        }, 800);
     });
 
     // ==========================================================================
-    // 06. RESPONSIVE MOBILE NAVIGATION PANEL INTERFACE CONTROLLER
+    // 04. PREMIUM INTERACTIVE MOUSE TRACKING ENGINE WITH CLICK RIPPLES
     // ==========================================================================
-    const hamburgerMenuTriggerBtn = document.querySelector(".hamburger");
-    let mobileRouteOverlayContainer = document.getElementById("mobileNavMenu");
+    const customCursorDot = document.getElementById("custom-cursor");
+    const customCursorBlur = document.getElementById("cursor-blur");
 
-    if(!mobileRouteOverlayContainer) {
-        // Build mobile matrix system row structural elements dynamically if missing from raw layouts
-        mobileRouteOverlayContainer = document.createElement("div");
-        mobileRouteOverlayContainer.id = "mobileNavMenu";
-        mobileRouteOverlayContainer.className = "mobile-nav-overlay";
-        mobileRouteOverlayContainer.innerHTML = `
-            <div class="mobile-nav-modal">
-                <a href="#home" class="mobile-nav-row active">Main Deck</a>
-                <a href="#about" class="mobile-nav-row">Core Manifesto</a>
-                <a href="#students" class="mobile-nav-row">Architect Directory</a>
-                <a href="#videos" class="mobile-nav-row">Tectonic Reels</a>
-                <a href="#developers" class="mobile-nav-row">Platform Engineers</a>
-                <a href="#designers" class="mobile-nav-row">Identity Lab</a>
-                <a href="#contact" class="mobile-nav-row">Synapse Terminal</a>
-            </div>
-        `;
-        document.body.appendChild(mobileRouteOverlayContainer);
-    }
+    document.addEventListener("mousemove", (e) => {
+        if(customCursorDot && customCursorBlur) {
+            customCursorDot.style.left = `${e.clientX}px`;
+            customCursorDot.style.top = `${e.clientY}px`;
+            
+            customCursorBlur.animate({
+                left: `${e.clientX}px`,
+                top: `${e.clientY}px`
+            }, { duration: 350, fill: "forwards" });
+        }
+    });
 
-    const compiledMobileActionRows = mobileRouteOverlayContainer.querySelectorAll(".mobile-nav-row");
-
-    function toggleMobileNavigationOverlayMenu() {
-        mobileRouteOverlayContainer.classList.toggle("open");
-        hamburgerMenuTriggerBtn.classList.toggle("active");
-    }
-
-    hamburgerMenuTriggerBtn.addEventListener("click", toggleMobileNavigationOverlayMenu);
-    mobileRouteOverlayContainer.addEventListener("click", toggleMobileNavigationOverlayMenu);
-    compiledMobileActionRows.forEach(row => {
-        row.addEventListener("click", (e) => {
-            e.stopPropagation();
-            toggleMobileNavigationOverlayMenu();
-            const localTargetRoute = row.getAttribute("href");
-            document.querySelector(localTargetRoute).scrollIntoView({ behavior: "smooth" });
+    // Apply scaling magnification across premium clickable elements automatically
+    document.querySelectorAll("a, button, .filter-tab, .secure-student-shield, [data-target]").forEach(element => {
+        element.addEventListener("mouseenter", () => {
+            if (customCursorBlur) {
+                customCursorBlur.style.width = "50px";
+                customCursorBlur.style.height = "50px";
+                customCursorBlur.style.background = "rgba(171, 34, 41, 0.04)";
+                customCursorBlur.style.borderColor = "var(--primary-neon)";
+            }
+        });
+        element.addEventListener("mouseleave", () => {
+            if (customCursorBlur) {
+                customCursorBlur.style.width = "34px";
+                customCursorBlur.style.height = "34px";
+                customCursorBlur.style.background = "transparent";
+                customCursorBlur.style.borderColor = "rgba(255, 255, 255, 0.15)";
+            }
+        });
+        
+        // Add ripple-wave processing securely on user interaction steps
+        element.addEventListener("click", function(e) {
+            let coordinateX = e.clientX - this.getBoundingClientRect().left;
+            let coordinateY = e.clientY - this.getBoundingClientRect().top;
+            
+            let waveNode = document.createElement("span");
+            waveNode.className = "ripple-wave";
+            waveNode.style.left = `${coordinateX}px`;
+            waveNode.style.top = `${coordinateY}px`;
+            
+            this.appendChild(waveNode);
+            setTimeout(() => { waveNode.remove(); }, 600);
         });
     });
 
     // ==========================================================================
-    // 07. NUMERICAL METRIC COUNTER INCREMENT PIPELINES
+    // 05. AMBIENT AUDIO ENVIRONMENT INTERACTION
     // ==========================================================================
-    function initializeCountersEngine() {
-        const statisticalCountersArray = document.querySelectorAll(".counter");
-        
-        statisticalCountersArray.forEach(counter => {
-            const numericLimitTarget = parseInt(counter.getAttribute("data-target"));
-            const speedIndexStep = numericLimitTarget / 100;
-            let initializedValue = 0;
+    const audioControlContainer = document.getElementById("audio-control");
+    const audioLabelStringNode = audioControlContainer?.querySelector(".audio-text");
+    let hardwareAudioEngineInstance = null;
+    let isAudioEngineProcessingActive = false;
 
-            const incrementRunner = () => {
-                initializedValue += speedIndexStep;
-                if (initializedValue < numericLimitTarget) {
-                    counter.textContent = Math.ceil(initializedValue);
-                    setTimeout(incrementRunner, 15);
+    if (audioControlContainer) {
+        audioControlContainer.addEventListener("click", () => {
+            if (!hardwareAudioEngineInstance) {
+                hardwareAudioEngineInstance = new Audio("https://assets.mixkit.co/active_storage/sfx/2568/2568-84.wav");
+                hardwareAudioEngineInstance.loop = true;
+                hardwareAudioEngineInstance.volume = 0.1;
+            }
+
+            if (!isAudioEngineProcessingActive) {
+                hardwareAudioEngineInstance.play().catch(() => console.log("Audio routing engine awaits interaction handshake codes."));
+                audioControlContainer.classList.add("playing");
+                if (audioLabelStringNode) audioLabelStringNode.textContent = "AUDIO: ACTIVE";
+                isAudioEngineProcessingActive = true;
+            } else {
+                hardwareAudioEngineInstance.pause();
+                audioControlContainer.classList.remove("playing");
+                if (audioLabelStringNode) audioLabelStringNode.textContent = "AUDIO: OFF";
+                isAudioEngineProcessingActive = false;
+            }
+        });
+    }
+
+    // ==========================================================================
+    // 06. PROGRESSIVE STATISTICAL METRIC COUNTER LOGIC
+    // ==========================================================================
+    function triggerStatisticalCounterIncrements() {
+        const structuralCountersArray = document.querySelectorAll(".counter");
+        structuralCountersArray.forEach(counter => {
+            const parsedTargetLimit = parseInt(counter.getAttribute("data-target"));
+            let baseStepValue = 0;
+            counter.textContent = "0";
+
+            const stepActionRate = Math.max(Math.ceil(parsedTargetLimit / 50), 1);
+            
+            const processRunner = () => {
+                baseStepValue += stepActionRate;
+                if (baseStepValue < parsedTargetLimit) {
+                    counter.textContent = baseStepValue;
+                    setTimeout(processRunner, 20);
                 } else {
-                    counter.textContent = numericLimitTarget;
+                    counter.textContent = parsedTargetLimit;
                 }
             };
-            
-            // Trigger loop processing automatically
-            incrementRunner();
+            processRunner();
         });
     }
 
     // ==========================================================================
-    // 08. STUDIO DIRECTORY FILTRATION & MATRIX INJECTION RENDER ENGINE
+    // 07. STUDENT GRID RUNTIME ARCHITECTURE & PARALLAX FILTERS
     // ==========================================================================
-    const studentMatrixTargetContainer = document.getElementById("student-matrix-target");
-    const structuralQueryFilterInputField = document.getElementById("student-search");
-    const programmaticFilterTabActionButtons = document.querySelectorAll(".filter-tab");
+    const targetStudentGridContainer = document.getElementById("student-matrix-target");
+    const runtimeSearchQueryInputField = document.getElementById("student-search");
+    const filterSelectionTabsList = document.querySelectorAll(".filter-tab");
 
-    let currentSystemStudioFilterScope = "all";
-    let currentSystemSearchQueryScope = "";
+    let directoryFilterStudioString = "all";
+    let directorySearchQueryString = "";
 
-    function renderArchitectShieldMatrixGrid() {
-        if(!studentMatrixTargetContainer) return;
-        studentMatrixTargetContainer.innerHTML = "";
+    function executeCohortGridRenderProcess() {
+        if (!targetStudentGridContainer) return;
+        targetStudentGridContainer.innerHTML = "";
 
-        const processedFilteredRecordsList = architectureCohortDatabase.filter(student => {
-            const validationStudioMatch = currentSystemStudioFilterScope === "all" || student.studio === currentSystemStudioFilterScope;
-            const validationSearchMatch = student.name.toLowerCase().includes(currentSystemSearchQueryScope) || 
-                                           student.focus.toLowerCase().includes(currentSystemSearchQueryScope) ||
-                                           student.roll.includes(currentSystemSearchQueryScope);
-            return validationStudioMatch && validationSearchMatch;
+        const coordinatedFilteredList = architectureCohortDatabase.filter(student => {
+            const parseStudioEvaluation = directoryFilterStudioString === "all" || student.studio === directoryFilterStudioString;
+            const parseSearchEvaluation = student.name.toLowerCase().includes(directorySearchQueryString) ||
+                                           student.focus.toLowerCase().includes(directorySearchQueryString) ||
+                                           student.roll.includes(directorySearchQueryString);
+            return parseStudioEvaluation && parseSearchEvaluation;
         });
 
-        if (processedFilteredRecordsList.length === 0) {
-            studentMatrixTargetContainer.innerHTML = `
-                <div class="glass-card" style="grid-column: 1/-1; padding: 40px; text-align: center; color: var(--text-muted-gray);">
-                    NO ENCRYPTED ARCHITECT SHIELDS MATCH CURRENT QUERY STRUCTURES
+        if (coordinatedFilteredList.length === 0) {
+            targetStudentGridContainer.innerHTML = `
+                <div style="grid-column: 1/-1; padding: 50px 20px; text-align: center; color: var(--text-muted-gray); font-size:0.9rem;" class="glass-card">
+                   No graduate architect records match the specified search parameters.
                 </div>
             `;
             return;
         }
 
-        processedFilteredRecordsList.forEach((student, index) => {
-            const cardShieldElement = document.createElement("div");
-            cardShieldElement.className = "secure-student-shield";
-            cardShieldElement.setAttribute("data-studio", student.studio);
-            cardShieldElement.style.animation = `revealEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards ${index * 0.05}s`;
+        coordinatedFilteredList.forEach((student, processingIndex) => {
+            const structuralShieldCardNode = document.createElement("div");
+            structuralShieldCardNode.className = "secure-student-shield";
+            structuralShieldCardNode.style.opacity = "0";
             
-            cardShieldElement.innerHTML = `
+            // Apply quick systematic stagger loading animations natively
+            setTimeout(() => {
+                structuralShieldCardNode.style.opacity = "1";
+            }, processingIndex * 40);
+
+            // Using static deterministic abstract placeholder images based on processingIndex safely
+            const computedAbstractImageId = (processingIndex * 13) % 100;
+            const finalizedSecureImageUrl = `https://picsum.photos/id/${computedAbstractImageId}/600/500`;
+
+            structuralShieldCardNode.innerHTML = `
                 <div class="shield-img-frame">
                     <span class="studio-badge">${student.studio.toUpperCase()}</span>
-                    <img src="${student.img}" alt="${student.name}" loading="lazy">
+                    <img src="${finalizedSecureImageUrl}" alt="${student.name}" loading="lazy">
                     <div class="encrypted-overlay-gfx"></div>
                 </div>
                 <div class="shield-meta-body">
                     <h3>${student.name}</h3>
-                    <span class="dept-lbl">DEPT OF ARCHITECTURE // ID ${student.roll}</span>
+                    <span class="dept-lbl">B.ARCH GRADUATE // ID: ${student.roll}</span>
                     <div class="skills-tags-cluster">
                         <span class="skill-tag">${student.focus}</span>
-                        <span class="skill-tag">B.Arch '25</span>
+                        <span class="skill-tag">Summer '26</span>
                     </div>
                     <div class="shield-social-pipeline">
                         <div class="pipeline-links">
-                            <a href="${student.fb}" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-                            <a href="${student.lnk}" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-                            <a href="${student.git}" target="_blank" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+                            <a href="${student.fb}" target="_blank" aria-label="Facebook Profile Pipeline"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="${student.lnk}" target="_blank" aria-label="LinkedIn Professional Network"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="${student.git}" target="_blank" aria-label="GitHub Repository Infrastructure"><i class="fa-brands fa-github"></i></a>
                         </div>
-                        <a href="#contact" class="btn btn-primary btn-sm" style="padding: 8px 16px; font-size: 0.65rem;">CONNECT</a>
+                        <button class="btn btn-primary btn-sm" style="padding: 8px 16px; font-size: 0.65rem;" data-target="contact">Connect</button>
                     </div>
                 </div>
             `;
-            
-            // Attach interactive directional 3D parallax tilt effects securely
-            apply3DTiltInteractionsToShieldElement(cardShieldElement);
-            studentMatrixTargetContainer.appendChild(cardShieldElement);
+
+            attachAdvanced3DParallaxTiltActions(structuralShieldCardNode);
+            targetStudentGridContainer.appendChild(structuralShieldCardNode);
         });
     }
 
-    function apply3DTiltInteractionsToShieldElement(shieldItem) {
-        shieldItem.addEventListener("mousemove", (event) => {
-            const boundingMetrics = shieldItem.getBoundingClientRect();
-            const coordinateX = event.clientX - boundingMetrics.left;
-            const coordinateY = event.clientY - boundingMetrics.top;
+    function attachAdvanced3DParallaxTiltActions(shieldElement) {
+        shieldElement.addEventListener("mousemove", (event) => {
+            const dynamicMetrics = shieldElement.getBoundingClientRect();
+            const mouseX = event.clientX - dynamicMetrics.left;
+            const mouseY = event.clientY - dynamicMetrics.top;
             
-            const middlePointX = boundingMetrics.width / 2;
-            const middlePointY = boundingMetrics.height / 2;
+            const centralAxisX = dynamicMetrics.width / 2;
+            const centralAxisY = dynamicMetrics.height / 2;
             
-            const calculationTiltAngleX = (middlePointY - coordinateY) / 12;
-            const calculationTiltAngleY = (coordinateX - middlePointX) / 12;
+            const computeRotateAngleX = (centralAxisY - mouseY) / 14;
+            const computeRotateAngleY = (mouseX - centralAxisX) / 14;
 
-            shieldItem.style.transform = `perspective(1000px) rotateX(${calculationTiltAngleX}deg) rotateY(${calculationTiltAngleY}deg) translateY(-5px)`;
+            shieldElement.style.transform = `perspective(1000px) rotateX(${computeRotateAngleX}deg) rotateY(${computeRotateAngleY}deg) translateY(-4px)`;
         });
 
-        shieldItem.addEventListener("mouseleave", () => {
-            shieldItem.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)`;
+        shieldElement.addEventListener("mouseleave", () => {
+            shieldElement.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)";
         });
     }
 
-    if (structuralQueryFilterInputField) {
-        structuralQueryFilterInputField.addEventListener("input", (e) => {
-            currentSystemSearchQueryScope = e.target.value.toLowerCase();
-            renderArchitectShieldMatrixGrid();
+    if (runtimeSearchQueryInputField) {
+        runtimeSearchQueryInputField.addEventListener("input", (e) => {
+            directorySearchQueryString = e.target.value.toLowerCase();
+            executeCohortGridRenderProcess();
         });
     }
 
-    programmaticFilterTabActionButtons.forEach(tab => {
+    filterSelectionTabsList.forEach(tab => {
         tab.addEventListener("click", () => {
-            programmaticFilterTabActionButtons.forEach(btn => btn.classList.remove("active"));
+            filterSelectionTabsList.forEach(t => t.classList.remove("active"));
             tab.classList.add("active");
-            currentSystemStudioFilterScope = tab.getAttribute("data-filter");
-            renderArchitectShieldMatrixGrid();
+            directoryFilterStudioString = tab.getAttribute("data-filter");
+            executeCohortGridRenderProcess();
         });
     });
 
-    // Run layout render process immediately on script load execution
-    renderArchitectShieldMatrixGrid();
+    // Execute core directory grid generation directly on system ignition setup
+    executeCohortGridRenderProcess();
 
     // ==========================================================================
-    // 09. CINEMA VIDEO VIEWPORTS & CATEGORIES LIGHTBOX CORE
+    // 08. LIGHTBOX CINEMA CONTROLLERS (EXHIBITION VIDEO MODALS)
     // ==========================================================================
-    const operationalCinemaPopupModal = document.getElementById("cinema-modal");
-    const interactiveVideoFrameSource = document.getElementById("modal-video-frame");
-    const compilationCloseTriggerElement = document.querySelector(".modal-close-trigger");
-    const videoCategoryActionTabs = document.querySelectorAll(".video-tab");
-    const functionalVideoShowcaseCards = document.querySelectorAll(".video-card-wrapper");
+    const globalCinemaOverlayPopup = document.getElementById("cinema-modal");
+    const targetVideoIframeNode = document.getElementById("modal-video-frame");
+    const mediaCategoryTabs = document.querySelectorAll(".video-tab");
+    const videoShowcaseCardNodes = document.querySelectorAll(".video-card-wrapper");
 
-    document.addEventListener("click", (event) => {
-        if (event.target && event.target.classList.contains("play-trigger-btn")) {
-            const structuralEmbedLink = event.target.getAttribute("data-video-url");
-            if (interactiveVideoFrameSource && operationalCinemaPopupModal) {
-                interactiveVideoFrameSource.src = structuralEmbedLink;
-                operationalCinemaPopupModal.classList.add("open");
-                document.body.classList.add("loading");
-            }
+    document.addEventListener("click", (e) => {
+        const triggeredPlayBtn = e.target.closest(".play-trigger-btn");
+        if (triggeredPlayBtn && globalCinemaOverlayPopup && targetVideoIframeNode) {
+            targetVideoIframeNode.src = triggeredPlayBtn.getAttribute("data-video-url");
+            globalCinemaOverlayPopup.classList.add("open");
+            document.body.classList.add("loading");
         }
     });
 
-    function closeCinemaLightboxWindow() {
-        if (operationalCinemaPopupModal && interactiveVideoFrameSource) {
-            operationalCinemaPopupModal.classList.remove("open");
-            interactiveVideoFrameSource.src = "";
+    function cleanAndCloseLightboxViewport() {
+        if (globalCinemaOverlayPopup && targetVideoIframeNode) {
+            globalCinemaOverlayPopup.classList.remove("open");
+            targetVideoIframeNode.src = "";
             document.body.classList.remove("loading");
         }
     }
 
-    if (compilationCloseTriggerElement) {
-        compilationCloseTriggerElement.addEventListener("click", closeCinemaLightboxWindow);
-    }
-    if (operationalCinemaPopupModal) {
-        operationalCinemaPopupModal.addEventListener("click", closeCinemaLightboxWindow);
-    }
+    globalCinemaOverlayPopup?.addEventListener("click", cleanAndCloseLightboxViewport);
+    document.querySelector(".modal-close-trigger")?.addEventListener("click", cleanAndCloseLightboxViewport);
 
-    videoCategoryActionTabs.forEach(tab => {
+    mediaCategoryTabs.forEach(tab => {
         tab.addEventListener("click", () => {
-            videoCategoryActionTabs.forEach(t => t.classList.remove("active"));
+            mediaCategoryTabs.forEach(t => t.classList.remove("active"));
             tab.classList.add("active");
-            const targetCategoryScope = tab.getAttribute("data-vcat");
+            const structuralVcatFilterScope = tab.getAttribute("data-vcat");
 
-            functionalVideoShowcaseCards.forEach(card => {
-                if (targetCategoryScope === "all" || card.getAttribute("data-vcat") === targetCategoryScope) {
+            videoShowcaseCardNodes.forEach(card => {
+                if (structuralVcatFilterScope === "all" || card.getAttribute("data-vcat") === structuralVcatFilterScope) {
                     card.style.display = "block";
                 } else {
                     card.style.display = "none";
@@ -378,55 +363,75 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ==========================================================================
-    // 10. SYNAPSE CONTACT TRANSMISSION VALIDATION MACHINE
+    // 09. REALISTIC FRONTEND TRANSMISSION CONTROL ENGINE (CONTACT VALIDATION)
     // ==========================================================================
-    const mainframeContactPipelineForm = document.getElementById("synapse-terminal-form");
-    const pipelineFormWrapperBlock = document.querySelector(".contact-form-side");
+    const userSynapsePortalForm = document.getElementById("synapse-terminal-form");
+    const formPanelParentSideWrapper = document.querySelector(".contact-form-side");
 
-    if (mainframeContactPipelineForm) {
-        mainframeContactPipelineForm.addEventListener("submit", (event) => {
-            event.preventDefault();
+    if (userSynapsePortalForm && formPanelParentSideWrapper) {
+        userSynapsePortalForm.addEventListener("submit", function(e) {
+            e.preventDefault();
             
-            let structuralValidationUptimeStatus = true;
-            const collectionRequiredFormInputs = mainframeContactPipelineForm.querySelectorAll("input[required], textarea[required]");
+            let validationPassStatus = true;
+            const fieldsToVerifyList = userSynapsePortalForm.querySelectorAll("input[required], textarea[required]");
 
-            collectionRequiredFormInputs.forEach(input => {
-                const structuralInputGroupWrapper = input.parentElement;
+            fieldsToVerifyList.forEach(input => {
+                const groupContainer = input.parentElement;
                 if (!input.value.trim()) {
-                    structuralInputGroupWrapper.classList.add("invalid");
-                    structuralValidationUptimeStatus = false;
-                } else if (input.type === "email" && !validateEmailFormatSignature(input.value)) {
-                    structuralInputGroupWrapper.classList.add("invalid");
-                    structuralValidationUptimeStatus = false;
+                    groupContainer.classList.add("invalid");
+                    validationPassStatus = false;
+                } else if (input.type === "email" && !verifyEmailPatternSignature(input.value)) {
+                    groupContainer.classList.add("invalid");
+                    validationPassStatus = false;
                 } else {
-                    structuralInputGroupWrapper.classList.remove("invalid");
+                    groupContainer.classList.remove("invalid");
                 }
             });
 
-            if (structuralValidationUptimeStatus) {
-                pipelineFormWrapperBlock.classList.add("submitting");
+            if (validationPassStatus) {
+                formPanelParentSideWrapper.classList.add("submitting");
                 
-                // Emulate high-end network packet validation routing sequences
-                setTimeout(() => {
-                    pipelineFormWrapperBlock.classList.remove("submitting");
-                    pipelineFormWrapperBlock.classList.add("success");
-                    mainframeContactPipelineForm.reset();
-                }, 2000);
+                // FormSubmit integration routes submission asynchronously over production pipelines safely
+                const structuredFormData = new FormData(userSynapsePortalForm);
+                
+                fetch(userSynapsePortalForm.action, {
+                    method: "POST",
+                    body: structuredFormData,
+                    headers: { 'Accept': 'application/json' }
+                })
+                .then(response => {
+                    formPanelParentSideWrapper.classList.remove("submitting");
+                    if (response.ok) {
+                        formPanelParentSideWrapper.classList.add("success");
+                        userSynapsePortalForm.reset();
+                    } else {
+                        alert("Network pipeline exception encountered. Please review form configurations.");
+                    }
+                })
+                .catch(() => {
+                    formPanelParentSideWrapper.classList.remove("submitting");
+                    alert("Transmission routing runtime error. Check active network configurations.");
+                });
             }
         });
 
-        mainframeContactPipelineForm.querySelectorAll("input, textarea").forEach(field => {
-            field.addEventListener("input", () => {
-                const structuralInputGroupWrapper = field.parentElement;
-                if (field.value.trim()) {
-                    structuralInputGroupWrapper.classList.remove("invalid");
+        userSynapsePortalForm.querySelectorAll("input, textarea").forEach(element => {
+            element.addEventListener("input", () => {
+                const groupContainer = element.parentElement;
+                if (element.value.trim()) {
+                    groupContainer.classList.remove("invalid");
                 }
             });
         });
     }
 
-    function validateEmailFormatSignature(emailString) {
-        const structuralRegexParser = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return structuralRegexParser.test(emailString);
+    function verifyEmailPatternSignature(emailValueString) {
+        const parsingRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return parsingRegex.test(emailValueString);
     }
+
+    // Connect standard programmatic baseline apex execution to scroll-to-top buttons
+    document.getElementById("scroll-to-top-action")?.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 });
