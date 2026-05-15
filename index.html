@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BRACU Archi '25 | Executive Archive</title>
-    <meta name="description" content="Premium futuristic digital archive celebrating the graduating architects of BRAC University 2025.">
+    <title>BRACU Archi Summer '26 | Graduate Archive</title>
+    <meta name="description" content="Premium digital archive celebrating the graduating architects of BRAC University Summer 2026.">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="loading">
@@ -14,7 +17,7 @@
     <div id="preloader">
         <div class="preloader-content">
             <div class="spinner"></div>
-            <div class="preload-text">INITIALIZING ARCHIVE</div>
+            <div class="preload-text">LOADING ARCHIVE</div>
         </div>
     </div>
 
@@ -25,34 +28,34 @@
         <div class="sound-wave">
             <span></span><span></span><span></span><span></span>
         </div>
-        <span class="audio-text">AMBIENT: OFF</span>
+        <span class="audio-text">AUDIO: OFF</span>
     </div>
 
     <div class="floating-dock">
-        <a href="#" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="#" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-        <a href="#" target="_blank" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
     </div>
 
     <header class="navbar-wrapper">
         <nav class="navbar container">
-            <div class="nav-logo" onclick="window.scrollTo({top:0, behavior:'smooth'})">
-                <span class="logo-gfx">▲</span>
-                <span class="logo-text">BRACU<span class="text-glow">ARCHI'25</span></span>
+            <div class="nav-logo" data-target="home">
+                <span class="logo-gfx"><i class="fa-solid fa-compass-drafting"></i></span>
+                <span class="logo-text">BRACU <span class="text-glow">ARCHI SUMMER '26</span></span>
             </div>
             
             <ul class="nav-links">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#students" class="nav-link">Architects</a></li>
-                <li><a href="#videos" class="nav-link">Videos</a></li>
-                <li><a href="#developers" class="nav-link">Developers</a></li>
-                <li><a href="#designers" class="nav-link">Designers</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#home" class="nav-link active" data-target="home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-target="about">About</a></li>
+                <li><a href="#students" class="nav-link" data-target="students">Architects</a></li>
+                <li><a href="#videos" class="nav-link" data-target="videos">Videos</a></li>
+                <li><a href="#developers" class="nav-link" data-target="developers">Developers</a></li>
+                <li><a href="#designers" class="nav-link" data-target="designers">Designers</a></li>
+                <li><a href="#contact" class="nav-link" data-target="contact">Contact</a></li>
             </ul>
 
             <div class="nav-actions">
-                <a href="#students" class="btn btn-nav">EXPLORE</a>
+                <button class="btn btn-nav" data-target="students">Browse Directory</button>
                 <button class="hamburger" aria-label="Toggle Navigation Menu">
                     <span></span><span></span><span></span>
                 </button>
@@ -60,9 +63,9 @@
         </nav>
     </header>
 
-    <main>
+    <main class="spa-view-container">
 
-        <section id="home" class="hero-section">
+        <section id="home" class="spa-section active">
             <div class="interactive-bg">
                 <div class="grid-overlay"></div>
                 <div class="glow-blob blob-1"></div>
@@ -71,22 +74,21 @@
             
             <div class="container hero-container">
                 <div class="hero-content text-reveal-parent">
-                    <span class="section-label reveal-item">BATCH 2025 // DELTA VISIONARIES</span>
-                    <h1 class="reveal-item">Spatial Tectonics<br>Beyond <span class="text-gradient">Boundaries</span>.</h1>
-                    <p class="reveal-item">A premium architectural intelligence engine mapping the intersection of computational algorithms, environmental resilience, and monumental structural poetry.</p>
-                    <div class="hero-actions reveal-item">
-                        <a href="#students" class="btn btn-primary">EXPLORE ARCHIVE</a>
-                        <a href="#about" class="btn btn-secondary">PHILOSOPHY</a>
-                        <a href="#contact" class="btn btn-outline">JOIN SYNAPSE</a>
+                    <span class="section-label"><i class="fa-solid fa-graduation-cap"></i> BATCH SUMMER 2026 // GRADUATION SHOWCASE</span>
+                    <h1>Architectural Innovation <span class="text-gradient">Redefined</span>.</h1>
+                    <p>Welcome to the official digital showcase platform for BRAC University's Department of Architecture, Batch Summer 2026. Explore our portfolio of design solutions, research projects, and sustainable developments.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" data-target="students">Explore Archive</button>
+                        <button class="btn btn-secondary" data-target="about">Our Philosophy</button>
                     </div>
                 </div>
 
-                <div class="hero-visual reveal-item">
+                <div class="hero-visual">
                     <div class="canvas-3d-wrapper">
                         <div class="rotating-ring ring-outer"></div>
                         <div class="rotating-ring ring-inner"></div>
                         <div class="core-globe">
-                            <img src="https://i.ibb.co/LzfNqYj/bracu-logo.png" alt="BRAC University Logo" class="hero-logo-img">
+                            <i class="fa-solid fa-city architecture-center-icon"></i>
                         </div>
                         <div class="floating-particle p1"></div>
                         <div class="floating-particle p2"></div>
@@ -96,50 +98,53 @@
             </div>
         </section>
 
-        <section id="about" class="about-section scroll-reveal">
+        <section id="about" class="spa-section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label">01 // CORE MANIFESTO</span>
-                    <h2>The Paradigm & Vision</h2>
+                    <span class="section-label"><i class="fa-solid fa-circle-info"></i> ABOUT THE COHORT</span>
+                    <h2>Academic Vision & Community Goals</h2>
                 </div>
                 
                 <div class="about-layout">
                     <div class="about-text">
-                        <p class="lead-text">The Department of Architecture at BRAC University cultivates structural synthesizers capable of deploying complex answers against the extreme geographical shifts of the Bengal Delta.</p>
-                        <p>Our platform indexes and locks structural progress records, final design theses, and interactive parametric portfolios. By bringing algorithmic planning strategies together with clean materials, our goal is to build long-term systems that connect modern design with deep environmental responsibility.</p>
+                        <p class="lead-text">The Department of Architecture at BRAC University trains professionals to face local, regional, and global challenges with creative responsibility.</p>
+                        <p>Our platform indexes, highlights, and preserves the creative achievements, studio projects, and thesis presentations of our students. By bridging computational planning with sustainable construction methods, we seek to develop long-term spatial models that honor context and climate conditions.</p>
                         
                         <div class="stats-counter-grid">
                             <div class="stat-box glass">
-                                <span class="counter" data-target="5">0</span><span class="suffix">Yrs</span>
-                                <p>Rigor Curriculum</p>
+                                <div class="icon-container-mini"><i class="fa-solid fa-calendar-days"></i></div>
+                                <div><span class="counter" data-target="5">0</span><span class="suffix"> Yrs</span></div>
+                                <p>Rigorous Study</p>
                             </div>
                             <div class="stat-box glass">
-                                <span class="counter" data-target="252">0</span>
-                                <p>Architect Minds</p>
+                                <div class="icon-container-mini"><i class="fa-solid fa-user-graduate"></i></div>
+                                <div><span class="counter" data-target="180">0</span></div>
+                                <p>Creative Minds</p>
                             </div>
                             <div class="stat-box glass">
-                                <span class="counter" data-target="14">0</span><span class="suffix">+</span>
-                                <p>Studio Labs</p>
+                                <div class="icon-container-mini"><i class="fa-solid fa-building-columns"></i></div>
+                                <div><span class="counter" data-target="12">0</span><span class="suffix">+</span>
+                                <p>Studio Labs</p></div>
                             </div>
                         </div>
                     </div>
 
                     <div class="about-cards-wrapper">
                         <div class="glass-card objective-card">
-                            <div class="card-icon">⚡</div>
-                            <h3>Deltaic Resilience</h3>
-                            <p>Prototyping dynamic urban fluid systems designed to handle climate shifts and river system layouts natively.</p>
+                            <div class="card-icon"><i class="fa-solid fa-leaf"></i></div>
+                            <h3>Sustainable Design</h3>
+                            <p>Developing climate-adaptive solutions engineered to handle localized shifts and environmental systems naturally.</p>
                             <div class="progress-wrapper">
-                                <div class="progress-bar-lbl"><span>System Accuracy</span><span>94%</span></div>
+                                <div class="progress-bar-lbl"><span>Environmental Analysis Optimization</span><span>94%</span></div>
                                 <div class="progress-track"><div class="progress-fill" style="width: 94%"></div></div>
                             </div>
                         </div>
                         <div class="glass-card objective-card">
-                            <div class="card-icon">🌀</div>
-                            <h3>Computational Fluidity</h3>
-                            <p>Utilizing high-end parametric logic algorithms to shape architectural structures around local ecological data.</p>
+                            <div class="card-icon"><i class="fa-solid fa-cubes"></i></div>
+                            <h3>Computational Modeling</h3>
+                            <p>Using parametric layout systems to optimize complex geometry and map ecological data sets securely.</p>
                             <div class="progress-wrapper">
-                                <div class="progress-bar-lbl"><span>Parametric Optimization</span><span>88%</span></div>
+                                <div class="progress-bar-lbl"><span>Parametric Modeling Precision</span><span>88%</span></div>
                                 <div class="progress-track"><div class="progress-fill" style="width: 88%"></div></div>
                             </div>
                         </div>
@@ -148,21 +153,22 @@
             </div>
         </section>
 
-        <section id="students" class="students-section scroll-reveal">
+        <section id="students" class="spa-section">
             <div class="container">
                 <div class="section-header-row">
                     <div class="section-header">
-                        <span class="section-label">02 // ARCHIVE INDEX</span>
-                        <h2>The Graduating Architects</h2>
+                        <span class="section-label"><i class="fa-solid fa-users"></i> STUDENT HUB</span>
+                        <h2>The Graduate Directory</h2>
                     </div>
                     <div class="filter-system-wrapper">
                         <div class="search-box-wrapper glass">
-                            <input type="text" id="student-search" placeholder="Search keys or name structures...">
+                            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                            <input type="text" id="student-search" placeholder="Search by name, ID, or key skill...">
                         </div>
                         <div class="filter-tabs">
-                            <button class="filter-tab active" data-filter="all">ALL SHIELDS</button>
-                            <button class="filter-tab" data-filter="Studio VI">STUDIO VI</button>
-                            <button class="filter-tab" data-filter="Studio VII">STUDIO VII</button>
+                            <button class="filter-tab active" data-filter="all">All Studios</button>
+                            <button class="filter-tab" data-filter="Studio IX">Studio IX</button>
+                            <button class="filter-tab" data-filter="Studio X">Studio X</button>
                         </div>
                     </div>
                 </div>
@@ -171,17 +177,17 @@
             </div>
         </section>
 
-        <section id="videos" class="video-section scroll-reveal">
+        <section id="videos" class="spa-section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label">03 // TECTONIC REELS</span>
-                    <h2>Cinematic Showcases & Studios</h2>
+                    <span class="section-label"><i class="fa-solid fa-video"></i> MEDIA SHOWCASE</span>
+                    <h2>Thesis Exhibitions & Event Reels</h2>
                 </div>
 
                 <div class="video-tabs-wrapper">
-                    <button class="video-tab active" data-vcat="all">ALL MEDIA</button>
-                    <button class="video-tab" data-vcat="showcase">THESIS COMPILATIONS</button>
-                    <button class="video-tab" data-vcat="studio">STUDIO WALKTHROUGHS</button>
+                    <button class="video-tab active" data-vcat="all"><i class="fa-solid fa-list"></i> All Media</button>
+                    <button class="video-tab" data-vcat="showcase"><i class="fa-solid fa-award"></i> Thesis Features</button>
+                    <button class="video-tab" data-vcat="studio"><i class="fa-solid fa-chalkboard-user"></i> Studio Reviews</button>
                 </div>
 
                 <div class="video-showcase-slider">
@@ -189,16 +195,16 @@
                         <div class="video-thumbnail-container">
                             <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Thesis Trailer" class="thumb-img">
                             <div class="video-overlay-actions">
-                                <button class="play-trigger-btn" data-video-url="https://www.youtube.com/embed/dQw4w9WgXcQ">PLAY REEL</button>
+                                <button class="play-trigger-btn" data-video-url="https://www.youtube.com/embed/dQw4w9WgXcQ"><i class="fa-solid fa-play"></i> Play Presentation</button>
                             </div>
                             <span class="duration-badge">03:45</span>
                         </div>
                         <div class="video-meta-body">
-                            <h3>Deltaic Fluidity Thesis Trailer</h3>
-                            <p>Strategic mapping showcasing final structural proposals addressing urban deltaic shifts.</p>
+                            <h3>Thesis Project Exhibition Trailer</h3>
+                            <p>A compilation video highlighting design solutions for regional development and sustainable urban planning.</p>
                             <div class="video-footer-stats">
-                                <span>❤️ 1.2k Likes</span>
-                                <span>🔄 342 Shares</span>
+                                <span><i class="fa-regular fa-heart"></i> 1,240 Likes</span>
+                                <span><i class="fa-regular fa-share-from-square"></i> Share</span>
                             </div>
                         </div>
                     </div>
@@ -207,16 +213,16 @@
                         <div class="video-thumbnail-container">
                             <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Studio Walkthrough" class="thumb-img">
                             <div class="video-overlay-actions">
-                                <button class="play-trigger-btn" data-video-url="https://www.youtube.com/embed/dQw4w9WgXcQ">PLAY REEL</button>
+                                <button class="play-trigger-btn" data-video-url="https://www.youtube.com/embed/dQw4w9WgXcQ"><i class="fa-solid fa-play"></i> Watch Walkthrough</button>
                             </div>
                             <span class="duration-badge">05:20</span>
                         </div>
                         <div class="video-meta-body">
-                            <h3>Studio VII Dynamic Walkthrough</h3>
-                            <p>Inside look at the computational modeling labs and physical fabrication structures of Batch 2025.</p>
+                            <h3>Studio X Design Portfolio Review</h3>
+                            <p>An inside look into our computational design workspace, architectural model reviews, and open jury presentations.</p>
                             <div class="video-footer-stats">
-                                <span>❤️ 948 Likes</span>
-                                <span>🔄 189 Shares</span>
+                                <span><i class="fa-regular fa-heart"></i> 948 Likes</span>
+                                <span><i class="fa-regular fa-share-from-square"></i> Share</span>
                             </div>
                         </div>
                     </div>
@@ -224,44 +230,43 @@
             </div>
         </section>
 
-        <section id="developers" class="dev-section scroll-reveal">
+        <section id="developers" class="spa-section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label">04 // SYSTEM CORE ARCHITECTS</span>
-                    <h2>Platform Engineers</h2>
+                    <span class="section-label"><i class="fa-solid fa-code"></i> ENGINEERING TEAM</span>
+                    <h2>Platform Developers</h2>
                 </div>
 
                 <div class="dev-cards-grid">
                     <div class="dev-profile-card glass-card dynamic-tilt">
                         <div class="dev-avatar-frame">
-                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80" alt="Lead System Architect">
-                            <span class="sys-role-badge">LEAD DEVELOPER</span>
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80" alt="Lead Web Architect">
+                            <span class="sys-role-badge">Lead Developer</span>
                         </div>
                         <div class="dev-profile-content">
                             <h3>Sadeed Ahmed</h3>
-                            <p class="dev-bio">Specialist in designing fluid interactive systems, robust data security setups, and high-performance client frameworks.</p>
+                            <p class="dev-bio">Responsible for building the high-performance application layout, user interface components, responsive styles, and interactive state systems.</p>
                             
                             <div class="dev-stats-strip">
-                                <div><strong>48+</strong><small>PROJECTS</small></div>
-                                <div><strong>99.9%</strong><small>UPTIME</small></div>
+                                <div><strong>48+</strong><small>Completed Works</small></div>
+                                <div><strong>100%</strong><small>Performance Index</small></div>
                             </div>
 
                             <div class="skill-bars-stack">
                                 <div class="skill-bar-item">
-                                    <div class="s-info"><span>Full-Stack Web Core</span><span>98%</span></div>
+                                    <div class="s-info"><span>Frontend Application Architecture</span><span>98%</span></div>
                                     <div class="s-track"><div class="s-fill" style="width: 98%"></div></div>
                                 </div>
                                 <div class="skill-bar-item">
-                                    <div class="s-info"><span>Interactive WebGL Rendering</span><span>92%</span></div>
+                                    <div class="s-info"><span>Interactive UI Components</span><span>92%</span></div>
                                     <div class="s-track"><div class="s-fill" style="width: 92%"></div></div>
                                 </div>
                             </div>
 
                             <div class="dev-social-matrix">
-                                <a href="#" target="_blank" class="sm-link">GH</a>
-                                <a href="#" target="_blank" class="sm-link">LN</a>
-                                <a href="#" target="_blank" class="sm-link">TW</a>
-                                <button class="btn btn-primary btn-sm btn-contact-trigger">PING</button>
+                                <a href="https://github.com" target="_blank" class="dev-icon-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                                <a href="https://linkedin.com" target="_blank" class="dev-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <button class="btn btn-primary btn-sm spa-route-btn" data-target="contact">Message</button>
                             </div>
                         </div>
                     </div>
@@ -269,103 +274,107 @@
             </div>
         </section>
 
-        <section id="designers" class="designers-section scroll-reveal">
+        <section id="designers" class="spa-section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label">05 // IDENTITY DESIGN LAB</span>
-                    <h2>The Mark Fabricators</h2>
+                    <span class="section-label"><i class="fa-solid fa-bezier-curve"></i> IDENTITY & DESIGN LAB</span>
+                    <h2>Visual Designers</h2>
                 </div>
 
                 <div class="designers-showcase-layout">
                     <div class="designer-profile-deck">
                         <div class="designer-hero-card glass-card">
                             <div class="d-avatar-row">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80" alt="Identity Designer" class="d-avatar">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80" alt="Visual Identity Lead" class="d-avatar">
                                 <div>
                                     <h3>Nabil Chowdhury</h3>
-                                    <p class="specialty-txt">Brand Tectonics & Visual Systems Specialist</p>
+                                    <p class="specialty-txt">Brand & Graphic Identity Specialist</p>
                                 </div>
                             </div>
-                            <p class="d-narrative">Crafting the visual identity for the 2025 cohort by balancing raw, stark structural lines with fluid patterns that reflect our local delta landscape.</p>
+                            <p class="d-narrative">Developed the brand style for the Archi Summer '26 cohort, balancing strict structural forms with clean layout lines to represent our collective design voice.</p>
                             <div class="d-portfolio-links">
-                                <a href="#" target="_blank">Behance</a>
-                                <a href="#" target="_blank">Dribbble</a>
-                                <a href="#" target="_blank">Instagram</a>
+                                <a href="https://behance.net" target="_blank" class="designer-icon-link"><i class="fa-brands fa-behance"></i> Behance</a>
+                                <a href="https://dribbble.com" target="_blank" class="designer-icon-link"><i class="fa-brands fa-dribbble"></i> Dribbble</a>
+                                <a href="https://instagram.com" target="_blank" class="designer-icon-link"><i class="fa-brands fa-instagram"></i> Instagram</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="gallery-showcase-matrix">
                         <div class="gallery-item-frame glass">
-                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="Branding Draft 1" class="gallery-zoom-img">
-                            <div class="gallery-item-overlay"><h4>Identity Draft alpha</h4></div>
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="Brand Book Draft" class="gallery-zoom-img">
+                            <div class="gallery-item-overlay"><h4>Cohort Visual Identity Proposal</h4></div>
                         </div>
                         <div class="gallery-item-frame glass">
-                            <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=600&q=80" alt="Branding Draft 2" class="gallery-zoom-img">
-                            <div class="gallery-item-overlay"><h4>Tectonic Monogram</h4></div>
+                            <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=600&q=80" alt="Exhibition Poster Layout" class="gallery-zoom-img">
+                            <div class="gallery-item-overlay"><h4>Exhibition Typography System</h4></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="contact-section scroll-reveal">
+        <section id="contact" class="spa-section">
             <div class="container">
                 <div class="contact-layout-wrapper">
                     <div class="contact-intel-side">
-                        <span class="section-label">CONNECT SYSTEM</span>
-                        <h2>Initiate Terminal Synapse</h2>
-                        <p>Establish direct pipeline authentication into the architecture cluster system networks.</p>
+                        <span class="section-label"><i class="fa-solid fa-paper-plane"></i> COMMUNICATIONS</span>
+                        <h2>Get in Touch</h2>
+                        <p>Contact the department community, verify graduate project links, or request academic partnerships directly through this secure message system.</p>
                         
                         <div class="intel-cards-stack">
                             <div class="intel-card glass">
-                                <span class="ico">📬</span>
+                                <div class="icon-container-premium"><i class="fa-solid fa-envelope"></i></div>
                                 <div>
-                                    <h4>DIRECT ROUTING</h4>
-                                    <p><a href="mailto:archi25@bracu.ac.bd">archi25@bracu.ac.bd</a></p>
+                                    <h4>DEPARTMENT ENQUIRIES</h4>
+                                    <p><a href="mailto:archisummer26@bracu.ac.bd">archisummer26@bracu.ac.bd</a></p>
                                 </div>
                             </div>
                             <div class="intel-card glass">
-                                <span class="ico">📡</span>
+                                <div class="icon-container-premium"><i class="fa-solid fa-hashtag"></i></div>
                                 <div>
-                                    <h4>MATRIX STATIONS</h4>
-                                    <p><a href="#">Discord Server Pipeline</a> / <a href="#">Telegram Portal Channel</a></p>
+                                    <h4>COMMUNITY PATHWAYS</h4>
+                                    <p><a href="https://discord.com" target="_blank">Join Discord Community</a> / <a href="https://telegram.org" target="_blank">Telegram Portal</a></p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="maps-mock-frame glass">
                             <div class="radar-ping"></div>
-                            <span>LOCATION LOCK // SAVAR RESIDENTIAL CAMPUS & MOHAKHALI SATELLITE HUB</span>
+                            <span><i class="fa-solid fa-location-dot"></i> BRAC UNIVERSITY CAMPUS // DHAKA, BANGLADESH</span>
                         </div>
                     </div>
 
                     <div class="contact-form-side glass-card">
-                        <form id="synapse-terminal-form" novalidate>
+                        <form id="synapse-terminal-form" action="https://formsubmit.co/archisummer26@bracu.ac.bd" method="POST" novalidate>
+                            
+                            <input type="hidden" name="_subject" value="New Student Platform Transmission Received">
+                            <input type="hidden" name="_captcha" value="false">
+                            
                             <div class="input-glow-group">
-                                <input type="text" id="form-name" required placeholder=" ">
-                                <label for="form-name">IDENTIFIER / NAME</label>
-                                <span class="err-msg">Identifier signature required.</span>
+                                <input type="text" id="form-name" name="name" required placeholder=" ">
+                                <label for="form-name">Full Name</label>
+                                <span class="err-msg">Please enter your name.</span>
                             </div>
                             <div class="input-glow-group">
-                                <input type="email" id="form-email" required placeholder=" ">
-                                <label for="form-email">SECURE GATEWAY EMAIL</label>
-                                <span class="err-msg">Valid gateway routing email required.</span>
+                                <input type="email" id="form-email" name="email" required placeholder=" ">
+                                <label for="form-email">Email Address</label>
+                                <span class="err-msg">Please enter a valid email address.</span>
                             </div>
                             <div class="input-glow-group">
-                                <textarea id="form-msg" rows="5" required placeholder=" "></textarea>
-                                <label for="form-msg">TRANSMISSION STRING DATA</label>
-                                <span class="err-msg">Payload details cannot be empty.</span>
+                                <textarea id="form-msg" name="message" rows="5" required placeholder=" "></textarea>
+                                <label for="form-msg">Message</label>
+                                <span class="err-msg">Message content field cannot be empty.</span>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">
-                                <span class="btn-text">TRANSMIT PACKETS</span>
+                                <span class="btn-text">Send Message</span>
                                 <div class="btn-loading-ring"></div>
                             </button>
                         </form>
                         <div id="form-success-feedback" class="success-screen">
-                            <div class="success-icon">✓</div>
-                            <h3>TRANSMISSION SECURED</h3>
-                            <p>Data packets successfully integrated into the archive mainframe logs.</p>
+                            <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+                            <h3>Message Sent Successfully</h3>
+                            <p>Your details have been registered. The cohort administration team will respond shortly.</p>
                         </div>
                     </div>
                 </div>
@@ -376,7 +385,7 @@
 
     <div class="video-modal-overlay" id="cinema-modal">
         <div class="modal-box-containment glass">
-            <button class="modal-close-trigger" aria-label="Close Lightbox Modal">✕</button>
+            <button class="modal-close-trigger" aria-label="Close Modal Window"><i class="fa-solid fa-xmark"></i></button>
             <div class="iframe-fluid-aspect">
                 <iframe src="" id="modal-video-frame" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
@@ -386,38 +395,38 @@
     <footer class="footer-matrix">
         <div class="container footer-grid">
             <div class="footer-brand-column">
-                <div class="nav-logo">
-                    <span class="logo-gfx">▲</span>
-                    <span class="logo-text">BRACU<span class="text-glow">ARCHI'25</span></span>
+                <div class="nav-logo" data-target="home">
+                    <span class="logo-gfx"><i class="fa-solid fa-compass-drafting"></i></span>
+                    <span class="logo-text">BRACU <span class="text-glow">ARCHI SUMMER '26</span></span>
                 </div>
-                <p class="f-desc">Preserving and displaying spatial achievements through a modern web interface.</p>
-                <form class="newsletter-form" id="news-form">
-                    <input type="email" placeholder="Mainframe stream email" required class="glass">
-                    <button type="submit">🔒</button>
+                <p class="f-desc">Preserving and presenting spatial achievements through high-performance responsive web environments.</p>
+                <form class="newsletter-form" id="news-form" action="https://formsubmit.co/archisummer26@bracu.ac.bd" method="POST">
+                    <input type="email" name="newsletter_email" placeholder="Subscribe to updates" required class="glass">
+                    <button type="submit" aria-label="Submit Newsletter Signature"><i class="fa-solid fa-paper-plane"></i></button>
                 </form>
             </div>
             
             <div class="footer-links-column">
-                <h4>QUICK LINK PATHWAYS</h4>
+                <h4>NAVIGATION INDEX</h4>
                 <ul>
-                    <li><a href="#home">Main Deck</a></li>
-                    <li><a href="#about">Core Paradigm</a></li>
-                    <li><a href="#students">Architect Archives</a></li>
-                    <li><a href="#videos">Tectonic Reels</a></li>
+                    <li><a href="#home" data-target="home"><i class="fa-solid fa-chevron-right"></i> Home Deck</a></li>
+                    <li><a href="#about" data-target="about"><i class="fa-solid fa-chevron-right"></i> Academic Philosophy</a></li>
+                    <li><a href="#students" data-target="students"><i class="fa-solid fa-chevron-right"></i> Graduate Directory</a></li>
+                    <li><a href="#videos" data-target="videos"><i class="fa-solid fa-chevron-right"></i> Media Showcase</a></li>
                 </ul>
             </div>
             
             <div class="footer-credits-column">
-                <h4>MAINFRAME CREDITS</h4>
-                <p><strong>System Engineering:</strong> Sadeed Ahmed</p>
-                <p><strong>Identity Tectonics:</strong> Nabil Chowdhury</p>
-                <p style="margin-top: 15px; font-size: 0.75rem; color: var(--secondary);">Inspired by Tesla, Apple, and Cyberpunk UI aesthetics.</p>
+                <h4>PLATFORM PRODUCTION CREDITS</h4>
+                <p><strong>System Development:</strong> Sadeed Ahmed</p>
+                <p><strong>Visual Identity:</strong> Nabil Chowdhury</p>
+                <p style="margin-top: 15px; font-size: 0.75rem; color: var(--text-muted-gray);">Developed in accordance with professional UI presentation standards.</p>
             </div>
         </div>
 
         <div class="container footer-baseline-row">
             <p>&copy; 2026 BRAC University Department of Architecture. All rights reserved.</p>
-            <button class="scroll-top-trigger-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">▲ ESCALATE TO APEX</button>
+            <button class="scroll-top-trigger-btn" id="scroll-to-top-action"><i class="fa-solid fa-arrow-up-long"></i> Back To Top</button>
         </div>
     </footer>
 
