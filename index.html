@@ -1,277 +1,310 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | BRAC Archi '25</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>About | BRACU Archi '25</title>
+    <!-- Importing Sophisticated Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;800&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap');
-
         :root {
-            --brac-blue: #1e40af;
+            /* Architectural Color Palette */
+            --bg-color: #0a1128; /* Deep Navy - Great for University photos */
+            --surface: #121d3d;
+            --primary: #c5a059; /* Sophisticated Gold */
+            --on-surface: #e0e0e0;
+            --secondary: #94a3b8;
+            --accent: #ab2229; /* BRAC University Red */
+            --border: rgba(197, 160, 89, 0.2);
         }
 
-        .font-display {
-            font-family: 'Playfair Display', sans-serif;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .hero-bg {
-            background-image: linear-gradient(rgba(30, 64, 175, 0.75), rgba(15, 23, 42, 0.85)), 
-                              url('https://i.imgur.com/0zX0XzK.png');
-            background-size: cover;
-            background-position: center;
+        body {
+            background-color: var(--bg-color);
+            color: var(--on-surface);
+            font-family: 'Manrope', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        .blueprint {
+        .blueprint-grid {
             background-image: 
-                linear-gradient(to right, rgba(30,64,175,0.08) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(30,64,175,0.08) 1px, transparent 1px);
-            background-size: 60px 60px;
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 50px 50px;
         }
 
-        .section-title {
-            font-size: 0.85rem;
-            letter-spacing: 4px;
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
             font-weight: 700;
         }
 
-        /* Dark Mode Enhancements */
-        .dark .hero-bg {
-            background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), 
-                              url('https://i.imgur.com/0zX0XzK.png');
+        .nav-links a {
+            color: var(--on-surface);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 150px 2rem 100px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+        }
+
+        .label {
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-size: 0.7rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 0.9;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .italic-accent {
+            color: var(--primary);
+            font-style: italic;
+        }
+
+        .hero-image-container {
+            position: relative;
+            border: 1px solid var(--border);
+            padding: 20px;
+        }
+
+        .hero-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: var(--surface);
+            object-cover: cover;
+            filter: grayscale(100%) contrast(1.2);
+            transition: 0.5s;
+        }
+
+        .hero-image:hover {
+            filter: grayscale(0%);
+        }
+
+        /* Content Sections */
+        .info-grid {
+            max-width: 1200px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .info-card {
+            background: var(--bg-color);
+            padding: 3rem;
+            transition: background 0.3s;
+        }
+
+        .info-card:hover {
+            background: var(--surface);
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            color: var(--primary);
+        }
+
+        .btn-know-more {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .btn-know-more:hover {
+            background: var(--primary);
+            color: var(--bg-color);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 4rem 2rem;
+            margin-top: 100px;
+            background: var(--surface);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .version {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--border);
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; }
+            nav { padding: 1rem; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
-<body class="bg-[#f8f5f0] dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 font-['Inter'] transition-colors duration-300">
+<body class="blueprint-grid">
 
-    <!-- NAVBAR -->
-    <nav class="fixed top-0 w-full bg-white/95 dark:bg-neutral-900/95 backdrop-blur-md z-50 border-b border-neutral-200 dark:border-neutral-800">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <img src="https://i.imgur.com/0zX0XzK.png" alt="BRAC Logo" class="h-9 w-auto">
-                <div>
-                    <span class="font-display text-2xl tracking-tighter font-bold text-[#1e40af] dark:text-blue-400">BRAC ARCHI</span>
-                    <span class="block text-[10px] text-neutral-500 dark:text-neutral-400 -mt-1">BATCH 25</span>
-                </div>
-            </div>
-
-            <div class="hidden md:flex items-center gap-10 text-sm font-medium">
-                <a href="#about" class="hover:text-[#1e40af] dark:hover:text-blue-400 transition-colors">About</a>
-                <a href="#curriculum" class="hover:text-[#1e40af] dark:hover:text-blue-400 transition-colors">Curriculum</a>
-                <a href="#studios" class="hover:text-[#1e40af] dark:hover:text-blue-400 transition-colors">Studios</a>
-                <a href="#gallery" class="hover:text-[#1e40af] dark:hover:text-blue-400 transition-colors">Gallery</a>
-            </div>
-
-            <div class="flex items-center gap-4">
-                <!-- Dark Mode Toggle -->
-                <button id="theme-toggle" 
-                        class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
-                    <i id="theme-icon" class="fa-solid fa-moon text-xl"></i>
-                </button>
-
-                <a href="#" class="px-6 py-2.5 bg-[#1e40af] hover:bg-blue-800 text-white text-sm font-medium rounded-full transition-all">
-                    Join the Batch
-                </a>
-            </div>
+    <nav>
+        <div class="logo">
+            <span style="font-weight: 800; color: var(--accent);">BRACU</span>_ARCHI
+        </div>
+        <div class="nav-links">
+            <a href="#">Gallery</a>
+            <a href="#">Studio</a>
+            <a href="#">Showcase</a>
+            <a href="#" style="color: var(--primary);">About</a>
+            <a href="#">Students</a>
+            <a href="#">Contact</a>
         </div>
     </nav>
 
-    <!-- HERO -->
-    <section class="hero-bg h-screen flex items-center text-white relative">
-        <div class="max-w-7xl mx-auto px-6 pt-20">
-            <div class="max-w-3xl">
-                <span class="section-title text-blue-200">BRAC UNIVERSITY • SCHOOL OF ARCHITECTURE & DESIGN</span>
-                <h1 class="font-display text-7xl md:text-8xl font-black leading-none tracking-tighter mt-4 mb-6">
-                    BATCH <span class="text-white">25</span>
-                </h1>
-                <p class="text-2xl md:text-3xl font-light max-w-lg">
-                    Constructing tomorrow's Bangladesh with courage, creativity, and conscience.
-                </p>
+    <main>
+        <section class="hero">
+            <div>
+                <span class="label">ABOUT_BRACU_ARCHI '25</span>
+                <h1>Constructing <br> the Batch <span class="italic-accent">25.</span></h1>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem;">
+                    <p style="color: var(--secondary);">[INSERT_BATCH_DESCRIPTION_PARA_1_HERE]</p>
+                    <p>[INSERT_BATCH_DESCRIPTION_PARA_2_HERE]</p>
+                </div>
             </div>
+            
+            <div class="hero-image-container">
+                <!-- Image path placeholder -->
+                <img src="path/to/your/university-photo.jpg" alt="BRAC University Architecture" class="hero-image">
+                <div style="margin-top: 1rem; text-align: right;">
+                    <span class="label" style="font-size: 10px;">BATCH_REF: BRACU_AR_25</span>
+                    <span class="label" style="font-size: 10px; color: var(--secondary);">LOCATION: DHAKA, BD</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-grid">
+            <!-- About Section -->
+            <div class="info-card">
+                <span class="label">01 // HISTORY</span>
+                <h3>About BRAC University</h3>
+                <p>[INSERT_ABOUT_INFO_HERE]</p>
+                <a href="#" class="btn-know-more">Know More</a>
+            </div>
+
+            <!-- Mission Section -->
+            <div class="info-card">
+                <span class="label">02 // PURPOSE</span>
+                <h3>Mission & Vision</h3>
+                <p>[INSERT_MISSION_INFO_HERE]</p>
+                <a href="#" class="btn-know-more">Know More</a>
+            </div>
+
+            <!-- Founder Section -->
+            <div class="info-card">
+                <span class="label">03 // LEGACY</span>
+                <h3>Founder</h3>
+                <p style="font-style: italic;">"[INSERT_FOUNDER_QUOTE_HERE]"</p>
+                <a href="#" class="btn-know-more">Know More</a>
+            </div>
+
+            <!-- Leadership Section -->
+            <div class="info-card">
+                <span class="label">04 // MANAGEMENT</span>
+                <h3>Leadership</h3>
+                <p>[INSERT_LEADERSHIP_INFO_HERE]</p>
+                <a href="#" class="btn-know-more">Know More</a>
+            </div>
+
+            <!-- Affiliations Section -->
+            <div class="info-card">
+                <span class="label">05 // NETWORK</span>
+                <h3>Affiliations</h3>
+                <p>[INSERT_AFFILIATIONS_INFO_HERE]</p>
+                <a href="#" class="btn-know-more">Know More</a>
+            </div>
+            
+            <!-- Summary Card -->
+            <div class="info-card" style="background: var(--primary);">
+                <h3 style="color: var(--bg-color);">ARCHI '25 BATCH</h3>
+                <p style="color: var(--bg-color); font-weight: 700;">"Architecture is just art we live in"</p>
+                <div style="margin-top: 2rem; border-top: 1px solid var(--bg-color); padding-top: 1rem;">
+                    <span style="font-size: 10px; color: var(--bg-color); font-weight: 800;">ESTD: 2001 // ARCHITECTURE_DEPT</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h2 style="color: var(--primary); font-family: 'Space Grotesk';">BRACU_ARCHI</h2>
+                <p style="font-size: 10px; letter-spacing: 0.3em; color: var(--secondary);">STUDENT COLLECTIVE</p>
+                <div style="margin-top: 2rem; font-size: 12px;">
+                    <p>System Status: <span style="color: #4ade80;">● ACTIVE</span></p>
+                    <p>Batch Year: 2025</p>
+                </div>
+            </div>
+            <div class="version">V.1</div>
         </div>
-
-        <div class="absolute bottom-10 left-1/2 flex flex-col items-center">
-            <div class="w-px h-16 bg-white/50"></div>
-            <i class="fa-solid fa-chevron-down text-2xl mt-4 animate-bounce"></i>
-        </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="py-24 bg-white dark:bg-neutral-900">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-12 gap-16 items-center">
-                <div class="md:col-span-7">
-                    <span class="section-title text-[#1e40af] dark:text-blue-400">ABOUT THE BATCH</span>
-                    <h2 class="font-display text-6xl font-bold tracking-tighter mt-3 leading-none">
-                        We are the Architects<br>of Tomorrow
-                    </h2>
-                    <div class="mt-10 space-y-8 text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
-                        <p>
-                            BRAC University Architecture Batch 25 is a collective of passionate young designers 
-                            committed to shaping a sustainable, inclusive, and culturally rooted built environment.
-                        </p>
-                        <p>
-                            Rooted in the ethos of BRAC, we approach architecture not just as a profession, 
-                            but as a tool for social transformation and environmental responsibility.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="md:col-span-5">
-                    <img src="https://i.imgur.com/0zX0XzK.png" 
-                         alt="BRAC University Campus" 
-                         class="rounded-3xl shadow-2xl w-full">
-                    <div class="mt-6 text-right">
-                        <span class="text-xs tracking-widest text-neutral-500 dark:text-neutral-400">ESTD 2021 • DHAKA, BANGLADESH</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CURRICULUM -->
-    <section id="curriculum" class="py-24 bg-[#f8f5f0] dark:bg-neutral-950">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="section-title text-[#1e40af] dark:text-blue-400">ACADEMIC JOURNEY</span>
-                <h2 class="font-display text-5xl font-bold tracking-tighter">5-Year B.Arch Curriculum</h2>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white dark:bg-neutral-900 p-8 rounded-3xl shadow-sm border border-neutral-100 dark:border-neutral-800">
-                    <h3 class="text-2xl font-semibold mb-4">Foundation Years</h3>
-                    <p class="text-neutral-600 dark:text-neutral-400">Design fundamentals, architectural graphics, history, materials, and environmental science.</p>
-                </div>
-                <div class="bg-white dark:bg-neutral-900 p-8 rounded-3xl shadow-sm border border-neutral-100 dark:border-neutral-800">
-                    <h3 class="text-2xl font-semibold mb-4">Core Studios</h3>
-                    <p class="text-neutral-600 dark:text-neutral-400">Contextual design, urban interventions, climate-responsive architecture, and community projects.</p>
-                </div>
-                <div class="bg-white dark:bg-neutral-900 p-8 rounded-3xl shadow-sm border border-neutral-100 dark:border-neutral-800">
-                    <h3 class="text-2xl font-semibold mb-4">Thesis & Professional</h3>
-                    <p class="text-neutral-600 dark:text-neutral-400">Independent research thesis, advanced technical studies, and professional practice preparation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- STUDIO PROJECTS -->
-    <section id="studios" class="py-24 bg-white dark:bg-neutral-900">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <span class="section-title text-[#1e40af] dark:text-blue-400">DESIGN STUDIOS</span>
-                    <h2 class="font-display text-5xl font-bold tracking-tighter">Our Creative Work</h2>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="group">
-                    <div class="aspect-video bg-neutral-200 dark:bg-neutral-800 rounded-3xl overflow-hidden relative">
-                        <img src="https://picsum.photos/id/1015/800/600" alt="Studio Project" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div class="absolute bottom-6 left-6 text-white">
-                            <h3 class="font-medium">Rain Pavilion Installation</h3>
-                            <p class="text-sm opacity-80">1st Year • Bamboo & Jute</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="group">
-                    <div class="aspect-video bg-neutral-200 dark:bg-neutral-800 rounded-3xl overflow-hidden relative">
-                        <img src="https://picsum.photos/id/870/800/600" alt="Studio Project" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div class="absolute bottom-6 left-6 text-white">
-                            <h3 class="font-medium">Korail Community Hub</h3>
-                            <p class="text-sm opacity-80">Urban Design Studio</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-neutral-900 text-white py-20">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-12 gap-12">
-                <div class="md:col-span-5">
-                    <span class="font-display text-4xl tracking-tighter">BRAC ARCHI '25</span>
-                    <p class="mt-4 text-neutral-400">
-                        Department of Architecture<br>
-                        BRAC University, Dhaka, Bangladesh
-                    </p>
-                </div>
-                
-                <div class="md:col-span-3 space-y-2">
-                    <a href="#" class="block hover:text-blue-400 transition-colors">Instagram</a>
-                    <a href="#" class="block hover:text-blue-400 transition-colors">Facebook</a>
-                    <a href="#" class="block hover:text-blue-400 transition-colors">Behance</a>
-                </div>
-                
-                <div class="md:col-span-4">
-                    <div class="bg-neutral-800 rounded-3xl p-8 text-center">
-                        <p class="text-sm text-neutral-400">We are building the future</p>
-                        <p class="text-5xl font-display font-bold text-blue-400 mt-3">Batch 25</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-neutral-800 mt-16 pt-8 text-xs text-neutral-500 flex flex-col md:flex-row justify-between items-center">
-                <p>© 2026 BRAC University Architecture Batch 25</p>
-                <p class="mt-2 md:mt-0">
-                    Designed & Created with ❤️ by 
-                    <span class="text-blue-400 font-medium">SHADID AHAMED</span>
-                </p>
-            </div>
+        <div style="max-width: 1200px; margin: 2rem auto 0; padding-top: 2rem; border-top: 1px solid var(--border); font-size: 10px; letter-spacing: 0.2em; color: var(--secondary);">
+            © 2026 BRAC UNIVERSITY STUDENTS GROUP // ARCHITECTURE_DEPT
         </div>
     </footer>
 
-    <script>
-        // Tailwind Config
-        tailwind.config = {
-            darkMode: 'class',
-            content: [],
-        }
-
-        // Dark Mode Toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-
-        function setTheme(isDark) {
-            if (isDark) {
-                document.documentElement.classList.add('dark');
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            } else {
-                document.documentElement.classList.remove('dark');
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            }
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        }
-
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
-        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-            setTheme(true);
-        } else {
-            setTheme(false);
-        }
-
-        // Toggle click
-        themeToggle.addEventListener('click', () => {
-            const isDark = document.documentElement.classList.contains('dark');
-            setTheme(!isDark);
-        });
-
-        console.log('%cBRAC University Architecture Batch 25\nDesigned and Created by SHADID AHAMED', 
-            'color: #60a5fa; font-family: monospace; font-size: 14px;');
-    </script>
 </body>
 </html>
