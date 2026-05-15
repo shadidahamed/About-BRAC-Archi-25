@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | BRAC Archi '25</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --brac-blue: #1e40af;
+        }
+
+        .font-display {
+            font-family: 'Playfair Display', sans-serif;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(30, 64, 175, 0.75), rgba(15, 23, 42, 0.85)), 
+                              url('https://i.imgur.com/0zX0XzK.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .blueprint {
+            background-image: 
+                linear-gradient(to right, rgba(30,64,175,0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(30,64,175,0.08) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="bg-[#f8f5f0] text-neutral-900 font-['Inter']">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-neutral-200">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="https://i.imgur.com/0zX0XzK.png" alt="BRAC Logo" class="h-9 w-auto">
+                <div>
+                    <span class="font-display text-2xl tracking-tighter font-bold text-[#1e40af]">BRAC ARCHI</span>
+                    <span class="block text-[10px] text-neutral-500 -mt-1">BATCH 25</span>
+                </div>
+            </div>
+
+            <div class="hidden md:flex items-center gap-10 text-sm font-medium">
+                <a href="#about" class="hover:text-[#1e40af] transition-colors">About</a>
+                <a href="#curriculum" class="hover:text-[#1e40af] transition-colors">Curriculum</a>
+                <a href="#studios" class="hover:text-[#1e40af] transition-colors">Studios</a>
+                <a href="#gallery" class="hover:text-[#1e40af] transition-colors">Gallery</a>
+            </div>
+
+            <a href="#" class="px-6 py-2.5 bg-[#1e40af] text-white text-sm font-medium rounded-full hover:bg-blue-800 transition-all">
+                Join the Batch
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero-bg h-screen flex items-center text-white relative">
+        <div class="max-w-7xl mx-auto px-6 pt-20">
+            <div class="max-w-3xl">
+                <span class="section-title text-blue-200">BRAC UNIVERSITY • SCHOOL OF ARCHITECTURE & DESIGN</span>
+                <h1 class="font-display text-7xl md:text-8xl font-black leading-none tracking-tighter mt-4 mb-6">
+                    BATCH <span class="text-white">25</span>
+                </h1>
+                <p class="text-2xl md:text-3xl font-light max-w-lg">
+                    Constructing tomorrow's Bangladesh with courage, creativity, and conscience.
+                </p>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 flex flex-col items-center">
+            <div class="w-px h-16 bg-white/50"></div>
+            <i class="fa-solid fa-chevron-down text-2xl mt-4 animate-bounce"></i>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-16 items-center">
+                <div class="md:col-span-7">
+                    <span class="section-title text-[#1e40af]">ABOUT THE BATCH</span>
+                    <h2 class="font-display text-6xl font-bold tracking-tighter mt-3 leading-none">
+                        We are the Architects<br>of Tomorrow
+                    </h2>
+                    <div class="mt-10 space-y-8 text-lg leading-relaxed text-neutral-600">
+                        <p>
+                            BRAC University Architecture Batch 25 is a collective of passionate young designers 
+                            committed to shaping a sustainable, inclusive, and culturally rooted built environment.
+                        </p>
+                        <p>
+                            Rooted in the ethos of BRAC, we approach architecture not just as a profession, 
+                            but as a tool for social transformation and environmental responsibility.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="md:col-span-5">
+                    <img src="https://i.imgur.com/0zX0XzK.png" 
+                         alt="BRAC University Campus" 
+                         class="rounded-3xl shadow-2xl w-full">
+                    <div class="mt-6 text-right">
+                        <span class="text-xs tracking-widest text-neutral-500">ESTD 2021 • DHAKA, BANGLADESH</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CURRICULUM -->
+    <section id="curriculum" class="py-24 bg-[#f8f5f0]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="section-title text-[#1e40af]">ACADEMIC JOURNEY</span>
+                <h2 class="font-display text-5xl font-bold tracking-tighter">5-Year B.Arch Curriculum</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-3xl shadow-sm">
+                    <h3 class="text-2xl font-semibold mb-4">Foundation Years</h3>
+                    <p class="text-neutral-600">Design fundamentals, architectural graphics, history, materials, and environmental science.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm">
+                    <h3 class="text-2xl font-semibold mb-4">Core Studios</h3>
+                    <p class="text-neutral-600">Contextual design, urban interventions, climate-responsive architecture, and community projects.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm">
+                    <h3 class="text-2xl font-semibold mb-4">Thesis & Professional</h3>
+                    <p class="text-neutral-600">Independent research thesis, advanced technical studies, and professional practice preparation.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="https://www.bracu.ac.bd/" target="_blank" 
+                   class="inline-flex items-center gap-3 text-[#1e40af] font-medium hover:underline">
+                    View Full Curriculum <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STUDIO PROJECTS -->
+    <section id="studios" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <span class="section-title text-[#1e40af]">DESIGN STUDIOS</span>
+                    <h2 class="font-display text-5xl font-bold tracking-tighter">Our Creative Work</h2>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project Card -->
+                <div class="group">
+                    <div class="aspect-video bg-neutral-200 rounded-3xl overflow-hidden relative">
+                        <img src="https://picsum.photos/id/1015/800/600" alt="Studio Project" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="font-medium">Rain Pavilion Installation</h3>
+                            <p class="text-sm opacity-80">1st Year • Bamboo & Jute</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group">
+                    <div class="aspect-video bg-neutral-200 rounded-3xl overflow-hidden relative">
+                        <img src="https://picsum.photos/id/870/800/600" alt="Studio Project" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="font-medium">Korail Community Hub</h3>
+                            <p class="text-sm opacity-80">Urban Design Studio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button onclick="alert('Full studio archive coming soon!')" 
+                        class="px-8 py-4 border-2 border-[#1e40af] text-[#1e40af] font-medium rounded-full hover:bg-[#1e40af] hover:text-white transition-all">
+                    Explore All Studio Projects
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- GREEN SPACE -->
+    <div class="max-w-7xl mx-auto px-6 py-12">
+        <div class="rounded-3xl overflow-hidden relative shadow-2xl">
+            <img src="https://picsum.photos/id/1016/1800/900" alt="Green Courtyard" class="w-full">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent flex items-end p-10">
+                <div class="text-white max-w-md">
+                    <p class="text-lg italic">"Architecture that breathes with nature"</p>
+                    <p class="mt-2 text-sm opacity-75">— BRAC Archi '25</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-neutral-900 text-white py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-12">
+                <div class="md:col-span-5">
+                    <span class="font-display text-4xl tracking-tighter">BRAC ARCHI '25</span>
+                    <p class="mt-4 text-neutral-400">
+                        Department of Architecture<br>
+                        BRAC University, Dhaka, Bangladesh
+                    </p>
+                </div>
+                
+                <div class="md:col-span-3 space-y-2">
+                    <a href="#" class="block hover:text-blue-400">Instagram</a>
+                    <a href="#" class="block hover:text-blue-400">Facebook</a>
+                    <a href="#" class="block hover:text-blue-400">Behance</a>
+                </div>
+                
+                <div class="md:col-span-4">
+                    <div class="bg-neutral-800 rounded-3xl p-8 text-center">
+                        <p class="text-sm text-neutral-400">We are building the future</p>
+                        <p class="text-5xl font-display font-bold text-blue-400 mt-3">Batch 25</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-neutral-800 mt-16 pt-8 text-xs text-neutral-500 flex flex-col md:flex-row justify-between items-center">
+                <p>© 2026 BRAC University Architecture Batch 25</p>
+                <p class="mt-2 md:mt-0">
+                    Designed & Created with ❤️ by 
+                    <span class="text-blue-400 font-medium">SHADID AHAMED</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind Script
+        tailwind.config = {
+            content: [],
+            theme: {
+                extend: {}
+            }
+        }
+
+        console.log('%cBRAC University Architecture Batch 25 Website\nDesigned and Created by SHADID AHAMED', 
+            'color: #1e40af; font-family: monospace; font-size: 14px;');
+    </script>
+</body>
+</html>
