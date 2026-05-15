@@ -55,7 +55,7 @@
             </ul>
 
             <div class="nav-actions">
-                <button class="btn btn-nav" data-target="students">Browse Directory</button>
+                <button class="btn btn-nav auth-trigger-toggle" id="global-auth-btn"><i class="fa-solid fa-lock"></i> Portal Login</button>
                 <button class="hamburger" aria-label="Toggle Navigation Menu">
                     <span></span><span></span><span></span>
                 </button>
@@ -73,7 +73,7 @@
             </div>
             
             <div class="container hero-container">
-                <div class="hero-content text-reveal-parent">
+                <div class="hero-content">
                     <span class="section-label"><i class="fa-solid fa-graduation-cap"></i> BATCH SUMMER 2026 // GRADUATION SHOWCASE</span>
                     <h1>Architectural Innovation <span class="text-gradient">Redefined</span>.</h1>
                     <p>Welcome to the official digital showcase platform for BRAC University's Department of Architecture, Batch Summer 2026. Explore our portfolio of design solutions, research projects, and sustainable developments.</p>
@@ -123,8 +123,8 @@
                             </div>
                             <div class="stat-box glass">
                                 <div class="icon-container-mini"><i class="fa-solid fa-building-columns"></i></div>
-                                <div><span class="counter" data-target="12">0</span><span class="suffix">+</span>
-                                <p>Studio Labs</p></div>
+                                <div><span class="counter" data-target="12">0</span><span class="suffix">+</span></div>
+                                <p>Studio Labs</p>
                             </div>
                         </div>
                     </div>
@@ -159,11 +159,12 @@
                     <div class="section-header">
                         <span class="section-label"><i class="fa-solid fa-users"></i> STUDENT HUB</span>
                         <h2>The Graduate Directory</h2>
+                        <p class="admin-session-alert" id="session-badge"><i class="fa-solid fa-user-gear"></i> Administrative Editing Session Active</p>
                     </div>
                     <div class="filter-system-wrapper">
                         <div class="search-box-wrapper glass">
                             <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                            <input type="text" id="student-search" placeholder="Search by name, ID, or key skill...">
+                            <input type="text" id="student-search" placeholder="Search by name, ID, or focus area...">
                         </div>
                         <div class="filter-tabs">
                             <button class="filter-tab active" data-filter="all">All Studios</button>
@@ -238,7 +239,7 @@
                 </div>
 
                 <div class="dev-cards-grid">
-                    <div class="dev-profile-card glass-card dynamic-tilt">
+                    <div class="dev-profile-card glass-card">
                         <div class="dev-avatar-frame">
                             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80" alt="Lead Web Architect">
                             <span class="sys-role-badge">Lead Developer</span>
@@ -326,7 +327,7 @@
                             <div class="intel-card glass">
                                 <div class="icon-container-premium"><i class="fa-solid fa-envelope"></i></div>
                                 <div>
-                                    <h4>DEPARTMENT ENQUIRIES</h4>
+                                    <h4>GENERAL ADMIN PANEL ENQUIRIES</h4>
                                     <p><a href="mailto:archisummer26@bracu.ac.bd">archisummer26@bracu.ac.bd</a></p>
                                 </div>
                             </div>
@@ -347,8 +348,7 @@
 
                     <div class="contact-form-side glass-card">
                         <form id="synapse-terminal-form" action="https://formsubmit.co/archisummer26@bracu.ac.bd" method="POST" novalidate>
-                            
-                            <input type="hidden" name="_subject" value="New Student Platform Transmission Received">
+                            <input type="hidden" name="_subject" value="New General Portal Query Recieved">
                             <input type="hidden" name="_captcha" value="false">
                             
                             <div class="input-glow-group">
@@ -383,9 +383,69 @@
 
     </main>
 
+    <div class="video-modal-overlay" id="auth-modal">
+        <div class="modal-box-containment glass user-auth-card">
+            <button class="modal-close-trigger" id="close-auth-trigger"><i class="fa-solid fa-xmark"></i></button>
+            <div class="auth-card-body">
+                <div class="auth-icon-header"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>Administrative Credentials</h3>
+                <p>Access restricted to cohort database management staff personnel.</p>
+                
+                <div class="input-glow-group">
+                    <input type="text" id="auth-id-input" placeholder=" " autocomplete="off">
+                    <label for="auth-id-input">Portal Identifier ID</label>
+                </div>
+                <div class="input-glow-group">
+                    <input type="password" id="auth-pass-input" placeholder=" ">
+                    <label for="auth-pass-input">Security Password</label>
+                </div>
+                <div class="auth-error-panel" id="auth-error-output">Invalid Identification Signatures.</div>
+                <button class="btn btn-primary btn-block" id="execute-auth-action">Authenticate Pipeline</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-modal-overlay" id="editor-workbench-modal">
+        <div class="modal-box-containment glass workbench-modal-card">
+            <button class="modal-close-trigger" id="close-workbench-trigger"><i class="fa-solid fa-xmark"></i></button>
+            <div class="workbench-body">
+                <h3><i class="fa-solid fa-pen-to-square"></i> Modify Graduate Architect Context</h3>
+                <p style="font-size:0.8rem; color:var(--text-muted-gray); margin-bottom:20px;">Edits update the client-side memory schema array directly.</p>
+                
+                <input type="hidden" id="edit-index-target">
+                
+                <div class="input-glow-group">
+                    <input type="text" id="edit-name" placeholder=" ">
+                    <label for="edit-name">Member Name</label>
+                </div>
+                <div class="input-glow-group">
+                    <input type="text" id="edit-focus" placeholder=" ">
+                    <label for="edit-focus">Merit Focus / Thesis Specialization</label>
+                </div>
+                <div class="input-glow-group">
+                    <input type="text" id="edit-img" placeholder=" ">
+                    <label for="edit-img">Profile Image Asset Source URL</label>
+                </div>
+                
+                <h4 class="workbench-sub">Configure Active Contact Pathways</h4>
+                <p style="font-size:0.75rem; color:var(--text-muted-gray); margin-bottom:15px;">Leave fields completely empty to block deployment metrics for that icon link badge.</p>
+                
+                <div class="workbench-links-grid">
+                    <div class="input-glow-group"><input type="text" id="link-git" placeholder=" "><label><i class="fa-brands fa-github"></i> GitHub URL</label></div>
+                    <div class="input-glow-group"><input type="text" id="link-lnk" placeholder=" "><label><i class="fa-brands fa-linkedin-in"></i> LinkedIn URL</label></div>
+                    <div class="input-glow-group"><input type="text" id="link-gmail" placeholder=" "><label><i class="fa-solid fa-envelope"></i> Gmail Address</label></div>
+                    <div class="input-glow-group"><input type="text" id="link-fb" placeholder=" "><label><i class="fa-brands fa-facebook-f"></i> Facebook URL</label></div>
+                    <div class="input-glow-group"><input type="text" id="link-wa" placeholder=" "><label><i class="fa-brands fa-whatsapp"></i> WhatsApp Number</label></div>
+                </div>
+
+                <button class="btn btn-primary btn-block" id="commit-workbench-changes">Save Profile Schema</button>
+            </div>
+        </div>
+    </div>
+
     <div class="video-modal-overlay" id="cinema-modal">
         <div class="modal-box-containment glass">
-            <button class="modal-close-trigger" aria-label="Close Modal Window"><i class="fa-solid fa-xmark"></i></button>
+            <button class="modal-close-trigger"><i class="fa-solid fa-xmark"></i></button>
             <div class="iframe-fluid-aspect">
                 <iframe src="" id="modal-video-frame" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
@@ -400,9 +460,9 @@
                     <span class="logo-text">BRACU <span class="text-glow">ARCHI SUMMER '26</span></span>
                 </div>
                 <p class="f-desc">Preserving and presenting spatial achievements through high-performance responsive web environments.</p>
-                <form class="newsletter-form" id="news-form" action="https://formsubmit.co/archisummer26@bracu.ac.bd" method="POST">
+                <form class="newsletter-form" action="https://formsubmit.co/archisummer26@bracu.ac.bd" method="POST">
                     <input type="email" name="newsletter_email" placeholder="Subscribe to updates" required class="glass">
-                    <button type="submit" aria-label="Submit Newsletter Signature"><i class="fa-solid fa-paper-plane"></i></button>
+                    <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
                 </form>
             </div>
             
@@ -420,7 +480,6 @@
                 <h4>PLATFORM PRODUCTION CREDITS</h4>
                 <p><strong>System Development:</strong> Sadeed Ahmed</p>
                 <p><strong>Visual Identity:</strong> Nabil Chowdhury</p>
-                <p style="margin-top: 15px; font-size: 0.75rem; color: var(--text-muted-gray);">Developed in accordance with professional UI presentation standards.</p>
             </div>
         </div>
 
