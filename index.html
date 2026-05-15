@@ -7,222 +7,256 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;800&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Light Mode Palette */
-            --bg: #f4f2ee;
+            /* Light Mode - "Bone & Terracotta" */
+            --bg: #f8f6f2;
             --surface: #ffffff;
-            --primary: #ab2229; /* BRAC Red */
-            --secondary: #575d66;
+            --primary: #ab2229; 
+            --secondary: #64748b;
             --on-surface: #1a1a1a;
-            --border: rgba(0, 0, 0, 0.1);
-            --grid: rgba(171, 34, 41, 0.05);
+            --border: rgba(0, 0, 0, 0.08);
+            --grid: rgba(171, 34, 41, 0.04);
         }
 
         [data-theme='dark'] {
-            /* Dark Mode Palette */
-            --bg: #0f1115;
+            /* Dark Mode - "Deep Slate & Crimson" */
+            --bg: #0d0f12;
             --surface: #161a1f;
-            --primary: #e63946;
+            --primary: #ff4d5a;
             --secondary: #94a3b8;
-            --on-surface: #e2e8f0;
-            --border: rgba(255, 255, 255, 0.1);
-            --grid: rgba(230, 57, 70, 0.05);
+            --on-surface: #f1f5f9;
+            --border: rgba(255, 255, 255, 0.08);
+            --grid: rgba(255, 77, 90, 0.04);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; transition: background 0.3s, color 0.3s; }
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease; }
 
         body {
             background-color: var(--bg);
             color: var(--on-surface);
             font-family: 'Manrope', sans-serif;
-            overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        .blueprint {
+        .blueprint-bg {
             background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-            background-size: 40px 40px;
+            background-size: 50px 50px;
+        }
+
+        /* Typography & Layout */
+        h1, h2, h3, .nav-brand { font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; }
+        
+        .label {
+            color: var(--primary);
+            font-size: 0.65rem; font-weight: 800; letter-spacing: 0.4em;
+            text-transform: uppercase; margin-bottom: 1rem; display: block;
         }
 
         /* Navigation */
         nav {
-            position: fixed;
-            top: 0; width: 100%;
-            padding: 1.5rem 5%;
+            position: fixed; top: 0; width: 100%;
+            padding: 1.2rem 5%;
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000;
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--border);
+            background: rgba(var(--bg), 0.8);
         }
 
         .nav-links a {
             text-decoration: none; color: var(--on-surface);
             font-size: 0.7rem; font-weight: 800;
-            text-transform: uppercase; letter-spacing: 0.2em;
-            margin-left: 2rem;
+            letter-spacing: 0.2em; margin-left: 2.5rem;
         }
 
-        /* Theme Toggle */
         #theme-btn {
             background: var(--primary);
-            color: white; border: none;
-            padding: 5px 12px; cursor: pointer;
-            font-family: 'Space Grotesk'; font-size: 10px; font-weight: bold;
+            color: white; border: none; padding: 6px 14px;
+            cursor: pointer; font-family: 'Space Grotesk'; font-weight: 700; font-size: 10px;
+            margin-left: 2rem; border-radius: 2px;
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
-            padding: 160px 5% 80px;
-            display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem;
+            padding: 180px 5% 100px;
+            display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 5%;
             max-width: 1400px; margin: 0 auto;
         }
 
-        .label {
-            color: var(--primary);
-            font-size: 0.7rem; font-weight: 800; letter-spacing: 0.4em;
-            text-transform: uppercase; margin-bottom: 1rem; display: block;
+        .hero h1 { font-size: clamp(3rem, 7vw, 6rem); line-height: 0.9; margin-bottom: 2rem; }
+
+        .hero-img-container {
+            border: 1px solid var(--border);
+            padding: 12px; background: var(--surface);
         }
 
-        h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(3rem, 6vw, 5.5rem);
-            line-height: 0.85; text-transform: uppercase; font-weight: 700;
-        }
-
-        .hero-img-box {
-            position: relative; border: 1px solid var(--border); padding: 15px;
-        }
-
-        .hero-img {
+        .hero-img-placeholder {
             width: 100%; aspect-ratio: 4/5;
-            background: var(--surface);
-            object-fit: cover; filter: grayscale(1);
+            background: #ddd; object-fit: cover;
+            filter: grayscale(1); transition: 0.5s;
         }
 
-        /* Info Sections */
-        .section-container {
-            max-width: 1400px; margin: 0 auto; padding: 0 5%;
-        }
-
-        .grid-layout {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        /* Student Grid */
+        .student-section { padding: 80px 5%; max-width: 1400px; margin: 0 auto; }
+        
+        .student-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1px; background: var(--border);
             border: 1px solid var(--border);
         }
 
-        .card {
-            padding: 4rem 2rem; border: 0.5px solid var(--border);
-            background: var(--bg);
+        .student-card {
+            background: var(--bg); padding: 40px;
+            transition: 0.3s; position: relative;
         }
 
-        .card:hover { background: var(--surface); }
+        .student-card:hover { background: var(--surface); }
 
-        .card h3 {
-            font-family: 'Space Grotesk'; font-size: 1.8rem;
-            text-transform: uppercase; margin-bottom: 1.5rem;
+        .student-card img {
+            width: 100%; aspect-ratio: 1/1; object-fit: cover;
+            filter: grayscale(1); margin-bottom: 20px; transition: 0.5s;
         }
 
-        /* Specialized Sections */
-        .meta-info {
-            background: var(--surface);
-            padding: 4rem 5%; margin-top: 4rem;
-            border-top: 1px solid var(--primary);
-        }
+        .student-card:hover img { filter: grayscale(0); }
 
-        .creator-tag {
-            font-family: 'Space Grotesk';
-            font-size: 0.8rem; letter-spacing: 0.2em;
-            color: var(--secondary);
-        }
-
+        /* Footer */
         footer {
-            padding: 4rem 5%; border-top: 1px solid var(--border);
-            text-align: center; font-size: 0.7rem;
-            letter-spacing: 0.1em; color: var(--secondary);
+            margin-top: 100px; padding: 60px 5%;
+            border-top: 1px solid var(--border);
+            text-align: center;
         }
 
-        @media (max-width: 768px) {
-            .hero { grid-template-columns: 1fr; }
+        .credit-box { margin-bottom: 30px; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--secondary); }
+        .credit-box span { color: var(--on-surface); font-weight: 800; }
+
+        @media (max-width: 968px) {
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .hero h1 { font-size: 4rem; }
             .nav-links { display: none; }
         }
     </style>
 </head>
-<body class="blueprint">
+<body class="blueprint-bg">
 
     <nav>
-        <div style="font-family: 'Space Grotesk'; font-weight: 800;">
+        <div class="nav-brand">
             BRACU <span style="color: var(--primary);">ARCHI '25</span>
         </div>
         <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#students">Students</a>
-            <a href="#logo">The Logo</a>
-            <button id="theme-btn" onclick="toggleTheme()">MODE</button>
+            <a href="#about">Philosophy</a>
+            <a href="#students">Architects</a>
+            <a href="#logo">The Mark</a>
+            <button id="theme-btn" onclick="toggleTheme()">TOGGLE_VISUAL</button>
         </div>
     </nav>
 
     <main>
+        <!-- Hero Section -->
         <section class="hero">
             <div>
-                <span class="label">BATCH_MANTRA</span>
-                <h1>Responsive <br> <span style="color: var(--primary);">Resilient</span> <br> Inclusive.</h1>
-                <p style="margin-top: 3rem; max-width: 500px; font-size: 1.1rem; color: var(--secondary);">
-                    [INSERT BATCH MOTTO OR INTRO DESCRIPTION HERE]
+                <span class="label">BATCH_MANTRA // 2025</span>
+                <h1>Design <br> <span style="color: var(--primary);">Beyond</span> <br> Boundaries.</h1>
+                <p style="margin-top: 2rem; max-width: 500px; color: var(--secondary);">
+                    The Batch of 2025 represents a collective of spatial thinkers, urban visionaries, and technical innovators emerging from BRAC University.
                 </p>
-                <div style="margin-top: 2rem; display: flex; gap: 20px;">
-                    <div style="border-left: 2px solid var(--primary); padding-left: 15px;">
+                <div style="margin-top: 3rem; display: flex; gap: 30px;">
+                    <div style="border-left: 2px solid var(--primary); padding-left: 20px;">
                         <span class="label" style="margin:0;">CHAIRPERSON</span>
-                        <p style="font-size: 0.9rem; font-weight: 700;">Zainab Faruqui Ali, PhD</p>
+                        <p style="font-weight: 800; font-size: 0.9rem;">Zainab Faruqui Ali, PhD</p>
                     </div>
                 </div>
             </div>
-            <div class="hero-img-box">
-                <img src="path/to/campus_photo.jpg" alt="Campus View" class="hero-img">
-                <div style="margin-top: 10px; text-align: right;">
-                    <span class="creator-tag">ESTD_2025 // DHAKA_BD</span>
+            <div class="hero-img-container">
+                <!-- Replace with your campus or batch photo -->
+                <img src="https://via.placeholder.com/800x1000" alt="Archi Batch" class="hero-img-placeholder">
+            </div>
+        </section>
+
+        <!-- About/Philosophy Grid -->
+        <section id="about" style="padding: 0 5%; max-width: 1400px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); border: 1px solid var(--border);">
+                <div style="padding: 60px; border-right: 1px solid var(--border);">
+                    <span class="label">01 // VISION</span>
+                    <h3>Inclusive Architecture</h3>
+                    <p style="color: var(--secondary); margin-top: 15px;">Designing for every layer of society, ensuring that the built environment fosters equity and belonging.</p>
+                </div>
+                <div style="padding: 60px; border-right: 1px solid var(--border);">
+                    <span class="label">02 // CONTEXT</span>
+                    <h3>Climate Resilience</h3>
+                    <p style="color: var(--secondary); margin-top: 15px;">Integrating the unique deltaic landscape of Bangladesh into sustainable, future-proof structures.</p>
+                </div>
+                <div style="padding: 60px; background: var(--primary); color: white;">
+                    <span class="label" style="color: rgba(255,255,255,0.6);">03 // DATA</span>
+                    <h3>Student Archive</h3>
+                    <p style="margin-top: 15px;">Access the comprehensive design portfolios and thesis research of the '25 cohort.</p>
+                    <a href="#students" style="display: inline-block; margin-top: 25px; color: white; text-decoration: none; border-bottom: 2px solid white; font-weight: 800; font-size: 0.7rem; letter-spacing: 0.1em;">VIEW REPOSITORY</a>
                 </div>
             </div>
         </section>
 
-        <div class="section-container" id="about">
-            <div class="grid-layout">
-                <div class="card">
-                    <span class="label">01 // THE_MISSION</span>
-                    <h3>Department Vision</h3>
-                    <p>[INSERT MISSION DESCRIPTION HERE]</p>
+        <!-- Students Grid Section -->
+        <section class="student-section" id="students">
+            <span class="label">ARCHIVE_DIRECTORY</span>
+            <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">The Architects</h2>
+            
+            <div class="student-grid">
+                <!-- Student Card 1 -->
+                <div class="student-card">
+                    <img src="https://via.placeholder.com/400" alt="Student Name">
+                    <span class="label" style="font-size: 0.55rem;">STUDIO_VII</span>
+                    <h3 style="font-size: 1.1rem;">Shadid Ahamed</h3>
+                    <p style="font-size: 0.8rem; color: var(--secondary);">Digital Fabrication & UX</p>
                 </div>
-                <div class="card">
-                    <span class="label">02 // LEADERSHIP</span>
-                    <h3>Management</h3>
-                    <p>[INSERT LEADERSHIP INFO HERE]</p>
+
+                <!-- Student Card 2 -->
+                <div class="student-card">
+                    <img src="https://via.placeholder.com/400" alt="Student Name">
+                    <span class="label" style="font-size: 0.55rem;">STUDIO_VII</span>
+                    <h3 style="font-size: 1.1rem;">[Student Name]</h3>
+                    <p style="font-size: 0.8rem; color: var(--secondary);">Urban Planning & Housing</p>
                 </div>
-                <div class="card" style="background: var(--primary); color: white;">
-                    <span class="label" style="color: rgba(255,255,255,0.7);">03 // THE_BATCH</span>
-                    <h3>Batch '25 Students</h3>
-                    <p>Access the private student directory and portfolio archive.</p>
-                    <a href="#students" style="color: white; font-weight: 800; font-size: 12px; text-decoration: none; border-bottom: 2px solid white; margin-top: 20px; display: inline-block;">EXPLORE PORTFOLIOS</a>
+
+                <!-- Student Card 3 (Placeholder) -->
+                <div class="student-card">
+                    <img src="https://via.placeholder.com/400" alt="Student Name">
+                    <span class="label" style="font-size: 0.55rem;">STUDIO_VII</span>
+                    <h3 style="font-size: 1.1rem;">[Student Name]</h3>
+                    <p style="font-size: 0.8rem; color: var(--secondary);">Sustainability Lead</p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <section class="meta-info" id="logo">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem;">
+        <!-- Logo Philosophy -->
+        <section id="logo" style="padding: 100px 5%; max-width: 1400px; margin: 0 auto; background: var(--surface);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; align-items: center;">
                 <div>
-                    <span class="label">THE_IDENTITY</span>
-                    <h3>About the Logo</h3>
-                    <p style="color: var(--secondary);">[INSERT LOGO PHILOSOPHY HERE]</p>
+                    <span class="label">THE_MARK</span>
+                    <h2>Logo Synthesis</h2>
+                    <p style="color: var(--secondary); margin-top: 20px;">
+                        The Batch '25 identity uses geometric abstraction to represent the intersection of tradition and technology. The primary red reflects the heritage of BRAC, while the slate tones represent modern structural integrity.
+                    </p>
                 </div>
-                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px dashed var(--primary); padding: 40px;">
-                    <img src="path/to/logo.png" alt="Batch Logo" style="max-width: 150px; opacity: 0.5;">
-                    <p style="font-size: 10px; margin-top: 10px; color: var(--primary);">[LOGO_DESIGN_PENDING]</p>
+                <div style="text-align: center; border: 1px dashed var(--primary); padding: 60px;">
+                    <!-- SVG Geometric Logo Placeholder -->
+                    <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100" height="100" stroke="var(--primary)" stroke-width="2"/>
+                        <path d="M20 80L50 20L80 80H20Z" stroke="var(--primary)" stroke-width="4"/>
+                        <circle cx="50" cy="55" r="10" fill="var(--primary)"/>
+                    </svg>
+                    <p style="margin-top: 20px; font-family: 'Space Grotesk'; font-weight: 700; color: var(--primary); font-size: 0.7rem;">[IDENTITY_PENDING_REVIEW]</p>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div style="margin-bottom: 2rem;">
-            <p class="creator-tag">SITE_CRAFTED_BY: <span style="color: var(--on-surface);">SHADID AHAMED</span></p>
-            <p class="creator-tag">LOGO_BY: <span style="color: var(--on-surface);">[PENDING]</span></p>
+        <div class="credit-box">
+            SITE_CRAFTED_BY: <span>SHADID AHAMED</span><br>
+            CURATED_FOR: <span>BRACU ARCHITECTURE BATCH '25</span>
         </div>
-        <p>© 2026 BRAC UNIVERSITY ARCHITECTURE DEPT. BATCH '25 // ALL RIGHTS RESERVED.</p>
+        <p style="font-size: 0.6rem; color: var(--secondary); letter-spacing: 0.2em;">
+            © 2026 BRAC UNIVERSITY. ALL RIGHTS RESERVED. COORDINATES: 23.7946° N, 90.4032° E
+        </p>
     </footer>
 
     <script>
