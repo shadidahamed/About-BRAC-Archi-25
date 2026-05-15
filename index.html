@@ -4,276 +4,423 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>BRACU Archi '25 | Executive Archive</title>
-    
+    <meta name="description" content="Premium futuristic digital archive celebrating the graduating architects of BRAC University 2025.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&family=Space+Grotesk:wght@300;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg: #f5f3f0;
-            --surface: #ffffff;
-            --primary: #ab2229;
-            --secondary: #575d66;
-            --on-surface: #1a1a1a;
-            --border: rgba(0,0,0,0.09);
-            --grid: rgba(171,34,41,0.035);
-        }
-        [data-theme="dark"] {
-            --bg: #0a0c10;
-            --surface: #11151c;
-            --primary: #ff4d5a;
-            --secondary: #94a3b8;
-            --on-surface: #f1f5f9;
-            --border: rgba(255,255,255,0.08);
-            --grid: rgba(255,77,90,0.03);
-        }
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body {
-            background: var(--bg);
-            color: var(--on-surface);
-            font-family: 'Manrope', sans-serif;
-            overflow-x: hidden;
-        }
-        .blueprint-bg {
-            background-image: linear-gradient(var(--grid) 1px, transparent 1px),
-                              linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-            background-size: 60px 60px;
-        }
-
-        /* NAV */
-        nav {
-            position: fixed;
-            left: 0; top: 0; bottom: 0;
-            width: 86px;
-            background: var(--surface);
-            border-right: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 40px;
-            z-index: 2000;
-            box-shadow: 6px 0 25px rgba(0,0,0,0.08);
-        }
-        .nav-item {
-            width: 56px; height: 56px;
-            margin: 12px 0;
-            border-radius: 14px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            cursor: pointer;
-            transition: all 0.35s cubic-bezier(0.23,1,0.32,1);
-        }
-        .nav-item svg { width: 24px; height: 24px; stroke: var(--secondary); stroke-width: 1.7; fill: none; }
-        .nav-item:hover svg, .nav-item.active svg { stroke: var(--primary); }
-        .nav-item.active { background: rgba(171,34,41,0.12); }
-        .nav-label {
-            position: absolute;
-            left: 82px;
-            background: var(--primary);
-            color: white;
-            padding: 7px 18px;
-            font-size: 0.67rem;
-            font-family: 'Space Grotesk';
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            border-radius: 6px;
-            opacity: 0;
-            pointer-events: none;
-            white-space: nowrap;
-            transition: all 0.3s;
-        }
-        .nav-item:hover .nav-label { opacity: 1; left: 100px; }
-
-        /* Mobile */
-        .mobile-menu-bubble, .mobile-theme-bubble {
-            display: none;
-            position: fixed;
-            bottom: 28px;
-            width: 64px; height: 64px;
-            border-radius: 50%;
-            align-items: center;
-            justify-content: center;
-            z-index: 3000;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        .mobile-menu-bubble { left: 24px; background: var(--primary); }
-        .mobile-theme-bubble { right: 24px; background: var(--surface); border: 1px solid var(--border); }
-
-        main { margin-left: 86px; min-height: 100vh; overflow-y: auto; scroll-behavior: smooth; padding-bottom: 100px; }
-        section { display: none; padding: 110px 8% 100px; min-height: 100vh; }
-        section.active { display: block; animation: fadeUp 0.7s ease; }
-
-        @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
-
-        .label {
-            color: var(--primary);
-            font-family: 'Space Grotesk';
-            font-size: 0.78rem;
-            font-weight: 800;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-        }
-        h1, h2 { font-family: 'Space Grotesk'; text-transform: uppercase; line-height: 1.05; }
-        h1 { font-size: clamp(3.4rem, 8vw, 6.5rem); }
-        h2 { font-size: clamp(2.4rem, 5vw, 3.8rem); margin: 1.2rem 0 2rem; }
-
-        .glass-panel {
-            background: rgba(255,255,255,0.75);
-            backdrop-filter: blur(22px);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-        }
-        [data-theme="dark"] .glass-panel { background: rgba(20,24,32,0.85); }
-
-        /* Student Grid */
-        .student-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 28px;
-        }
-        .student-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.4s;
-        }
-        .student-card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="blueprint-bg">
+<body class="loading">
 
-    <!-- SIDEBAR NAV -->
-    <nav>
-        <div class="nav-item active" onclick="showSection('hero', this)"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg><span class="nav-label">MAIN_DECK</span></div>
-        <div class="nav-item" onclick="showSection('institution', this)"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path></svg><span class="nav-label">INSTITUTION</span></div>
-        <div class="nav-item" onclick="showSection('about', this)"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg><span class="nav-label">PHILOSOPHY</span></div>
-        <div class="nav-item" onclick="showSection('students', this)"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><span class="nav-label">ARCHITECTS</span></div>
-        <div class="nav-item" onclick="showSection('studio-projects', this)"><svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path></svg><span class="nav-label">STUDIOS</span></div>
-        <div class="nav-item" onclick="showSection('gallery', this)"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg><span class="nav-label">GALLERY</span></div>
-        <div class="nav-item" onclick="showSection('logo-sec', this)"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"></path></svg><span class="nav-label">THE_MARK</span></div>
-        <div style="margin-top:auto;padding-bottom:40px" class="nav-item" onclick="toggleTheme()">
-            <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="spinner"></div>
+            <div class="preload-text">INITIALIZING ARCHIVE</div>
         </div>
-    </nav>
+    </div>
 
-    <!-- MOBILE -->
-    <div class="mobile-menu-bubble" onclick="toggleMobileNavPanel()">≡</div>
-    <div class="mobile-theme-bubble" onclick="toggleTheme()">◐</div>
+    <div id="custom-cursor"></div>
+    <div id="cursor-blur"></div>
 
-    <main id="main-scroll">
+    <div id="audio-control" class="audio-toggle" title="Toggle Ambient Soundscape">
+        <div class="sound-wave">
+            <span></span><span></span><span></span><span></span>
+        </div>
+        <span class="audio-text">AMBIENT: OFF</span>
+    </div>
 
-        <!-- HERO -->
-        <section id="hero" class="active">
-            <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;min-height:85vh">
-                <div>
-                    <span class="label">BATCH 2025 // DELTA VISIONARIES</span>
-                    <h1>Design<br><span style="color:var(--primary)">Beyond</span><br>Boundaries.</h1>
-                    <p style="max-width:520px;font-size:1.15rem;line-height:1.75;margin:2rem 0">
-                        A premium digital archive celebrating the graduating architects of BRAC University 2025 — where critical thinking meets spatial excellence.
-                    </p>
-                    <button onclick="showSection('students')" style="padding:16px 36px;background:var(--primary);color:white;border:none;border-radius:8px;font-weight:700;cursor:pointer">EXPLORE THE ARCHIVE</button>
-                </div>
-                <div class="glass-panel" style="height:420px;display:flex;align-items:center;justify-content:center">
-                    <img src="https://i.ibb.co/LzfNqYj/bracu-logo.png" style="max-width:280px" alt="BRACU Logo">
-                </div>
+    <div class="floating-dock">
+        <a href="#" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="#" target="_blank" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+    </div>
+
+    <header class="navbar-wrapper">
+        <nav class="navbar container">
+            <div class="nav-logo" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+                <span class="logo-gfx">▲</span>
+                <span class="logo-text">BRACU<span class="text-glow">ARCHI'25</span></span>
             </div>
-        </section>
+            
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#students" class="nav-link">Architects</a></li>
+                <li><a href="#videos" class="nav-link">Videos</a></li>
+                <li><a href="#developers" class="nav-link">Developers</a></li>
+                <li><a href="#designers" class="nav-link">Designers</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
 
-        <!-- INSTITUTION -->
-        <section id="institution">
-            <span class="label">THE FOUNDATION</span>
-            <h2>The Institution</h2>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px">
-                <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80" style="width:100%;border-radius:16px" alt="">
-                <div>
-                    <p style="font-size:1.1rem;line-height:1.8">The Department of Architecture at BRAC University stands as a leading center for architectural education in Bangladesh, fostering designers who respond intelligently to the unique challenges of the Bengal Delta.</p>
-                    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px">
-                        <div class="glass-panel" style="padding:24px;text-align:center"><h3 style="color:var(--primary)">05</h3><p>Years</p></div>
-                        <div class="glass-panel" style="padding:24px;text-align:center"><h3 style="color:var(--primary)">250+</h3><p>Students</p></div>
-                        <div class="glass-panel" style="padding:24px;text-align:center"><h3 style="color:var(--primary)">07</h3><p>Studios</p></div>
+            <div class="nav-actions">
+                <a href="#students" class="btn btn-nav">EXPLORE</a>
+                <button class="hamburger" aria-label="Toggle Navigation Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="home" class="hero-section">
+            <div class="interactive-bg">
+                <div class="grid-overlay"></div>
+                <div class="glow-blob blob-1"></div>
+                <div class="glow-blob blob-2"></div>
+            </div>
+            
+            <div class="container hero-container">
+                <div class="hero-content text-reveal-parent">
+                    <span class="section-label reveal-item">BATCH 2025 // DELTA VISIONARIES</span>
+                    <h1 class="reveal-item">Spatial Tectonics<br>Beyond <span class="text-gradient">Boundaries</span>.</h1>
+                    <p class="reveal-item">A premium architectural intelligence engine mapping the intersection of computational algorithms, environmental resilience, and monumental structural poetry.</p>
+                    <div class="hero-actions reveal-item">
+                        <a href="#students" class="btn btn-primary">EXPLORE ARCHIVE</a>
+                        <a href="#about" class="btn btn-secondary">PHILOSOPHY</a>
+                        <a href="#contact" class="btn btn-outline">JOIN SYNAPSE</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual reveal-item">
+                    <div class="canvas-3d-wrapper">
+                        <div class="rotating-ring ring-outer"></div>
+                        <div class="rotating-ring ring-inner"></div>
+                        <div class="core-globe">
+                            <img src="https://i.ibb.co/LzfNqYj/bracu-logo.png" alt="BRAC University Logo" class="hero-logo-img">
+                        </div>
+                        <div class="floating-particle p1"></div>
+                        <div class="floating-particle p2"></div>
+                        <div class="floating-particle p3"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- PHILOSOPHY -->
-        <section id="about">
-            <span class="label">MISSION CORE</span>
-            <h2>Our Philosophy</h2>
-            <div id="ascii-car-target" style="position:absolute;right:8%;bottom:10%;font-family:monospace;opacity:0.07;font-size:9px;line-height:9px;pointer-events:none"></div>
-            <!-- Mission cards here -->
+        <section id="about" class="about-section scroll-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">01 // CORE MANIFESTO</span>
+                    <h2>The Paradigm & Vision</h2>
+                </div>
+                
+                <div class="about-layout">
+                    <div class="about-text">
+                        <p class="lead-text">The Department of Architecture at BRAC University cultivates structural synthesizers capable of deploying complex answers against the extreme geographical shifts of the Bengal Delta.</p>
+                        <p>Our platform indexes and locks structural progress records, final design theses, and interactive parametric portfolios. By bringing algorithmic planning strategies together with clean materials, our goal is to build long-term systems that connect modern design with deep environmental responsibility.</p>
+                        
+                        <div class="stats-counter-grid">
+                            <div class="stat-box glass">
+                                <span class="counter" data-target="5">0</span><span class="suffix">Yrs</span>
+                                <p>Rigor Curriculum</p>
+                            </div>
+                            <div class="stat-box glass">
+                                <span class="counter" data-target="252">0</span>
+                                <p>Architect Minds</p>
+                            </div>
+                            <div class="stat-box glass">
+                                <span class="counter" data-target="14">0</span><span class="suffix">+</span>
+                                <p>Studio Labs</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-cards-wrapper">
+                        <div class="glass-card objective-card">
+                            <div class="card-icon">⚡</div>
+                            <h3>Deltaic Resilience</h3>
+                            <p>Prototyping dynamic urban fluid systems designed to handle climate shifts and river system layouts natively.</p>
+                            <div class="progress-wrapper">
+                                <div class="progress-bar-lbl"><span>System Accuracy</span><span>94%</span></div>
+                                <div class="progress-track"><div class="progress-fill" style="width: 94%"></div></div>
+                            </div>
+                        </div>
+                        <div class="glass-card objective-card">
+                            <div class="card-icon">🌀</div>
+                            <h3>Computational Fluidity</h3>
+                            <p>Utilizing high-end parametric logic algorithms to shape architectural structures around local ecological data.</p>
+                            <div class="progress-wrapper">
+                                <div class="progress-bar-lbl"><span>Parametric Optimization</span><span>88%</span></div>
+                                <div class="progress-track"><div class="progress-fill" style="width: 88%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- STUDENTS -->
-        <section id="students">
-            <span class="label">ARCHIVE DIRECTORY</span>
-            <h2>The Architects</h2>
-            <div class="student-grid" id="studentGrid"></div>
+        <section id="students" class="students-section scroll-reveal">
+            <div class="container">
+                <div class="section-header-row">
+                    <div class="section-header">
+                        <span class="section-label">02 // ARCHIVE INDEX</span>
+                        <h2>The Graduating Architects</h2>
+                    </div>
+                    <div class="filter-system-wrapper">
+                        <div class="search-box-wrapper glass">
+                            <input type="text" id="student-search" placeholder="Search keys or name structures...">
+                        </div>
+                        <div class="filter-tabs">
+                            <button class="filter-tab active" data-filter="all">ALL SHIELDS</button>
+                            <button class="filter-tab" data-filter="Studio VI">STUDIO VI</button>
+                            <button class="filter-tab" data-filter="Studio VII">STUDIO VII</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="student-matrix-grid" id="student-matrix-target"></div>
+            </div>
         </section>
 
-        <!-- STUDIOS, GALLERY, THE MARK sections can be added similarly -->
+        <section id="videos" class="video-section scroll-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">03 // TECTONIC REELS</span>
+                    <h2>Cinematic Showcases & Studios</h2>
+                </div>
+
+                <div class="video-tabs-wrapper">
+                    <button class="video-tab active" data-vcat="all">ALL MEDIA</button>
+                    <button class="video-tab" data-vcat="showcase">THESIS COMPILATIONS</button>
+                    <button class="video-tab" data-vcat="studio">STUDIO WALKTHROUGHS</button>
+                </div>
+
+                <div class="video-showcase-slider">
+                    <div class="video-card-wrapper glass" data-vcat="showcase">
+                        <div class="video-thumbnail-container">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Thesis Trailer" class="thumb-img">
+                            <div class="video-overlay-actions">
+                                <button class="play-trigger-btn" data-video-url="https://www.youtube.com/embed/dQw4w9WgXcQ">PLAY REEL</button>
+                            </div>
+                            <span class="duration-badge">03:45</span>
+                        </div>
+                        <div class="video-meta-body">
+                            <h3>Deltaic Fluidity Thesis Trailer</h3>
+                            <p>Strategic mapping showcasing final structural proposals addressing urban deltaic shifts.</p>
+                            <div class="video-footer-stats">
+                                <span>❤️ 1.2k Likes</span>
+                                <span>🔄 342 Shares</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-card-wrapper glass" data-vcat="studio">
+                        <div class="video-thumbnail-container">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Studio Walkthrough" class="thumb-img">
+                            <div class="video-overlay-actions">
+                                <button class="play-trigger-btn" data-video-url="https://www.youtube.com/embed/dQw4w9WgXcQ">PLAY REEL</button>
+                            </div>
+                            <span class="duration-badge">05:20</span>
+                        </div>
+                        <div class="video-meta-body">
+                            <h3>Studio VII Dynamic Walkthrough</h3>
+                            <p>Inside look at the computational modeling labs and physical fabrication structures of Batch 2025.</p>
+                            <div class="video-footer-stats">
+                                <span>❤️ 948 Likes</span>
+                                <span>🔄 189 Shares</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="developers" class="dev-section scroll-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">04 // SYSTEM CORE ARCHITECTS</span>
+                    <h2>Platform Engineers</h2>
+                </div>
+
+                <div class="dev-cards-grid">
+                    <div class="dev-profile-card glass-card dynamic-tilt">
+                        <div class="dev-avatar-frame">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80" alt="Lead System Architect">
+                            <span class="sys-role-badge">LEAD DEVELOPER</span>
+                        </div>
+                        <div class="dev-profile-content">
+                            <h3>Sadeed Ahmed</h3>
+                            <p class="dev-bio">Specialist in designing fluid interactive systems, robust data security setups, and high-performance client frameworks.</p>
+                            
+                            <div class="dev-stats-strip">
+                                <div><strong>48+</strong><small>PROJECTS</small></div>
+                                <div><strong>99.9%</strong><small>UPTIME</small></div>
+                            </div>
+
+                            <div class="skill-bars-stack">
+                                <div class="skill-bar-item">
+                                    <div class="s-info"><span>Full-Stack Web Core</span><span>98%</span></div>
+                                    <div class="s-track"><div class="s-fill" style="width: 98%"></div></div>
+                                </div>
+                                <div class="skill-bar-item">
+                                    <div class="s-info"><span>Interactive WebGL Rendering</span><span>92%</span></div>
+                                    <div class="s-track"><div class="s-fill" style="width: 92%"></div></div>
+                                </div>
+                            </div>
+
+                            <div class="dev-social-matrix">
+                                <a href="#" target="_blank" class="sm-link">GH</a>
+                                <a href="#" target="_blank" class="sm-link">LN</a>
+                                <a href="#" target="_blank" class="sm-link">TW</a>
+                                <button class="btn btn-primary btn-sm btn-contact-trigger">PING</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="designers" class="designers-section scroll-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">05 // IDENTITY DESIGN LAB</span>
+                    <h2>The Mark Fabricators</h2>
+                </div>
+
+                <div class="designers-showcase-layout">
+                    <div class="designer-profile-deck">
+                        <div class="designer-hero-card glass-card">
+                            <div class="d-avatar-row">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80" alt="Identity Designer" class="d-avatar">
+                                <div>
+                                    <h3>Nabil Chowdhury</h3>
+                                    <p class="specialty-txt">Brand Tectonics & Visual Systems Specialist</p>
+                                </div>
+                            </div>
+                            <p class="d-narrative">Crafting the visual identity for the 2025 cohort by balancing raw, stark structural lines with fluid patterns that reflect our local delta landscape.</p>
+                            <div class="d-portfolio-links">
+                                <a href="#" target="_blank">Behance</a>
+                                <a href="#" target="_blank">Dribbble</a>
+                                <a href="#" target="_blank">Instagram</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-showcase-matrix">
+                        <div class="gallery-item-frame glass">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="Branding Draft 1" class="gallery-zoom-img">
+                            <div class="gallery-item-overlay"><h4>Identity Draft alpha</h4></div>
+                        </div>
+                        <div class="gallery-item-frame glass">
+                            <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=600&q=80" alt="Branding Draft 2" class="gallery-zoom-img">
+                            <div class="gallery-item-overlay"><h4>Tectonic Monogram</h4></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section scroll-reveal">
+            <div class="container">
+                <div class="contact-layout-wrapper">
+                    <div class="contact-intel-side">
+                        <span class="section-label">CONNECT SYSTEM</span>
+                        <h2>Initiate Terminal Synapse</h2>
+                        <p>Establish direct pipeline authentication into the architecture cluster system networks.</p>
+                        
+                        <div class="intel-cards-stack">
+                            <div class="intel-card glass">
+                                <span class="ico">📬</span>
+                                <div>
+                                    <h4>DIRECT ROUTING</h4>
+                                    <p><a href="mailto:archi25@bracu.ac.bd">archi25@bracu.ac.bd</a></p>
+                                </div>
+                            </div>
+                            <div class="intel-card glass">
+                                <span class="ico">📡</span>
+                                <div>
+                                    <h4>MATRIX STATIONS</h4>
+                                    <p><a href="#">Discord Server Pipeline</a> / <a href="#">Telegram Portal Channel</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="maps-mock-frame glass">
+                            <div class="radar-ping"></div>
+                            <span>LOCATION LOCK // SAVAR RESIDENTIAL CAMPUS & MOHAKHALI SATELLITE HUB</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-side glass-card">
+                        <form id="synapse-terminal-form" novalidate>
+                            <div class="input-glow-group">
+                                <input type="text" id="form-name" required placeholder=" ">
+                                <label for="form-name">IDENTIFIER / NAME</label>
+                                <span class="err-msg">Identifier signature required.</span>
+                            </div>
+                            <div class="input-glow-group">
+                                <input type="email" id="form-email" required placeholder=" ">
+                                <label for="form-email">SECURE GATEWAY EMAIL</label>
+                                <span class="err-msg">Valid gateway routing email required.</span>
+                            </div>
+                            <div class="input-glow-group">
+                                <textarea id="form-msg" rows="5" required placeholder=" "></textarea>
+                                <label for="form-msg">TRANSMISSION STRING DATA</label>
+                                <span class="err-msg">Payload details cannot be empty.</span>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <span class="btn-text">TRANSMIT PACKETS</span>
+                                <div class="btn-loading-ring"></div>
+                            </button>
+                        </form>
+                        <div id="form-success-feedback" class="success-screen">
+                            <div class="success-icon">✓</div>
+                            <h3>TRANSMISSION SECURED</h3>
+                            <p>Data packets successfully integrated into the archive mainframe logs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </main>
 
-    <script>
-        // Student Database (252 entries)
-        const studentsDatabase = [];
-        const firstNames = ["Shadid","Tasnim","Zainab","Abrar","Nabila","Fahim","Tahsin","Anika","Raisa","Imran"];
-        const lastNames = ["Ahamed","Alam","Faruqui","Khan","Rahman","Islam","Chowdhury"];
+    <div class="video-modal-overlay" id="cinema-modal">
+        <div class="modal-box-containment glass">
+            <button class="modal-close-trigger" aria-label="Close Lightbox Modal">✕</button>
+            <div class="iframe-fluid-aspect">
+                <iframe src="" id="modal-video-frame" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
 
-        for (let i = 1; i <= 252; i++) {
-            studentsDatabase.push({
-                id: i,
-                name: `${firstNames[i%firstNames.length]} ${lastNames[i%lastNames.length]}`,
-                roll: `2010${1000 + i}`,
-                studio: i % 2 === 0 ? "Studio VII" : "Studio VI",
-                focus: ["Digital Fabrication","Urban Systems","Climate Resilience","Parametric Design"][i%4],
-                photo: `https://picsum.photos/id/${(i*3)%300}/600/600`
-            });
-        }
-
-        function showSection(id, el = null) {
-            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
+    <footer class="footer-matrix">
+        <div class="container footer-grid">
+            <div class="footer-brand-column">
+                <div class="nav-logo">
+                    <span class="logo-gfx">▲</span>
+                    <span class="logo-text">BRACU<span class="text-glow">ARCHI'25</span></span>
+                </div>
+                <p class="f-desc">Preserving and displaying spatial achievements through a modern web interface.</p>
+                <form class="newsletter-form" id="news-form">
+                    <input type="email" placeholder="Mainframe stream email" required class="glass">
+                    <button type="submit">🔒</button>
+                </form>
+            </div>
             
-            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
-            if (el) el.classList.add('active');
-        }
+            <div class="footer-links-column">
+                <h4>QUICK LINK PATHWAYS</h4>
+                <ul>
+                    <li><a href="#home">Main Deck</a></li>
+                    <li><a href="#about">Core Paradigm</a></li>
+                    <li><a href="#students">Architect Archives</a></li>
+                    <li><a href="#videos">Tectonic Reels</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-credits-column">
+                <h4>MAINFRAME CREDITS</h4>
+                <p><strong>System Engineering:</strong> Sadeed Ahmed</p>
+                <p><strong>Identity Tectonics:</strong> Nabil Chowdhury</p>
+                <p style="margin-top: 15px; font-size: 0.75rem; color: var(--secondary);">Inspired by Tesla, Apple, and Cyberpunk UI aesthetics.</p>
+            </div>
+        </div>
 
-        function toggleTheme() {
-            document.body.toggleAttribute('data-theme');
-        }
+        <div class="container footer-baseline-row">
+            <p>&copy; 2026 BRAC University Department of Architecture. All rights reserved.</p>
+            <button class="scroll-top-trigger-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">▲ ESCALATE TO APEX</button>
+        </div>
+    </footer>
 
-        function toggleMobileNavPanel() {
-            alert("Mobile navigation panel activated (full version can be expanded)");
-        }
-
-        // Render Students
-        function renderStudents() {
-            const container = document.getElementById('studentGrid');
-            container.innerHTML = '';
-            studentsDatabase.forEach(student => {
-                const card = document.createElement('div');
-                card.className = 'student-card glass-panel';
-                card.innerHTML = `
-                    <img src="${student.photo}" style="width:100%;height:240px;object-fit:cover">
-                    <div style="padding:20px">
-                        <strong>${student.name}</strong><br>
-                        <small>${student.studio} • ${student.focus}</small>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        window.onload = () => {
-            renderStudents();
-            console.log("%cBRACU Architecture '25 Executive Archive — World Class Edition Loaded", "color:#ab2229;font-weight:700");
-        };
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
