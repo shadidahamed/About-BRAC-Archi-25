@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRACU Archi '25 | Professional Archive</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BRACU Archi '25 | Executive Archive</title>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;800&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -14,7 +14,7 @@
             --on-surface: #1a1a1a;
             --border: rgba(0, 0, 0, 0.08);
             --grid: rgba(171, 34, 41, 0.04);
-            --glass: rgba(255, 255, 255, 0.25);
+            --glass: rgba(255, 255, 255, 0.4);
         }
 
         [data-theme='dark'] {
@@ -25,7 +25,7 @@
             --on-surface: #f1f5f9;
             --border: rgba(255, 255, 255, 0.1);
             --grid: rgba(255, 77, 90, 0.04);
-            --glass: rgba(0, 0, 0, 0.6);
+            --glass: rgba(255, 255, 255, 0.05);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1); }
@@ -35,6 +35,7 @@
             color: var(--on-surface);
             font-family: 'Manrope', sans-serif;
             overflow: hidden; 
+            -webkit-font-smoothing: antialiased;
         }
 
         .blueprint-bg {
@@ -42,7 +43,7 @@
             background-size: 60px 60px;
         }
 
-        /* --- Navigation Sidebar --- */
+        /* --- Navigation --- */
         nav {
             position: fixed; left: 0; top: 0; bottom: 0; width: 80px;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -64,52 +65,128 @@
 
         /* --- Layout --- */
         main { margin-left: 80px; height: 100vh; overflow-y: auto; scroll-behavior: smooth; }
-
-        section { display: none; padding: 100px 8%; min-height: 100vh; animation: sectionEntry 0.8s ease; }
+        section { display: none; padding: 60px 5%; min-height: 100vh; animation: sectionEntry 0.8s ease; }
         section.active { display: block; }
 
-        @keyframes sectionEntry {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes sectionEntry { from { opacity: 0; } to { opacity: 1; } }
+
+        /* --- Typography --- */
+        .label { color: var(--primary); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.5em; text-transform: uppercase; margin-bottom: 1rem; display: block; }
+        h1 { font-family: 'Space Grotesk'; font-size: clamp(3rem, 7vw, 6rem); line-height: 0.9; font-weight: 700; text-transform: uppercase; }
+        p { color: var(--secondary); line-height: 1.6; font-size: 0.95rem; }
+
+        /* --- Hero Grid Structure --- */
+        .hero-container {
+            display: grid;
+            grid-template-columns: 350px 1.5fr 1fr;
+            min-height: 85vh;
+            gap: 40px;
+            margin-top: 40px;
         }
 
-        /* --- Typography (Matches Screenshots) --- */
-        .label { color: var(--primary); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.5em; text-transform: uppercase; margin-bottom: 1.5rem; display: block; }
-        h1 { font-family: 'Space Grotesk'; font-size: clamp(4rem, 8vw, 7rem); line-height: 0.85; font-weight: 700; text-transform: uppercase; margin-bottom: 2rem; }
-        h2 { font-family: 'Space Grotesk'; font-size: 3rem; text-transform: uppercase; margin-bottom: 2rem; }
-        h3 { font-family: 'Space Grotesk'; font-size: 1.2rem; text-transform: uppercase; }
+        /* Left Panel: Vertical Image/Logo */
+        .left-logo-panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            padding: 40px;
+        }
 
-        /* --- Screenshots: About/Mission Grid --- */
-        .mission-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); border: 1px solid var(--border); background: var(--bg); }
-        .mission-card { padding: 60px; border: 0.5px solid var(--border); }
-        .mission-card.accent { background: var(--primary); color: white; }
-        .mission-card.accent .label { color: rgba(255,255,255,0.7); }
-        .mission-card p { margin-top: 15px; color: var(--secondary); font-size: 0.95rem; }
-        .mission-card.accent p { color: rgba(255,255,255,0.8); }
+        .left-logo-panel img {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.8;
+        }
 
-        /* --- Screenshots: Student Gallery --- */
-        .student-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); border: 1px solid var(--border); }
-        .student-card { position: relative; aspect-ratio: 4/3; border: 0.5px solid var(--border); background: var(--surface); padding: 40px; overflow: hidden; }
-        .student-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.1; filter: grayscale(1); }
+        /* Center Content */
+        .center-text { padding: 20px 0; z-index: 5; }
+
+        /* Right Panel: 3D Floating Glass Logo */
+        .right-3d-panel {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        .glass-mark-3d {
+            width: 280px;
+            height: 280px;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-style: preserve-3d;
+            animation: float3d 6s infinite ease-in-out;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
+        }
+
+        .glass-mark-3d img { width: 180px; filter: drop-shadow(0 10px 10px rgba(0,0,0,0.2)); }
+
+        @keyframes float3d {
+            0%, 100% { transform: translateY(0) rotateY(10deg) rotateX(5deg); }
+            50% { transform: translateY(-20px) rotateY(-10deg) rotateX(-5deg); }
+        }
+
+        /* --- University Carousel --- */
+        .uni-info { margin-top: 100px; padding: 80px 0; border-top: 1px solid var(--border); }
         
-        .glass-info {
-            position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 40px;
-            background: var(--glass); backdrop-filter: blur(10px); opacity: 0;
+        .carousel-track {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 40px 0;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
         }
-        .student-card:hover .glass-info { opacity: 1; }
-        .student-card:hover img { opacity: 0.8; filter: grayscale(0); transform: scale(1.05); }
 
-        /* --- Logo Section --- */
-        .logo-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .logo-display { border: 1px dashed var(--primary); aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--surface); }
+        .carousel-item {
+            flex: 0 0 300px;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            scroll-snap-align: center;
+            cursor: zoom-in;
+            filter: grayscale(1);
+        }
 
-        @media (max-width: 968px) {
-            .logo-layout { grid-template-columns: 1fr; }
-            h1 { font-size: 4rem; }
+        .carousel-item.active {
+            flex: 0 0 500px;
+            filter: grayscale(0);
+            border: 2px solid var(--primary);
+        }
+
+        .carousel-item img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Fullscreen Preview */
+        .modal {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 3000;
+            display: none; align-items: center; justify-content: center;
+            padding: 5%;
+        }
+        .modal img { max-width: 100%; max-height: 90vh; border: 2px solid white; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 1100px) {
+            .hero-container { grid-template-columns: 1fr; }
+            .left-logo-panel { height: 300px; }
+            .right-3d-panel { height: 350px; }
+            nav { width: 100%; height: 60px; bottom: 0; top: auto; flex-direction: row; border-right: none; border-top: 1px solid var(--border); }
+            main { margin-left: 0; padding-bottom: 80px; }
+            .nav-label { display: none; }
         }
     </style>
 </head>
 <body class="blueprint-bg">
+
+    <div class="modal" id="imgModal" onclick="this.style.display='none'">
+        <img src="" id="modalImg">
+    </div>
 
     <nav>
         <div class="nav-item active" onclick="showSection('hero', this)">
@@ -124,111 +201,109 @@
             <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
             <span class="nav-label">Architects</span>
         </div>
-        <div class="nav-item" onclick="showSection('logo-sec', this)">
-            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-            <span class="nav-label">The_Mark</span>
-        </div>
         <div style="margin-top: auto; padding-bottom: 30px;" class="nav-item" onclick="toggleTheme()">
             <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            <span class="nav-label">Switch_Theme</span>
         </div>
     </nav>
 
     <main id="main-scroll">
         <section id="hero" class="active">
-            <span class="label">BATCH_MANTRA // 2025</span>
-            <h1>Design <br> <span style="color: var(--primary);">Beyond</span> <br> Boundaries.</h1>
-            <p style="max-width: 500px; color: var(--secondary); margin-bottom: 3rem;">
-                The Batch of 2025 represents a collective of spatial thinkers, urban visionaries, and technical innovators emerging from BRAC University.
-            </p>
-            <div style="border-left: 2px solid var(--primary); padding-left: 20px;">
-                <span class="label" style="margin:0; font-size: 0.55rem;">CHAIRPERSON</span>
-                <p style="font-weight: 800; font-size: 0.9rem; text-transform: uppercase;">Zainab Faruqui Ali, PhD</p>
+            <div class="hero-container">
+                <div class="left-logo-panel">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" alt="Design Panel">
+                    <div style="z-index:2; position:relative;">
+                        <h2 style="color:white; font-family:'Space Grotesk'; font-size: 1.5rem;">EST. 2025</h2>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 0.7rem;">ARCHITECTURE CORE ARCHIVE</p>
+                    </div>
+                </div>
+
+                <div class="center-text">
+                    <span class="label">BATCH_MANTRA // 2025</span>
+                    <h1>Design <br> <span style="color: var(--primary);">Beyond</span> <br> Boundaries.</h1>
+                    <p style="margin: 2rem 0;">The Batch of 2025 represents a collective of spatial thinkers, urban visionaries, and technical innovators emerging from BRAC University.</p>
+                    
+                    <div style="border-left: 2px solid var(--primary); padding-left: 20px; margin-bottom: 2rem;">
+                        <span class="label" style="margin:0; font-size: 0.55rem;">CHAIRPERSON</span>
+                        <p style="font-weight: 800; font-size: 0.9rem; text-transform: uppercase; color:var(--on-surface);">Zainab Faruqui Ali, PhD</p>
+                    </div>
+
+                    <p style="font-size: 0.85rem; border-top: 1px solid var(--border); pt-4; padding-top: 20px;">
+                        <b>THE DEPARTMENT:</b> Our core mission revolves around the "Contextual Evolution" of built environments. We bridge the gap between historical deltaic architecture and the future of parametric urbanism, training students to see spaces not as static objects, but as living organisms.
+                    </p>
+                </div>
+
+                <div class="right-3d-panel">
+                    <div class="glass-mark-3d">
+                        <img src="https://i.ibb.co/LzfNqYj/bracu-logo.png" alt="BRACU LOGO">
+                    </div>
+                    <div style="position: absolute; bottom: 0; text-align: center; width: 100%;">
+                        <span class="label" style="opacity: 0.4;">[FLOATING_ASSET_01]</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="uni-info">
+                <span class="label">UNIVERSITY_HISTORY</span>
+                <h2 style="font-size: 2rem;">THE CAMPUS EVOLUTION</h2>
+                <p style="max-width: 600px; margin-bottom: 30px;">BRAC University stands as a beacon of academic excellence in South Asia. Our new campus represents the pinnacle of sustainable architectural design in the region.</p>
+                
+                <div class="carousel-track" id="carousel">
+                    <div class="carousel-item active" onclick="openImg(this)"><img src="https://images.unsplash.com/photo-1541339907198-e08756ebafe1?q=80&w=1000" alt="Campus 1"></div>
+                    <div class="carousel-item" onclick="openImg(this)"><img src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1000" alt="Campus 2"></div>
+                    <div class="carousel-item" onclick="openImg(this)"><img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1000" alt="Campus 3"></div>
+                    <div class="carousel-item" onclick="openImg(this)"><img src="https://images.unsplash.com/photo-1592280771190-3e2e4d571952?q=80&w=1000" alt="Campus 4"></div>
+                </div>
             </div>
         </section>
 
         <section id="about">
-            <div class="mission-grid">
-                <div class="mission-card">
-                    <span class="label">01 // VISION</span>
-                    <h3>Inclusive Architecture</h3>
-                    <p>Designing for every layer of society, ensuring that the built environment fosters equity and belonging.</p>
-                </div>
-                <div class="mission-card">
-                    <span class="label">02 // CONTEXT</span>
-                    <h3>Climate Resilience</h3>
-                    <p>Integrating the unique deltaic landscape of Bangladesh into sustainable, future-proof structures.</p>
-                </div>
-                <div class="mission-card accent">
-                    <span class="label">03 // DATA</span>
-                    <h3>Student Archive</h3>
-                    <p>Access the comprehensive design portfolios and thesis research of the '25 cohort.</p>
-                    <span style="display:inline-block; margin-top:20px; border-bottom: 2px solid white; font-family: 'Space Grotesk'; font-weight: 800; font-size: 0.7rem; cursor: pointer;" onclick="showSection('students', document.querySelectorAll('.nav-item')[2])">VIEW REPOSITORY</span>
-                </div>
-            </div>
+            <h2>Our Philosophy</h2>
+            <p>Designing for resilience.</p>
         </section>
 
         <section id="students">
-            <span class="label">ARCHIVE_DIRECTORY</span>
             <h2>The Architects</h2>
-            <div class="student-grid">
-                <div class="student-card">
-                    <img src="https://via.placeholder.com/600x400" alt="Shadid">
-                    <div class="glass-info">
-                        <span class="label" style="font-size: 0.5rem; margin:0;">STUDIO_VII // MERIT: LEAD</span>
-                        <h3>Shadid Ahamed</h3>
-                        <p style="font-size: 0.8rem; color: var(--primary);">Digital Fabrication & UX</p>
-                    </div>
-                    <span class="label" style="position:absolute; bottom: 20px; left: 40px; margin:0; font-size: 0.5rem; opacity: 0.5;">[HOVER_FOR_DATA]</span>
-                </div>
-                <div class="student-card">
-                    <img src="https://via.placeholder.com/600x400" alt="Student">
-                    <div class="glass-info">
-                        <span class="label" style="font-size: 0.5rem; margin:0;">STUDIO_VII // MERIT: HONORS</span>
-                        <h3>Student Name</h3>
-                        <p style="font-size: 0.8rem; color: var(--primary);">Urban Planning & Housing</p>
-                    </div>
-                </div>
-                <div class="student-card" style="background: rgba(0,0,0,0.03);"></div> </div>
-        </section>
-
-        <section id="logo-sec">
-            <div class="logo-layout">
-                <div>
-                    <span class="label">THE_MARK</span>
-                    <h2>Logo Synthesis</h2>
-                    <p style="color: var(--secondary); line-height: 1.8;">
-                        The Batch '25 identity uses geometric abstraction to represent the intersection of tradition and technology. The primary red reflects the heritage of BRAC, while the slate tones represent modern structural integrity.
-                    </p>
-                </div>
-                <div class="logo-display">
-                    <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100" height="100" stroke="var(--primary)" stroke-width="2"/>
-                        <path d="M20 80L50 20L80 80H20Z" stroke="var(--primary)" stroke-width="4"/>
-                    </svg>
-                    <p style="margin-top: 20px; font-family: 'Space Grotesk'; font-weight: 800; color: var(--primary); font-size: 0.6rem; letter-spacing: 0.3em;">[LOGO_PENDING]</p>
-                </div>
-            </div>
+            <p>Directory of Batch '25.</p>
         </section>
     </main>
 
     <script>
+        // Section Switching
         function showSection(id, element) {
             document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
             element.classList.add('active');
-
-            const sections = document.querySelectorAll('section');
-            sections.forEach(s => s.classList.remove('active'));
-
-            const target = document.getElementById(id);
-            target.classList.add('active');
-
+            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
             document.getElementById('main-scroll').scrollTo(0,0);
         }
 
+        // Theme Toggle
         function toggleTheme() {
             const body = document.body;
             body.hasAttribute('data-theme') ? body.removeAttribute('data-theme') : body.setAttribute('data-theme', 'dark');
+        }
+
+        // Carousel Logic (3 second interval)
+        let currentIndex = 0;
+        const items = document.querySelectorAll('.carousel-item');
+        
+        setInterval(() => {
+            items.forEach(item => item.classList.remove('active'));
+            currentIndex = (currentIndex + 1) % items.length;
+            items[currentIndex].classList.add('active');
+            
+            // Auto scroll to active item
+            const container = document.getElementById('carousel');
+            const scrollPos = items[currentIndex].offsetLeft - (container.offsetWidth / 2) + (items[currentIndex].offsetWidth / 2);
+            container.scrollTo({ left: scrollPos, behavior: 'smooth' });
+        }, 3000);
+
+        // Image Modal
+        function openImg(el) {
+            const modal = document.getElementById('imgModal');
+            const modalImg = document.getElementById('modalImg');
+            modal.style.display = 'flex';
+            modalImg.src = el.querySelector('img').src;
         }
     </script>
 </body>
