@@ -1,260 +1,228 @@
-/* =========================================================
-   BRACU ARCHI '25 — EXECUTIVE ARCHIVE SYSTEM
-   Fully Manual Student Database Structure
-========================================================= */
+// ======================================================
+// BRACU ARCHI '25 — PREMIUM ARCHIVE SYSTEM
+// Advanced UI Controller / Clean Manual Database Engine
+// ======================================================
 
-/* =========================================================
-   MANUAL STUDENT DATABASE
-   Owner will manually add every student here.
-========================================================= */
+// ------------------------------------------------------
+// MANUAL STUDENT DATABASE
+// Owner can manually add/remove/update students here
+// ------------------------------------------------------
 
 const studentsDatabase = [
-
     {
         id: 1,
-
         name: "Shadid Ahamed",
         roll: "20101045",
-        merit: "Batch Top 01",
-
+        merit: "01",
         studio: "Studio VII",
-
         focus: "Digital Fabrication & UX",
+        photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
+        email: "shadid@g.bracu.ac.bd",
 
-        image: "https://picsum.photos/id/64/600/600",
-
-        email: "shadid.ahamed@g.bracu.ac.bd",
-
-        bio: "Focused on computational architecture, interactive spatial systems, and adaptive fabrication methodologies.",
-
-        skills: [
-            "Rhino",
-            "Grasshopper",
-            "Blender",
-            "UI Systems"
-        ],
-
-        social: {
-            whatsapp: "https://wa.me/8801700000000",
-            linkedin: "https://linkedin.com/",
-            facebook: "https://facebook.com/"
-        }
+        whatsapp: "https://wa.me/8801700000000",
+        linkedin: "https://linkedin.com/",
+        facebook: "https://facebook.com/"
     },
 
     {
         id: 2,
-
-        name: "Tasnim Alam Chowdhury",
+        name: "Tasnim Alam",
         roll: "20101046",
-        merit: "Design Excellence",
-
+        merit: "02",
         studio: "Studio VI",
+        focus: "Urban Housing Systems",
+        photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80",
+        email: "tasnim@g.bracu.ac.bd",
 
-        focus: "Urban Housing Frameworks",
-
-        image: "https://picsum.photos/id/65/600/600",
-
-        email: "tasnim.alam@g.bracu.ac.bd",
-
-        bio: "Researching resilient urban housing systems and high-density social infrastructure for deltaic cities.",
-
-        skills: [
-            "Urban Mapping",
-            "AutoCAD",
-            "Research",
-            "Climate Systems"
-        ],
-
-        social: {
-            linkedin: "https://linkedin.com/"
-        }
+        linkedin: "https://linkedin.com/"
     },
 
     {
         id: 3,
-
-        name: "Nabila Rahman",
+        name: "Zainab Faruqui",
         roll: "20101047",
-        merit: "Research Mention",
-
+        merit: "03",
         studio: "Studio VII",
+        focus: "Sustainability & Climate",
+        photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=800&q=80",
+        email: "zainab@g.bracu.ac.bd",
 
-        focus: "Sustainability Lead",
+        facebook: "https://facebook.com/"
+    },
 
-        image: "https://picsum.photos/id/91/600/600",
-
-        email: "nabila.rahman@g.bracu.ac.bd",
-
-        bio: "Working with ecological material systems and passive cooling strategies for tropical architecture.",
-
-        skills: [
-            "Sustainability",
-            "Material Logic",
-            "Environmental Analysis"
-        ],
-
-        social: {
-            facebook: "https://facebook.com/"
-        }
+    {
+        id: 4,
+        name: "Abrar Khan",
+        roll: "20101048",
+        merit: "04",
+        studio: "Studio VI",
+        focus: "Parametric Systems",
+        photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80",
+        email: "abrar@g.bracu.ac.bd"
     }
-
 ];
 
-/* =========================================================
-   GLOBAL FILTER STATE
-========================================================= */
+// ------------------------------------------------------
+// GLOBAL STATES
+// ------------------------------------------------------
 
 let activeFilter = "ALL";
 
-/* =========================================================
-   SECTION NAVIGATION
-========================================================= */
+// ------------------------------------------------------
+// DESKTOP + MOBILE NAVIGATION
+// ------------------------------------------------------
 
-function showSection(id, element) {
+function showSection(id, element = null) {
 
-    /* Desktop nav active */
-    document
-        .querySelectorAll('.nav-item')
-        .forEach(item => item.classList.remove('active'));
+    // Sections
+    document.querySelectorAll("section").forEach(section => {
+        section.classList.remove("active");
+    });
 
-    if (element) {
-        element.classList.add('active');
+    const targetSection = document.getElementById(id);
+
+    if (targetSection) {
+        targetSection.classList.add("active");
     }
 
-    /* Mobile nav active */
-    document
-        .querySelectorAll('.mobile-nav-row')
-        .forEach(row => {
+    // Desktop Nav
+    document.querySelectorAll(".nav-item").forEach(item => {
+        item.classList.remove("active");
+    });
 
-            row.classList.remove('active');
+    if (element) {
+        element.classList.add("active");
+    }
 
-            const route = row.getAttribute('onclick');
+    // Mobile Nav Sync
+    document.querySelectorAll(".mobile-nav-row").forEach(row => {
 
-            if (route.includes(id)) {
-                row.classList.add('active');
-            }
-        });
+        row.classList.remove("active");
 
-    /* Section switch */
-    document
-        .querySelectorAll('section')
-        .forEach(section => section.classList.remove('active'));
+        const clickData = row.getAttribute("onclick");
 
-    document
-        .getElementById(id)
-        .classList.add('active');
+        if (clickData && clickData.includes(id)) {
+            row.classList.add("active");
+        }
+    });
 
-    document
-        .getElementById('main-scroll')
-        .scrollTo({
+    // Scroll Reset
+    const main = document.getElementById("main-scroll");
+
+    if (main) {
+        main.scrollTo({
             top: 0,
-            behavior: 'smooth'
+            behavior: "smooth"
         });
+    }
 }
 
-/* =========================================================
-   THEME TOGGLE
-========================================================= */
+// ------------------------------------------------------
+// MOBILE MENU
+// ------------------------------------------------------
+
+function toggleMobileNavPanel() {
+
+    const panel = document.getElementById("m-nav-overlay");
+
+    if (!panel) return;
+
+    panel.classList.toggle("open");
+}
+
+function triggerMobileRoute(id) {
+
+    showSection(id);
+
+    toggleMobileNavPanel();
+}
+
+// ------------------------------------------------------
+// DARK MODE ENGINE
+// ------------------------------------------------------
 
 function toggleTheme() {
 
     const body = document.body;
 
-    if (body.hasAttribute('data-theme')) {
+    if (body.hasAttribute("data-theme")) {
 
-        body.removeAttribute('data-theme');
-        localStorage.setItem('theme', 'light');
+        body.removeAttribute("data-theme");
+
+        localStorage.setItem("theme", "light");
 
     } else {
 
-        body.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
+        body.setAttribute("data-theme", "dark");
+
+        localStorage.setItem("theme", "dark");
     }
 }
 
-/* =========================================================
-   LOAD SAVED THEME
-========================================================= */
+// Restore theme
+function initializeTheme() {
 
-function loadTheme() {
+    const savedTheme = localStorage.getItem("theme");
 
-    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === "dark") {
 
-    if (savedTheme === 'dark') {
-        document.body.setAttribute('data-theme', 'dark');
+        document.body.setAttribute("data-theme", "dark");
     }
 }
 
-/* =========================================================
-   MOBILE NAVIGATION
-========================================================= */
+// ------------------------------------------------------
+// STUDENT FILTER ENGINE
+// ------------------------------------------------------
 
-function toggleMobileNavPanel() {
+function setFilter(filterName, button) {
 
-    const panel = document.getElementById('m-nav-overlay');
+    activeFilter = filterName;
 
-    panel.classList.toggle('open');
-}
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.classList.remove("active");
+    });
 
-function triggerMobileRoute(id) {
-
-    showSection(id, null);
-
-    toggleMobileNavPanel();
-}
-
-/* =========================================================
-   FILTER SYSTEM
-========================================================= */
-
-function setFilter(filterType, element) {
-
-    activeFilter = filterType;
-
-    document
-        .querySelectorAll('.filter-btn')
-        .forEach(btn => btn.classList.remove('active'));
-
-    element.classList.add('active');
+    if (button) {
+        button.classList.add("active");
+    }
 
     renderArchiveCards();
 }
 
 function filterStudents() {
+
     renderArchiveCards();
 }
 
-/* =========================================================
-   RENDER STUDENT CARDS
-========================================================= */
+// ------------------------------------------------------
+// STUDENT CARD RENDER SYSTEM
+// ------------------------------------------------------
 
 function renderArchiveCards() {
 
-    const grid = document.getElementById('student-cards-target');
+    const target = document.getElementById("student-cards-target");
 
-    if (!grid) return;
+    if (!target) return;
 
-    const searchInput = document
-        .getElementById('student-search')
-        .value
-        .toLowerCase();
+    const searchInput = document.getElementById("student-search");
 
-    grid.innerHTML = "";
+    const searchValue = searchInput
+        ? searchInput.value.toLowerCase()
+        : "";
 
+    target.innerHTML = "";
+
+    // Filtering
     const filteredStudents = studentsDatabase.filter(student => {
 
-        const searchMatch =
-
-            student.name.toLowerCase().includes(searchInput) ||
-
-            student.focus.toLowerCase().includes(searchInput) ||
-
-            student.roll.toLowerCase().includes(searchInput) ||
-
-            student.studio.toLowerCase().includes(searchInput);
+        const matchesSearch =
+            student.name.toLowerCase().includes(searchValue) ||
+            student.focus.toLowerCase().includes(searchValue) ||
+            student.roll.includes(searchValue);
 
         if (activeFilter === "ALL") {
-            return searchMatch;
+
+            return matchesSearch;
         }
 
         if (
@@ -262,23 +230,22 @@ function renderArchiveCards() {
             activeFilter === "Studio VI"
         ) {
 
-            return (
-                searchMatch &&
-                student.studio === activeFilter
-            );
+            return matchesSearch &&
+                student.studio === activeFilter;
         }
 
         return (
-            searchMatch &&
+            matchesSearch &&
             student.focus.toLowerCase().includes(
                 activeFilter.toLowerCase()
             )
         );
     });
 
+    // Empty State
     if (filteredStudents.length === 0) {
 
-        grid.innerHTML = `
+        target.innerHTML = `
             <div class="empty-state">
                 <h3>No Architect Found</h3>
                 <p>Try another keyword or filter.</p>
@@ -288,108 +255,95 @@ function renderArchiveCards() {
         return;
     }
 
+    // Render Cards
     filteredStudents.forEach(student => {
 
-        const card = document.createElement('div');
+        const card = document.createElement("div");
 
         card.className = "student-card";
 
         card.innerHTML = `
-
             <div class="student-img-container">
-
-                <div class="student-rank">
-                    ${student.merit}
-                </div>
-
-                <img
-                    src="${student.image}"
-                    alt="${student.name}"
-                    loading="lazy"
-                >
-
+                <img src="${student.photo}" alt="${student.name}" loading="lazy">
             </div>
 
             <div class="student-meta">
 
-                <span class="studio-tag">
-                    ${student.studio}
-                </span>
+                <div>
+                    <span class="studio-tag">${student.studio}</span>
 
-                <h3>
-                    ${student.name}
-                </h3>
+                    <h3>${student.name}</h3>
 
-                <span class="focus-tag">
-                    ${student.focus}
-                </span>
+                    <span class="focus-tag">${student.focus}</span>
 
-                <div class="student-metrics">
-
-                    <span class="metric-chip">
-                        Roll ${student.roll}
-                    </span>
-
+                    <div class="student-metrics">
+                        <span>ROLL: ${student.roll}</span>
+                        <span>MERIT: ${student.merit}</span>
+                    </div>
                 </div>
 
-                <button
-                    class="btn-repository"
-                    style="
-                        width:100%;
-                        margin-top:18px;
-                        padding:12px;
-                    "
+                <button 
+                    class="info-trigger-btn"
                     onclick="openProfileModal(${student.id})"
                 >
-                    View Profile
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+
                 </button>
 
             </div>
         `;
 
-        grid.appendChild(card);
+        target.appendChild(card);
     });
 }
 
-/* =========================================================
-   MODAL PROFILE SYSTEM
-========================================================= */
+// ------------------------------------------------------
+// PROFILE MODAL
+// ------------------------------------------------------
 
 function openProfileModal(studentId) {
 
     const student = studentsDatabase.find(
-        s => s.id === studentId
+        item => item.id === studentId
     );
 
     if (!student) return;
 
-    /* Basic Info */
-    document.getElementById('m-name').textContent = student.name;
+    // Basic Data
+    document.getElementById("m-name").textContent =
+        student.name;
 
-    document.getElementById('m-studio').textContent = student.studio;
+    document.getElementById("m-studio").textContent =
+        student.studio;
 
-    document.getElementById('m-roll').textContent = student.roll;
+    document.getElementById("m-roll").textContent =
+        student.roll;
 
-    document.getElementById('m-focus').textContent = student.focus;
+    document.getElementById("m-focus").textContent =
+        student.focus;
 
-    document.getElementById('m-email').textContent = student.email;
+    document.getElementById("m-email").textContent =
+        student.email;
 
-    document.getElementById('m-img').src = student.image;
+    document.getElementById("m-img").src =
+        student.photo;
 
-    /* Social Links */
-    const socialContainer = document.querySelector('.modal-social-links');
+    // Social Links Wrapper
+    const socialContainer =
+        document.querySelector(".modal-social-links");
 
     socialContainer.innerHTML = "";
 
-    /* WhatsApp */
-    if (
-        student.social &&
-        student.social.whatsapp
-    ) {
+    // WhatsApp
+    if (student.whatsapp) {
 
         socialContainer.innerHTML += `
-            <a
-                href="${student.social.whatsapp}"
+            <a 
+                href="${student.whatsapp}" 
                 class="social-icon-btn"
                 target="_blank"
             >
@@ -398,15 +352,12 @@ function openProfileModal(studentId) {
         `;
     }
 
-    /* LinkedIn */
-    if (
-        student.social &&
-        student.social.linkedin
-    ) {
+    // LinkedIn
+    if (student.linkedin) {
 
         socialContainer.innerHTML += `
-            <a
-                href="${student.social.linkedin}"
+            <a 
+                href="${student.linkedin}" 
                 class="social-icon-btn"
                 target="_blank"
             >
@@ -415,15 +366,12 @@ function openProfileModal(studentId) {
         `;
     }
 
-    /* Facebook */
-    if (
-        student.social &&
-        student.social.facebook
-    ) {
+    // Facebook
+    if (student.facebook) {
 
         socialContainer.innerHTML += `
-            <a
-                href="${student.social.facebook}"
+            <a 
+                href="${student.facebook}" 
                 class="social-icon-btn"
                 target="_blank"
             >
@@ -432,121 +380,177 @@ function openProfileModal(studentId) {
         `;
     }
 
-    /* If no links */
-    if (socialContainer.innerHTML.trim() === "") {
+    // Hide container if empty
+    if (
+        !student.whatsapp &&
+        !student.linkedin &&
+        !student.facebook
+    ) {
 
-        socialContainer.innerHTML = `
-            <p style="
-                width:100%;
-                text-align:center;
-                color:var(--secondary);
-                font-size:.8rem;
-            ">
-                No public social links shared.
-            </p>
-        `;
+        socialContainer.style.display = "none";
+
+    } else {
+
+        socialContainer.style.display = "flex";
     }
 
-    /* Open modal */
-    document.getElementById('detail-modal').style.display = "flex";
+    // Open Modal
+    document.getElementById("detail-modal").style.display =
+        "flex";
 }
-
-/* =========================================================
-   CLOSE MODAL
-========================================================= */
 
 function closeProfileModal(event) {
 
-    const overlay = document.getElementById('detail-modal');
+    const modal = document.getElementById("detail-modal");
 
     if (
         !event ||
-        event.target === overlay
+        event.target === modal
     ) {
 
-        overlay.style.display = "none";
+        modal.style.display = "none";
     }
 }
 
-/* =========================================================
-   LIGHTBOX
-========================================================= */
+// ------------------------------------------------------
+// LIGHTBOX
+// ------------------------------------------------------
 
 function openLightbox(imageURL) {
 
-    document.getElementById('lightbox-target-img').src = imageURL;
+    const container =
+        document.getElementById("lightbox-container");
 
-    document.getElementById('lightbox-container').style.display = "flex";
+    const targetImage =
+        document.getElementById("lightbox-target-img");
+
+    targetImage.src = imageURL;
+
+    container.style.display = "flex";
 }
 
 function closeLightbox() {
 
-    document.getElementById('lightbox-container').style.display = "none";
+    document.getElementById("lightbox-container").style.display =
+        "none";
 }
 
-/* =========================================================
-   ASCII BACKGROUND SYSTEM
-========================================================= */
+// ------------------------------------------------------
+// GALLERY AUTO ROTATION
+// ------------------------------------------------------
 
-function generateAsciiBackground() {
+function initializeGalleryRotation() {
 
-    const halftone = document.getElementById('halftone-bg-target');
+    const track = document.querySelector(".carousel-track");
 
-    if (halftone) {
+    if (!track) return;
 
-        let pattern = "";
+    let rotation = 0;
 
-        for (let i = 0; i < 26; i++) {
+    setInterval(() => {
 
-            pattern += ".".repeat(120) + "\n";
-        }
+        rotation -= 72;
 
-        halftone.textContent = pattern;
-    }
+        track.style.transform =
+            `rotateY(${rotation}deg)`;
 
-    const asciiCar = document.getElementById('ascii-car-target');
-
-    if (asciiCar) {
-
-        asciiCar.textContent = `
-
-..........................................................
-.....................111111111111.........................
-...............1111111111111111111111.....................
-............1111111..............111111...................
-........111111........................11111................
-.....111111111111111111111111111111111111111..............
-....111111111111111111111111111111111111111111............
-....111....1111111111111111111111111111111....111.........
-..........................................................
-
-        `;
-    }
+    }, 2000);
 }
 
-/* =========================================================
-   KEYBOARD SHORTCUTS
-========================================================= */
+// ------------------------------------------------------
+// KEYBOARD SHORTCUTS
+// ------------------------------------------------------
 
-document.addEventListener('keydown', function(event) {
+document.addEventListener("keydown", event => {
 
-    /* ESC closes modal */
+    // ESC closes overlays
     if (event.key === "Escape") {
 
         closeProfileModal(null);
+
         closeLightbox();
+
+        const mobilePanel =
+            document.getElementById("m-nav-overlay");
+
+        if (
+            mobilePanel &&
+            mobilePanel.classList.contains("open")
+        ) {
+
+            toggleMobileNavPanel();
+        }
     }
 });
 
-/* =========================================================
-   INITIALIZE WEBSITE
-========================================================= */
+// ------------------------------------------------------
+// WINDOW LOAD BOOT ENGINE
+// ------------------------------------------------------
 
 window.onload = () => {
 
-    loadTheme();
-
-    generateAsciiBackground();
+    initializeTheme();
 
     renderArchiveCards();
+
+    initializeGalleryRotation();
+
+    // ASCII Background
+    const asciiTarget =
+        document.getElementById("ascii-car-target");
+
+    if (asciiTarget) {
+
+        asciiTarget.textContent = `
+....................................................
+...............11111111111111.......................
+..........11111111111111111111111...................
+.......111111..................11111................
+....111111........................1111..............
+..11111111111111111111111111111111111111...........
+....................................................
+        `;
+    }
+
+    // Halftone Pattern
+    const halfTone =
+        document.getElementById("halftone-bg-target");
+
+    if (halfTone) {
+
+        let pattern = "";
+
+        for (let i = 0; i < 25; i++) {
+
+            pattern += ". ".repeat(120) + "\n";
+        }
+
+        halfTone.textContent = pattern;
+    }
 };
+
+// ------------------------------------------------------
+// SMOOTH SECTION REVEAL ANIMATION
+// ------------------------------------------------------
+
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.classList.add("reveal-visible");
+        }
+    });
+
+}, {
+    threshold: 0.1
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+
+    document.querySelectorAll(".reveal").forEach(item => {
+
+        observer.observe(item);
+    });
+});
