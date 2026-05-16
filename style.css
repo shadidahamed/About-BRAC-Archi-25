@@ -1097,56 +1097,61 @@ h2 {
 }
 
 /* ========================================================================
-   CUSTOM CURSOR
+   CUSTOM CURSOR - FIXED VERSION
 ======================================================================== */
+body {
+    cursor: none !important;
+}
 
 #custom-cursor {
-
     position: fixed;
-
     width: 8px;
     height: 8px;
-
     background: white;
-
     border-radius: 50%;
-
     pointer-events: none;
-
-    z-index: 100000;
-
-    transform:
-        translate(-50%, -50%);
-
+    z-index: 999999;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+    transition: transform 0.05s ease; /* smooth following */
+    mix-blend-mode: difference; /* makes it more visible */
 }
 
 #cursor-blur {
-
     position: fixed;
-
     width: 34px;
     height: 34px;
-
     border-radius: 50%;
-
-    background:
-        rgba(171,34,41,0.05);
-
-    border:
-        1px solid rgba(171,34,41,0.3);
-
+    background: rgba(171, 34, 41, 0.08);
+    border: 1px solid rgba(171, 34, 41, 0.4);
     pointer-events: none;
+    z-index: 999998;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+    transition: all 0.25s ease;
+}
 
-    z-index: 99999;
+/* Hover effect on interactive elements */
+a:hover,
+button:hover,
+input:hover,
+textarea:hover,
+.cursor-hover {
+    cursor: none !important;
+}
 
-    transform:
-        translate(-50%, -50%);
+#custom-cursor.hover {
+    transform: translate(-50%, -50%) scale(1.8);
+    background: rgba(171, 34, 41, 0.9);
+}
 
-    transition:
-        width 0.3s,
-        height 0.3s,
-        background 0.3s;
-
+#cursor-blur.hover {
+    width: 50px;
+    height: 50px;
+    background: rgba(171, 34, 41, 0.15);
+    border-color: rgba(171, 34, 41, 0.6);
 }
 
 /* ========================================================================
