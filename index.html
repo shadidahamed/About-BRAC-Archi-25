@@ -3,64 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BRACU Archi Summer '26 | Graduate Archive</title>
-    <meta name="description" content="Premium digital archive celebrating the graduating architects of BRAC University Summer 2026.">
+    <title>BRACU Archi Summer '26 | Secure Portal</title>
+    <meta name="description" content="Secure, high-performance digital archive and private communication portal for BRAC University Architecture graduates.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="style.css">
 </head>
 <body class="loading">
 
-    <div id="preloader">
+    <div id="preloader" aria-hidden="true">
         <div class="preloader-content">
             <div class="spinner"></div>
-            <div class="preload-text">LOADING ARCHIVE</div>
+            <div class="preload-text">BOOTING SECURE NETWORK</div>
         </div>
     </div>
 
     <div id="custom-cursor"></div>
     <div id="cursor-blur"></div>
 
-    <div id="audio-control" class="audio-toggle" title="Toggle Ambient Soundscape">
-        <div class="sound-wave">
-            <span></span><span></span><span></span><span></span>
-        </div>
-        <span class="audio-text">AUDIO: OFF</span>
-    </div>
-
-    <div class="floating-dock">
-        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-    </div>
-
     <header class="navbar-wrapper">
         <nav class="navbar container">
+            
+            <button class="hamburger" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobile-nav-menu">
+                <span></span><span></span><span></span>
+            </button>
+
             <div class="nav-logo" data-target="home">
                 <span class="logo-gfx"><i class="fa-solid fa-compass-drafting"></i></span>
-                <span class="logo-text">BRACU <span class="text-glow">ARCHI SUMMER '26</span></span>
+                <span class="logo-text">BRACU <span class="text-glow">ARCHI '26</span></span>
             </div>
             
-            <ul class="nav-links">
+            <ul class="nav-links" id="desktop-nav-menu">
                 <li><a href="#home" class="nav-link active" data-target="home">Home</a></li>
                 <li><a href="#about" class="nav-link" data-target="about">About</a></li>
-                <li><a href="#students" class="nav-link" data-target="students">Architects</a></li>
-                <li><a href="#videos" class="nav-link" data-target="videos">Videos</a></li>
-                <li><a href="#developers" class="nav-link" data-target="developers">Developers</a></li>
-                <li><a href="#designers" class="nav-link" data-target="designers">Designers</a></li>
+                <li><a href="#students" class="nav-link" data-target="students">Architects Directory</a></li>
+                <li><a href="#videos" class="nav-link" data-target="videos">Exhibitions</a></li>
                 <li><a href="#contact" class="nav-link" data-target="contact">Contact</a></li>
             </ul>
 
-            <div class="nav-actions">
-                <button class="btn btn-nav auth-trigger-toggle" id="global-auth-btn"><i class="fa-solid fa-lock"></i> Portal Login</button>
-                <button class="hamburger" aria-label="Toggle Navigation Menu">
-                    <span></span><span></span><span></span>
+            <div class="nav-actions-desktop">
+                <button class="btn btn-nav auth-trigger-modal" id="nav-login-btn">
+                    <i class="fa-solid fa-key"></i> <span class="auth-btn-text">Portal Login</span>
                 </button>
             </div>
         </nav>
+
+        <div class="mobile-nav-drawer" id="mobile-nav-menu" aria-hidden="true">
+            <div class="drawer-inner">
+                <ul class="mobile-drawer-links">
+                    <li><a href="#home" data-target="home" class="drawer-close-route">Home</a></li>
+                    <li><a href="#about" data-target="about" class="drawer-close-route">About</a></li>
+                    <li><a href="#students" data-target="students" class="drawer-close-route">Architects Directory</a></li>
+                    <li><a href="#videos" data-target="videos" class="drawer-close-route">Exhibitions</a></li>
+                    <li><a href="#contact" data-target="contact" class="drawer-close-route">Contact</a></li>
+                </ul>
+                <div class="mobile-drawer-actions">
+                    <button class="btn btn-primary btn-block auth-trigger-modal" id="mobile-drawer-login-btn">
+                        <i class="fa-solid fa-key"></i> <span class="auth-btn-text">Portal Login</span>
+                    </button>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main class="spa-view-container">
@@ -74,12 +78,12 @@
             
             <div class="container hero-container">
                 <div class="hero-content">
-                    <span class="section-label"><i class="fa-solid fa-graduation-cap"></i> BATCH SUMMER 2026 // GRADUATION SHOWCASE</span>
-                    <h1>Architectural Innovation <span class="text-gradient">Redefined</span>.</h1>
-                    <p>Welcome to the official digital showcase platform for BRAC University's Department of Architecture, Batch Summer 2026. Explore our portfolio of design solutions, research projects, and sustainable developments.</p>
+                    <span class="section-label"><i class="fa-solid fa-shield-halved"></i> SECURE DEPLOYMENT ENDPOINT</span>
+                    <h1>Architectural Archive <span class="text-gradient">& Network</span>.</h1>
+                    <p>A dynamically managed index of the graduating design architects of BRAC University, Summer 2026. Powered by an isolated profile architecture configuration.</p>
                     <div class="hero-actions">
-                        <button class="btn btn-primary" data-target="students">Explore Archive</button>
-                        <button class="btn btn-secondary" data-target="about">Our Philosophy</button>
+                        <button class="btn btn-primary" data-target="students">Browse Directory</button>
+                        <button class="btn btn-secondary" data-target="about">System Manifest</button>
                     </div>
                 </div>
 
@@ -88,11 +92,8 @@
                         <div class="rotating-ring ring-outer"></div>
                         <div class="rotating-ring ring-inner"></div>
                         <div class="core-globe">
-                            <i class="fa-solid fa-city architecture-center-icon"></i>
+                            <i class="fa-solid fa-cubes architecture-center-icon"></i>
                         </div>
-                        <div class="floating-particle p1"></div>
-                        <div class="floating-particle p2"></div>
-                        <div class="floating-particle p3"></div>
                     </div>
                 </div>
             </div>
@@ -100,53 +101,24 @@
 
         <section id="about" class="spa-section">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-label"><i class="fa-solid fa-circle-info"></i> ABOUT THE COHORT</span>
-                    <h2>Academic Vision & Community Goals</h2>
+                <div class="section-header centered-element">
+                    <span class="section-label"><i class="fa-solid fa-university"></i> INSTITUTIONAL OBJECTIVE</span>
+                    <h2>Dynamic Data Architecture</h2>
                 </div>
                 
-                <div class="about-layout">
-                    <div class="about-text">
-                        <p class="lead-text">The Department of Architecture at BRAC University trains professionals to face local, regional, and global challenges with creative responsibility.</p>
-                        <p>Our platform indexes, highlights, and preserves the creative achievements, studio projects, and thesis presentations of our students. By bridging computational planning with sustainable construction methods, we seek to develop long-term spatial models that honor context and climate conditions.</p>
-                        
-                        <div class="stats-counter-grid">
-                            <div class="stat-box glass">
-                                <div class="icon-container-mini"><i class="fa-solid fa-calendar-days"></i></div>
-                                <div><span class="counter" data-target="5">0</span><span class="suffix"> Yrs</span></div>
-                                <p>Rigorous Study</p>
-                            </div>
-                            <div class="stat-box glass">
-                                <div class="icon-container-mini"><i class="fa-solid fa-user-graduate"></i></div>
-                                <div><span class="counter" data-target="180">0</span></div>
-                                <p>Creative Minds</p>
-                            </div>
-                            <div class="stat-box glass">
-                                <div class="icon-container-mini"><i class="fa-solid fa-building-columns"></i></div>
-                                <div><span class="counter" data-target="12">0</span><span class="suffix">+</span></div>
-                                <p>Studio Labs</p>
-                            </div>
-                        </div>
+                <div class="about-layout-grid">
+                    <div class="about-text-panel">
+                        <p class="lead-paragraph">This platform utilizes isolated client state validation modeling to scale profile interfaces instantly for entire graduating cohorts.</p>
+                        <p>Rather than relying on manual file creation routines for hundreds of separate graduates, our platform evaluates structural database dictionaries on demand. This programmatic technique completely removes page weight bottlenecks, while establishing isolated cryptographic routing maps across both administrative records and internal group communications.</p>
                     </div>
-
-                    <div class="about-cards-wrapper">
-                        <div class="glass-card objective-card">
-                            <div class="card-icon"><i class="fa-solid fa-leaf"></i></div>
-                            <h3>Sustainable Design</h3>
-                            <p>Developing climate-adaptive solutions engineered to handle localized shifts and environmental systems naturally.</p>
-                            <div class="progress-wrapper">
-                                <div class="progress-bar-lbl"><span>Environmental Analysis Optimization</span><span>94%</span></div>
-                                <div class="progress-track"><div class="progress-fill" style="width: 94%"></div></div>
-                            </div>
+                    <div class="about-stats-panel">
+                        <div class="stat-glass-card">
+                            <span class="counter" data-target="250">0</span><span class="suffix">+</span>
+                            <p>Autogenerated Dashboards</p>
                         </div>
-                        <div class="glass-card objective-card">
-                            <div class="card-icon"><i class="fa-solid fa-cubes"></i></div>
-                            <h3>Computational Modeling</h3>
-                            <p>Using parametric layout systems to optimize complex geometry and map ecological data sets securely.</p>
-                            <div class="progress-wrapper">
-                                <div class="progress-bar-lbl"><span>Parametric Modeling Precision</span><span>88%</span></div>
-                                <div class="progress-track"><div class="progress-fill" style="width: 88%"></div></div>
-                            </div>
+                        <div class="stat-glass-card">
+                            <span class="counter" data-target="100">0</span><span class="suffix">%</span>
+                            <p>Data Isolation Security</p>
                         </div>
                     </div>
                 </div>
@@ -155,160 +127,47 @@
 
         <section id="students" class="spa-section">
             <div class="container">
-                <div class="section-header-row">
-                    <div class="section-header">
-                        <span class="section-label"><i class="fa-solid fa-users"></i> STUDENT HUB</span>
-                        <h2>The Graduate Directory</h2>
-                        <p class="admin-session-alert" id="session-badge"><i class="fa-solid fa-user-gear"></i> Administrative Editing Session Active</p>
+                <div class="directory-control-header">
+                    <div class="header-titles">
+                        <span class="section-label"><i class="fa-solid fa-users"></i> COHORT RECORDS</span>
+                        <h2>Graduate Profiles</h2>
                     </div>
-                    <div class="filter-system-wrapper">
-                        <div class="search-box-wrapper glass">
+                    
+                    <div class="search-filter-dock">
+                        <div class="search-field-wrapper glass">
                             <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                            <input type="text" id="student-search" placeholder="Search by name, ID, or focus area...">
+                            <input type="text" id="directory-search" placeholder="Search by name, tracking ID, or studio...">
                         </div>
-                        <div class="filter-tabs">
-                            <button class="filter-tab active" data-filter="all">All Studios</button>
-                            <button class="filter-tab" data-filter="Studio IX">Studio IX</button>
-                            <button class="filter-tab" data-filter="Studio X">Studio X</button>
+                        <div class="filter-tab-row">
+                            <button class="filter-btn active" data-filter="all">All Profiles</button>
+                            <button class="filter-btn" data-filter="student">Students</button>
+                            <button class="filter-btn" data-filter="architect">Architects</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="student-matrix-grid" id="student-matrix-target"></div>
+                <div class="directory-matrix-render-grid" id="profile-cards-mounting-point"></div>
             </div>
         </section>
 
         <section id="videos" class="spa-section">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-label"><i class="fa-solid fa-video"></i> MEDIA SHOWCASE</span>
-                    <h2>Thesis Exhibitions & Event Reels</h2>
+                <div class="section-header centered-element">
+                    <span class="section-label"><i class="fa-solid fa-video"></i> CINEMATIC STREAM</span>
+                    <h2>Thesis Review Exhibitions</h2>
                 </div>
 
-                <div class="video-tabs-wrapper">
-                    <button class="video-tab active" data-vcat="all"><i class="fa-solid fa-list"></i> All Media</button>
-                    <button class="video-tab" data-vcat="showcase"><i class="fa-solid fa-award"></i> Thesis Features</button>
-                    <button class="video-tab" data-vcat="studio"><i class="fa-solid fa-chalkboard-user"></i> Studio Reviews</button>
-                </div>
-
-                <div class="video-showcase-slider">
-                    <div class="video-card-wrapper glass" data-vcat="showcase">
-                        <div class="video-thumbnail-container">
-                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Thesis Trailer" class="thumb-img">
-                            <div class="video-overlay-actions">
-                                <button class="play-trigger-btn" data-video-url="https://www.youtube.com/embed/dQw4w9WgXcQ"><i class="fa-solid fa-play"></i> Play Presentation</button>
-                            </div>
-                            <span class="duration-badge">03:45</span>
+                <div class="video-grid-layout">
+                    <div class="video-card glass-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Thesis Presentation Visualizer">
+                            <button class="play-overlay-trigger" data-video-src="https://www.youtube.com/embed/dQw4w9WgXcQ">
+                                <i class="fa-solid fa-play"></i> Launch Stream
+                            </button>
                         </div>
-                        <div class="video-meta-body">
-                            <h3>Thesis Project Exhibition Trailer</h3>
-                            <p>A compilation video highlighting design solutions for regional development and sustainable urban planning.</p>
-                            <div class="video-footer-stats">
-                                <span><i class="fa-regular fa-heart"></i> 1,240 Likes</span>
-                                <span><i class="fa-regular fa-share-from-square"></i> Share</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="video-card-wrapper glass" data-vcat="studio">
-                        <div class="video-thumbnail-container">
-                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Studio Walkthrough" class="thumb-img">
-                            <div class="video-overlay-actions">
-                                <button class="play-trigger-btn" data-video-url="https://www.youtube.com/embed/dQw4w9WgXcQ"><i class="fa-solid fa-play"></i> Watch Walkthrough</button>
-                            </div>
-                            <span class="duration-badge">05:20</span>
-                        </div>
-                        <div class="video-meta-body">
-                            <h3>Studio X Design Portfolio Review</h3>
-                            <p>An inside look into our computational design workspace, architectural model reviews, and open jury presentations.</p>
-                            <div class="video-footer-stats">
-                                <span><i class="fa-regular fa-heart"></i> 948 Likes</span>
-                                <span><i class="fa-regular fa-share-from-square"></i> Share</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="developers" class="spa-section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label"><i class="fa-solid fa-code"></i> ENGINEERING TEAM</span>
-                    <h2>Platform Developers</h2>
-                </div>
-
-                <div class="dev-cards-grid">
-                    <div class="dev-profile-card glass-card">
-                        <div class="dev-avatar-frame">
-                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80" alt="Lead Web Architect">
-                            <span class="sys-role-badge">Lead Developer</span>
-                        </div>
-                        <div class="dev-profile-content">
-                            <h3>Sadeed Ahmed</h3>
-                            <p class="dev-bio">Responsible for building the high-performance application layout, user interface components, responsive styles, and interactive state systems.</p>
-                            
-                            <div class="dev-stats-strip">
-                                <div><strong>48+</strong><small>Completed Works</small></div>
-                                <div><strong>100%</strong><small>Performance Index</small></div>
-                            </div>
-
-                            <div class="skill-bars-stack">
-                                <div class="skill-bar-item">
-                                    <div class="s-info"><span>Frontend Application Architecture</span><span>98%</span></div>
-                                    <div class="s-track"><div class="s-fill" style="width: 98%"></div></div>
-                                </div>
-                                <div class="skill-bar-item">
-                                    <div class="s-info"><span>Interactive UI Components</span><span>92%</span></div>
-                                    <div class="s-track"><div class="s-fill" style="width: 92%"></div></div>
-                                </div>
-                            </div>
-
-                            <div class="dev-social-matrix">
-                                <a href="https://github.com" target="_blank" class="dev-icon-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                                <a href="https://linkedin.com" target="_blank" class="dev-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                                <button class="btn btn-primary btn-sm spa-route-btn" data-target="contact">Message</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="designers" class="spa-section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label"><i class="fa-solid fa-bezier-curve"></i> IDENTITY & DESIGN LAB</span>
-                    <h2>Visual Designers</h2>
-                </div>
-
-                <div class="designers-showcase-layout">
-                    <div class="designer-profile-deck">
-                        <div class="designer-hero-card glass-card">
-                            <div class="d-avatar-row">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80" alt="Visual Identity Lead" class="d-avatar">
-                                <div>
-                                    <h3>Nabil Chowdhury</h3>
-                                    <p class="specialty-txt">Brand & Graphic Identity Specialist</p>
-                                </div>
-                            </div>
-                            <p class="d-narrative">Developed the brand style for the Archi Summer '26 cohort, balancing strict structural forms with clean layout lines to represent our collective design voice.</p>
-                            <div class="d-portfolio-links">
-                                <a href="https://behance.net" target="_blank" class="designer-icon-link"><i class="fa-brands fa-behance"></i> Behance</a>
-                                <a href="https://dribbble.com" target="_blank" class="designer-icon-link"><i class="fa-brands fa-dribbble"></i> Dribbble</a>
-                                <a href="https://instagram.com" target="_blank" class="designer-icon-link"><i class="fa-brands fa-instagram"></i> Instagram</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-showcase-matrix">
-                        <div class="gallery-item-frame glass">
-                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="Brand Book Draft" class="gallery-zoom-img">
-                            <div class="gallery-item-overlay"><h4>Cohort Visual Identity Proposal</h4></div>
-                        </div>
-                        <div class="gallery-item-frame glass">
-                            <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=600&q=80" alt="Exhibition Poster Layout" class="gallery-zoom-img">
-                            <div class="gallery-item-overlay"><h4>Exhibition Typography System</h4></div>
+                        <div class="video-body">
+                            <h3>Summer '26 Virtual Design Jury Reel</h3>
+                            <p>A compilation of computational planning and parametric design proposals assessed by the international guest panel.</p>
                         </div>
                     </div>
                 </div>
@@ -317,64 +176,153 @@
 
         <section id="contact" class="spa-section">
             <div class="container">
-                <div class="contact-layout-wrapper">
-                    <div class="contact-intel-side">
-                        <span class="section-label"><i class="fa-solid fa-paper-plane"></i> COMMUNICATIONS</span>
-                        <h2>Get in Touch</h2>
-                        <p>Contact the department community, verify graduate project links, or request academic partnerships directly through this secure message system.</p>
+                <div class="contact-split-layout">
+                    <div class="contact-info-column">
+                        <span class="section-label"><i class="fa-solid fa-paper-plane"></i> CORE COMMUNICATOR</span>
+                        <h2>Secure Synapse Terminal</h2>
+                        <p>General communications submitted through this form are forwarded directly to the centralized operations team email dispatch desk.</p>
                         
-                        <div class="intel-cards-stack">
-                            <div class="intel-card glass">
-                                <div class="icon-container-premium"><i class="fa-solid fa-envelope"></i></div>
-                                <div>
-                                    <h4>GENERAL ADMIN PANEL ENQUIRIES</h4>
-                                    <p><a href="mailto:archisummer26@bracu.ac.bd">archisummer26@bracu.ac.bd</a></p>
-                                </div>
+                        <div class="comms-alert-card glass">
+                            <i class="fa-solid fa-shield-halved fallback-icon-color"></i>
+                            <div>
+                                <h4>ADMIN ROUTE TARGET</h4>
+                                <p class="admin-email-text">archisummer26@bracu.ac.bd</p>
                             </div>
-                            <div class="intel-card glass">
-                                <div class="icon-container-premium"><i class="fa-solid fa-hashtag"></i></div>
-                                <div>
-                                    <h4>COMMUNITY PATHWAYS</h4>
-                                    <p><a href="https://discord.com" target="_blank">Join Discord Community</a> / <a href="https://telegram.org" target="_blank">Telegram Portal</a></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="maps-mock-frame glass">
-                            <div class="radar-ping"></div>
-                            <span><i class="fa-solid fa-location-dot"></i> BRAC UNIVERSITY CAMPUS // DHAKA, BANGLADESH</span>
                         </div>
                     </div>
 
-                    <div class="contact-form-side glass-card">
-                        <form id="synapse-terminal-form" action="https://formsubmit.co/archisummer26@bracu.ac.bd" method="POST" novalidate>
-                            <input type="hidden" name="_subject" value="New General Portal Query Recieved">
+                    <div class="contact-form-column glass-card">
+                        <form id="general-contact-terminal" action="https://formsubmit.co/archisummer26@bracu.ac.bd" method="POST" novalidate>
+                            <input type="hidden" name="_subject" value="Centralized System Portal Communication Alert">
                             <input type="hidden" name="_captcha" value="false">
                             
-                            <div class="input-glow-group">
-                                <input type="text" id="form-name" name="name" required placeholder=" ">
-                                <label for="form-name">Full Name</label>
-                                <span class="err-msg">Please enter your name.</span>
+                            <div class="input-element-container">
+                                <input type="text" id="sender-name" name="name" required placeholder=" ">
+                                <label for="sender-name">Your Full Name</label>
+                                <span class="validation-error-label">Name field is required.</span>
                             </div>
-                            <div class="input-glow-group">
-                                <input type="email" id="form-email" name="email" required placeholder=" ">
-                                <label for="form-email">Email Address</label>
-                                <span class="err-msg">Please enter a valid email address.</span>
+                            <div class="input-element-container">
+                                <input type="email" id="sender-email" name="email" required placeholder=" ">
+                                <label for="sender-email">Your Email Address</label>
+                                <span class="validation-error-label">Valid email address is required.</span>
                             </div>
-                            <div class="input-glow-group">
-                                <textarea id="form-msg" name="message" rows="5" required placeholder=" "></textarea>
-                                <label for="form-msg">Message</label>
-                                <span class="err-msg">Message content field cannot be empty.</span>
+                            <div class="input-element-container">
+                                <textarea id="sender-message" name="message" rows="4" required placeholder=" "></textarea>
+                                <label for="sender-message">Message Details</label>
+                                <span class="validation-error-label">Message box cannot be blank.</span>
                             </div>
+                            
                             <button type="submit" class="btn btn-primary btn-block">
-                                <span class="btn-text">Send Message</span>
-                                <div class="btn-loading-ring"></div>
+                                <span class="btn-text-content">Submit Message</span>
+                                <div class="btn-spinner-ring"></div>
                             </button>
                         </form>
-                        <div id="form-success-feedback" class="success-screen">
-                            <div class="success-icon"><i class="fa-solid fa-check"></i></div>
-                            <h3>Message Sent Successfully</h3>
-                            <p>Your details have been registered. The cohort administration team will respond shortly.</p>
+                        
+                        <div id="terminal-success-view" class="form-success-overlay">
+                            <i class="fa-solid fa-circle-check success-gfx"></i>
+                            <h3>Transmission Complete</h3>
+                            <p>Data packet has been delivered to the administrative dashboard inbox system.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dashboard" class="spa-section private-access-only">
+            <div class="container">
+                <div class="dashboard-control-wrapper">
+                    
+                    <div class="dashboard-user-hero glass-card">
+                        <div class="user-profile-summary-row">
+                            <div class="user-avatar-placeholder-frame" id="dash-avatar-preview-box">
+                                <i class="fa-solid fa-user-gear fallback-avatar-icon"></i>
+                            </div>
+                            <div class="user-textual-meta">
+                                <div class="badge-row">
+                                    <span class="user-type-tag" id="dash-account-type-badge">ACCOUNT POOL</span>
+                                    <span class="security-clearance-tag"><i class="fa-solid fa-circle-check"></i> ISOLATED SESSION ACTIVE</span>
+                                </div>
+                                <h2 id="dash-welcome-title">User Account Shell</h2>
+                                <p class="user-system-id-label">Tracking Signature: <span id="dash-system-id-string">N/A</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-workspace-grid">
+                        
+                        <div class="workspace-settings-column glass-card">
+                            <div class="workspace-card-header">
+                                <h3><i class="fa-solid fa-sliders"></i> Modify Account Records</h3>
+                                <p>All modifications target the structural application memory stack directly.</p>
+                            </div>
+
+                            <div class="settings-form-stack">
+                                <div class="input-element-container">
+                                    <input type="text" id="dash-input-name" placeholder=" ">
+                                    <label for="dash-input-name">Public Display Name</label>
+                                </div>
+                                <div class="input-element-container">
+                                    <input type="text" id="dash-input-focus" placeholder=" ">
+                                    <label for="dash-input-focus">Thesis Specialization Focus / Sub-department Title</label>
+                                </div>
+                                <div class="input-element-container">
+                                    <input type="text" id="dash-input-merit" placeholder=" ">
+                                    <label for="dash-input-merit">Merit Order / System Priority Position</label>
+                                </div>
+                                
+                                <div class="profile-image-instruction-notice glass">
+                                    <h5><i class="fa-solid fa-circle-info"></i> Profile Picture & Storage Architecture</h5>
+                                    <p>Because frontend client scripts lack direct system file storage access to inject binaries permanently into active server codebases, a specialized media container setup is required. To configure permanent asset updates, connect a persistent external data engine (e.g., Cloudinary, Firebase Storage, or AWS S3 buckets) to store uploaded images and assign the resulting web links directly into the field below.</p>
+                                    <div class="input-element-container url-field-spacing">
+                                        <input type="text" id="dash-input-img-url" placeholder=" ">
+                                        <label for="dash-input-img-url">External Profile Image Asset URL</label>
+                                    </div>
+                                </div>
+
+                                <h4 class="form-subsection-title">Communication Vector Badge Linkages</h4>
+                                <p class="form-subsection-subtitle">Blank string fields instantly remove the corresponding layout icon asset from public profile cards.</p>
+
+                                <div class="social-inputs-grid">
+                                    <div class="input-element-container"><input type="text" id="dash-link-git" placeholder=" "><label><i class="fa-brands fa-github"></i> GitHub URL</label></div>
+                                    <div class="input-element-container"><input type="text" id="dash-link-lnk" placeholder=" "><label><i class="fa-brands fa-linkedin-in"></i> LinkedIn URL</label></div>
+                                    <div class="input-element-container"><input type="text" id="dash-link-gmail" placeholder=" "><label><i class="fa-solid fa-envelope"></i> Public Gmail</label></div>
+                                    <div class="input-element-container"><input type="text" id="dash-link-fb" placeholder=" "><label><i class="fa-brands fa-facebook-f"></i> Facebook Link</label></div>
+                                    <div class="input-element-container"><input type="text" id="dash-link-wa" placeholder=" "><label><i class="fa-brands fa-whatsapp"></i> WhatsApp Number</label></div>
+                                </div>
+
+                                <button type="button" class="btn btn-primary btn-block" id="dash-save-settings-btn">
+                                    Commit Account Changes
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="workspace-chat-column glass-card">
+                            <div class="workspace-card-header">
+                                <div class="chat-header-identity">
+                                    <h3><i class="fa-solid fa-comments"></i> Private Sync Space</h3>
+                                    <span class="secure-network-badge"><i class="fa-solid fa-lock"></i> CLOSED ARCHIVE MESH</span>
+                                </div>
+                                <p>Encrypted messaging channel running inside current user authentication scopes.</p>
+                            </div>
+
+                            <div class="chat-messages-viewport" id="chat-stream-render-box">
+                                <div class="chat-system-status-bubble">
+                                    <i class="fa-solid fa-shield-halved"></i> Terminal connection authorized. Welcome to the isolated network room.
+                                </div>
+                            </div>
+
+                            <div class="chat-input-control-deck">
+                                <div class="chat-utility-row">
+                                    <button class="chat-util-btn" id="chat-voice-trigger" title="Transmit Voice Clip Simulation"><i class="fa-solid fa-microphone"></i></button>
+                                    <button class="chat-util-btn" id="chat-image-trigger" title="Simulate File Attachment"><i class="fa-solid fa-image"></i></button>
+                                    <button class="chat-util-btn" id="chat-emoji-trigger" title="Select Reactions"><i class="fa-solid fa-face-smile"></i></button>
+                                </div>
+                                <div class="chat-entry-row">
+                                    <input type="text" id="chat-message-input-field" placeholder="Transmit secure message token across session..." autocomplete="off">
+                                    <button class="chat-send-btn" id="chat-transmit-action-btn" aria-label="Send Message"><i class="fa-solid fa-paper-plane"></i></button>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -383,112 +331,68 @@
 
     </main>
 
-    <div class="video-modal-overlay" id="auth-modal">
-        <div class="modal-box-containment glass user-auth-card">
-            <button class="modal-close-trigger" id="close-auth-trigger"><i class="fa-solid fa-xmark"></i></button>
-            <div class="auth-card-body">
-                <div class="auth-icon-header"><i class="fa-solid fa-shield-halved"></i></div>
-                <h3>Administrative Credentials</h3>
-                <p>Access restricted to cohort database management staff personnel.</p>
+    <div class="video-modal-overlay" id="portal-auth-overlay" aria-hidden="true">
+        <div class="modal-box-containment glass identity-auth-card">
+            <button class="modal-close-trigger" id="portal-auth-close-btn" aria-label="Dismiss Modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="auth-card-interior">
+                <div class="auth-icon-shield"><i class="fa-solid fa-fingerprint"></i></div>
+                <h3>Identity Credentials Authentication</h3>
+                <p>Provide your distinct tracking identifier signature and authorization token keys to initialize account dashboard scopes.</p>
                 
-                <div class="input-glow-group">
-                    <input type="text" id="auth-id-input" placeholder=" " autocomplete="off">
-                    <label for="auth-id-input">Portal Identifier ID</label>
+                <div class="input-element-container">
+                    <input type="text" id="auth-id-input-field" placeholder=" " autocomplete="off" required>
+                    <label for="auth-id-input-field">Unique User Login ID</label>
                 </div>
-                <div class="input-glow-group">
-                    <input type="password" id="auth-pass-input" placeholder=" ">
-                    <label for="auth-pass-input">Security Password</label>
+                <div class="input-element-container">
+                    <input type="password" id="auth-password-input-field" placeholder=" " required>
+                    <label for="auth-password-input-field">Security Password Key</label>
                 </div>
-                <div class="auth-error-panel" id="auth-error-output">Invalid Identification Signatures.</div>
-                <button class="btn btn-primary btn-block" id="execute-auth-action">Authenticate Pipeline</button>
+                
+                <div class="auth-error-feedback-banner" id="auth-error-output-node">
+                    <i class="fa-solid fa-triangle-exclamation"></i> Signature Mismatch. Access validation sequence denied.
+                </div>
+                
+                <button type="button" class="btn btn-primary btn-block" id="auth-execute-handshake-btn">
+                    Verify Portal Signatures
+                </button>
             </div>
         </div>
     </div>
 
-    <div class="video-modal-overlay" id="editor-workbench-modal">
-        <div class="modal-box-containment glass workbench-modal-card">
-            <button class="modal-close-trigger" id="close-workbench-trigger"><i class="fa-solid fa-xmark"></i></button>
-            <div class="workbench-body">
-                <h3><i class="fa-solid fa-pen-to-square"></i> Modify Graduate Architect Context</h3>
-                <p style="font-size:0.8rem; color:var(--text-muted-gray); margin-bottom:20px;">Edits update the client-side memory schema array directly.</p>
-                
-                <input type="hidden" id="edit-index-target">
-                
-                <div class="input-glow-group">
-                    <input type="text" id="edit-name" placeholder=" ">
-                    <label for="edit-name">Member Name</label>
-                </div>
-                <div class="input-glow-group">
-                    <input type="text" id="edit-focus" placeholder=" ">
-                    <label for="edit-focus">Merit Focus / Thesis Specialization</label>
-                </div>
-                <div class="input-glow-group">
-                    <input type="text" id="edit-img" placeholder=" ">
-                    <label for="edit-img">Profile Image Asset Source URL</label>
-                </div>
-                
-                <h4 class="workbench-sub">Configure Active Contact Pathways</h4>
-                <p style="font-size:0.75rem; color:var(--text-muted-gray); margin-bottom:15px;">Leave fields completely empty to block deployment metrics for that icon link badge.</p>
-                
-                <div class="workbench-links-grid">
-                    <div class="input-glow-group"><input type="text" id="link-git" placeholder=" "><label><i class="fa-brands fa-github"></i> GitHub URL</label></div>
-                    <div class="input-glow-group"><input type="text" id="link-lnk" placeholder=" "><label><i class="fa-brands fa-linkedin-in"></i> LinkedIn URL</label></div>
-                    <div class="input-glow-group"><input type="text" id="link-gmail" placeholder=" "><label><i class="fa-solid fa-envelope"></i> Gmail Address</label></div>
-                    <div class="input-glow-group"><input type="text" id="link-fb" placeholder=" "><label><i class="fa-brands fa-facebook-f"></i> Facebook URL</label></div>
-                    <div class="input-glow-group"><input type="text" id="link-wa" placeholder=" "><label><i class="fa-brands fa-whatsapp"></i> WhatsApp Number</label></div>
-                </div>
-
-                <button class="btn btn-primary btn-block" id="commit-workbench-changes">Save Profile Schema</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="video-modal-overlay" id="cinema-modal">
+    <div class="video-modal-overlay" id="cinematic-lightbox-overlay" aria-hidden="true">
         <div class="modal-box-containment glass">
-            <button class="modal-close-trigger"><i class="fa-solid fa-xmark"></i></button>
-            <div class="iframe-fluid-aspect">
-                <iframe src="" id="modal-video-frame" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <button class="modal-close-trigger" id="lightbox-close-btn" aria-label="Close Media Overlay"><i class="fa-solid fa-xmark"></i></button>
+            <div class="iframe-fluid-aspect-ratio">
+                <iframe src="" id="lightbox-iframe-target" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 
     <footer class="footer-matrix">
-        <div class="container footer-grid">
-            <div class="footer-brand-column">
+        <div class="container footer-grid-layout">
+            <div class="footer-brand-summary">
                 <div class="nav-logo" data-target="home">
                     <span class="logo-gfx"><i class="fa-solid fa-compass-drafting"></i></span>
-                    <span class="logo-text">BRACU <span class="text-glow">ARCHI SUMMER '26</span></span>
+                    <span class="logo-text">BRACU <span class="text-glow">ARCHI '26</span></span>
                 </div>
-                <p class="f-desc">Preserving and presenting spatial achievements through high-performance responsive web environments.</p>
-                <form class="newsletter-form" action="https://formsubmit.co/archisummer26@bracu.ac.bd" method="POST">
-                    <input type="email" name="newsletter_email" placeholder="Subscribe to updates" required class="glass">
-                    <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
-                </form>
+                <p class="footer-narrative-text">High-performance scalable architecture layout celebrating the computational achievements of Summer 2026 graduates.</p>
             </div>
             
-            <div class="footer-links-column">
-                <h4>NAVIGATION INDEX</h4>
+            <div class="footer-index-links">
+                <h4>PORTAL MAP</h4>
                 <ul>
-                    <li><a href="#home" data-target="home"><i class="fa-solid fa-chevron-right"></i> Home Deck</a></li>
-                    <li><a href="#about" data-target="about"><i class="fa-solid fa-chevron-right"></i> Academic Philosophy</a></li>
-                    <li><a href="#students" data-target="students"><i class="fa-solid fa-chevron-right"></i> Graduate Directory</a></li>
-                    <li><a href="#videos" data-target="videos"><i class="fa-solid fa-chevron-right"></i> Media Showcase</a></li>
+                    <li><a href="#home" data-target="home"><i class="fa-solid fa-angle-right"></i> Home Base</a></li>
+                    <li><a href="#about" data-target="about"><i class="fa-solid fa-angle-right"></i> Institutional Core</a></li>
+                    <li><a href="#students" data-target="students"><i class="fa-solid fa-angle-right"></i> Graduate Registry</a></li>
                 </ul>
-            </div>
-            
-            <div class="footer-credits-column">
-                <h4>PLATFORM PRODUCTION CREDITS</h4>
-                <p><strong>System Development:</strong> Sadeed Ahmed</p>
-                <p><strong>Visual Identity:</strong> Nabil Chowdhury</p>
             </div>
         </div>
 
-        <div class="container footer-baseline-row">
-            <p>&copy; 2026 BRAC University Department of Architecture. All rights reserved.</p>
-            <button class="scroll-top-trigger-btn" id="scroll-to-top-action"><i class="fa-solid fa-arrow-up-long"></i> Back To Top</button>
+        <div class="container footer-legal-baseline">
+            <p>&copy; 2026 BRAC University Department of Architecture. Secured Client System Platform Environment.</p>
+            <button class="scroll-top-btn" id="scroll-to-top-trigger" title="Return to Top Index"><i class="fa-solid fa-arrow-up-long"></i></button>
         </div>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
