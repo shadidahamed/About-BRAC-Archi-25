@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRACU ARCHI '26 | Core Portal</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>BRACU ARCHI '26 | Graduate Architects Archive</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Manrope:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="loading">
@@ -31,7 +31,7 @@
 
             <nav class="desktop-navigation-mesh">
                 <a href="#" class="nav-link active" data-target="home">Home</a>
-                <a href="#" class="nav-link" data-target="directory">Registry</a>
+                <a href="#" class="nav-link" data-target="directory">Architects</a>
                 <a href="#" class="nav-link private-access-only" data-target="dashboard">Dashboard</a>
                 <a href="#" class="nav-link private-access-only" data-target="chat">Sync Space</a>
                 <a href="#" class="nav-link" data-target="contact">Contact</a>
@@ -51,7 +51,7 @@
     <div id="mobile-nav-menu" class="mobile-drawer-overlay" aria-hidden="true">
         <nav class="mobile-drawer-link-deck">
             <a href="#" class="mobile-nav-link" data-target="home"><i class="fa-solid fa-house"></i> Home</a>
-            <a href="#" class="mobile-nav-link" data-target="directory"><i class="fa-solid fa-address-book"></i> Registry</a>
+            <a href="#" class="mobile-nav-link" data-target="directory"><i class="fa-solid fa-address-book"></i> Architects</a>
             <a href="#" class="mobile-nav-link private-access-only" data-target="dashboard"><i class="fa-solid fa-chart-columns"></i> Dashboard</a>
             <a href="#" class="mobile-nav-link private-access-only" data-target="chat"><i class="fa-solid fa-comments"></i> Sync Space</a>
             <a href="#" class="mobile-nav-link" data-target="contact"><i class="fa-solid fa-envelope"></i> Contact</a>
@@ -63,152 +63,156 @@
 
     <main class="main-viewport-shell">
 
+        <!-- HOME -->
         <section id="home" class="spa-section active">
             <div class="hero-presentation-grid">
                 <div class="hero-text-deck">
-                    <span class="hero-eyebrow-tag">Isolated Client State Validation & Profile Matrix</span>
-                    <h1>Centennial Architecture Exhibition Portal</h1>
-                    <p>Welcome to the official BRACU ARCHI '26 studio management grid. Experience deep analytical portfolio tracking, 250+ live account matrix records, and real-time mesh communications across decentralized student networks.</p>
+                    <span class="hero-eyebrow-tag">BRAC University Department of Architecture</span>
+                    <h1>Summer 2026 <span class="text-gradient">Graduate Architects</span></h1>
+                    <p>Official digital archive showcasing 225 graduating architects. Explore thesis projects, parametric designs, and sustainable innovations from the BRACU Archi cohort.</p>
                     <div class="hero-action-row">
-                        <button class="btn-primary-glow" data-target="directory">Explore Registry Grid</button>
+                        <button class="btn-primary-glow" data-target="directory">Explore Architects</button>
                         <button class="btn-secondary-outline auth-trigger-modal">Access Private Workspace</button>
                     </div>
                 </div>
                 <div class="hero-visual-frame-deck">
                     <div class="media-preview-card">
                         <div class="media-thumbnail-wrapper">
-                            <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=800&q=80" alt="Exhibition Studio Trailer">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Thesis Exhibition">
                             <button class="play-overlay-trigger" data-video-src="https://www.youtube.com/embed/dQw4w9WgXcQ">
                                 <i class="fa-solid fa-play"></i>
                             </button>
                         </div>
                         <div class="media-card-meta">
-                            <h4>Thesis Project Exhibition Trailer</h4>
-                            <p>Studio X Review • Cinematic presentation video</p>
+                            <h4>Thesis Exhibition 2026</h4>
+                            <p>Studio Showcase • Cinematic Highlight Reel</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- DIRECTORY -->
         <section id="directory" class="spa-section">
             <div class="section-header-block">
-                <h2>Dynamic Profile Matrix Render Grid</h2>
-                <p>Staggered loading sequence with real-time filtration lookups</p>
+                <h2>Graduate Architects Directory</h2>
+                <p>225 visionary architects • Real-time profile matrix</p>
             </div>
             
             <div class="matrix-control-dashboard-bar">
                 <div class="search-input-shell-node">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="directory-search" placeholder="Query name, system identifier UID, or tracking focus tracker...">
+                    <input type="text" id="directory-search" placeholder="Search by name, UID, or thesis focus...">
                 </div>
                 <div class="filter-tab-pill-deck">
-                    <button class="filter-btn active" data-filter="all">All Profiles</button>
-                    <button class="filter-btn" data-filter="student">Students (225)</button>
-                    <button class="filter-btn" data-filter="architect">Architect Mentors (25)</button>
+                    <button class="filter-btn active" data-filter="all">All Architects</button>
                 </div>
             </div>
 
-            <div id="profile-cards-mounting-point" class="dynamic-profile-cards-grid">
-                </div>
+            <div id="profile-cards-mounting-point" class="dynamic-profile-cards-grid"></div>
         </section>
 
+        <!-- DASHBOARD -->
         <section id="dashboard" class="spa-section private-access-only">
             <div class="dashboard-workspace-grid">
                 <div class="dashboard-side-profile-summary-deck">
                     <div class="dashboard-avatar-shell">
-                        <div id="dash-avatar-preview-box" class="avatar-preview-box"></div>
-                        <span id="dash-account-type-badge" class="user-type-tag">STUDENT</span>
+                        <div id="dash-avatar-preview-box" class="avatar-preview-box">
+                            <!-- dynamic -->
+                        </div>
+                        <span id="dash-account-type-badge" class="user-type-tag">ARCHITECT</span>
                     </div>
-                    <h3 id="dash-welcome-title">Loading Signature Authenticated Context...</h3>
+                    <h3 id="dash-welcome-title">Welcome, Architect</h3>
                     <div class="identity-tracking-row">
-                        <i class="fa-solid fa-fingerprint"></i> <span id="dash-system-id-string">STU26000</span>
+                        <i class="fa-solid fa-fingerprint"></i> <span id="dash-system-id-string">ARC26001</span>
                     </div>
                 </div>
 
                 <div class="dashboard-editor-frame-workbench">
                     <div class="workbench-header">
-                        <h3>Dashboard & Editor Frame Workbench</h3>
-                        <p>Isolated dashboard updates • Volatile state management matrix tracking rules</p>
+                        <h3>Profile Management Studio</h3>
+                        <p>Update your professional portfolio • Changes sync live across the archive</p>
                     </div>
                     <div class="workbench-form-layout">
                         <div class="form-input-group-row">
                             <div class="form-field-unit">
-                                <label>Profile Student/Mentor Full Name</label>
+                                <label>Full Name</label>
                                 <input type="text" id="dash-input-name">
                             </div>
                             <div class="form-field-unit">
-                                <label>Architectural Focus / Studio Track Title</label>
+                                <label>Thesis Focus / Specialization</label>
                                 <input type="text" id="dash-input-focus">
                             </div>
                         </div>
+
                         <div class="form-input-group-row">
                             <div class="form-field-unit">
-                                <label>Institutional Placement Status / Merit Track</label>
-                                <input type="text" id="dash-input-merit" readonly style="background: rgba(255,255,255,0.03); color: var(--text-muted); cursor: not-allowed;">
+                                <label>Profile Photograph</label>
+                                <div class="image-upload-container">
+                                    <input type="file" id="dash-image-upload" accept="image/*" hidden>
+                                    <button onclick="document.getElementById('dash-image-upload').click()" class="btn-upload">
+                                        <i class="fa-solid fa-upload"></i> Upload New Photo
+                                    </button>
+                                    <small id="upload-status" style="display:block; margin-top:6px; color:var(--accent-orange);"></small>
+                                </div>
                             </div>
                             <div class="form-field-unit">
-                                <label>External Profile Photo Link (Image URL)</label>
-                                <input type="url" id="dash-input-img-url" placeholder="https://domain.com/path-to-avatar.jpg">
+                                <label>Merit / Studio Rank</label>
+                                <input type="text" id="dash-input-merit" readonly>
                             </div>
                         </div>
 
                         <div class="form-divider-line"></div>
-                        <h4 class="form-sub-heading-labels">Conditional External Network Social Badges Filtration Linked Targets</h4>
+                        <h4 class="form-sub-heading-labels">Professional Networks</h4>
 
                         <div class="form-input-group-row grid-3-cols">
                             <div class="form-field-unit">
-                                <label><i class="fa-brands fa-github"></i> GitHub Link</label>
-                                <input type="url" id="dash-link-git">
+                                <label><i class="fa-brands fa-github"></i> GitHub</label>
+                                <input type="url" id="dash-link-git" placeholder="https://github.com/...">
                             </div>
                             <div class="form-field-unit">
-                                <label><i class="fa-brands fa-linkedin-in"></i> LinkedIn URL</label>
-                                <input type="url" id="dash-link-lnk">
+                                <label><i class="fa-brands fa-linkedin-in"></i> LinkedIn</label>
+                                <input type="url" id="dash-link-lnk" placeholder="https://linkedin.com/in/...">
                             </div>
                             <div class="form-field-unit">
-                                <label><i class="fa-solid fa-envelope"></i> Institutional Mail</label>
+                                <label><i class="fa-solid fa-envelope"></i> Email</label>
                                 <input type="email" id="dash-link-gmail">
                             </div>
                         </div>
                         <div class="form-input-group-row">
                             <div class="form-field-unit">
-                                <label><i class="fa-brands fa-facebook-f"></i> Facebook Track Link</label>
+                                <label><i class="fa-brands fa-facebook-f"></i> Facebook</label>
                                 <input type="url" id="dash-link-fb">
                             </div>
                             <div class="form-field-unit">
-                                <label><i class="fa-brands fa-whatsapp"></i> WhatsApp Contact Number</label>
-                                <input type="text" id="dash-link-wa" placeholder="8801XXXXXXXXX">
+                                <label><i class="fa-brands fa-whatsapp"></i> WhatsApp</label>
+                                <input type="tel" id="dash-link-wa" placeholder="+8801XXXXXXXXX">
                             </div>
                         </div>
 
                         <button id="dash-save-settings-btn" class="btn-primary-glow form-action-submit-btn-element">
-                            <i class="fa-solid fa-circle-check"></i> Commit Workspace Metadata Modifications
+                            <i class="fa-solid fa-floppy-disk"></i> Save Profile Changes
                         </button>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- CHAT -->
         <section id="chat" class="spa-section private-access-only">
             <div class="secure-chat-network-sync-space-grid">
                 <div class="chat-system-console-wrapper-node">
                     <div class="chat-console-header-node">
                         <div class="chat-title-info-block">
-                            <h3>Secure Group Chat Network Sync Space</h3>
-                            <p class="realtime-status-subtext"><span class="pulse-indicator-node"></span> Real-time client messaging pipeline active</p>
-                        </div>
-                        <div class="test-suite-simulation-trigger-bar">
-                            <button id="chat-voice-trigger" title="Simulate Incoming Client Voice Node Clip"><i class="fa-solid fa-microphone"></i> Voice Simulation</button>
-                            <button id="chat-image-trigger" title="Simulate Incoming Attachment Payloads"><i class="fa-solid fa-paperclip"></i> Media Simulation</button>
-                            <button id="chat-emoji-trigger" title="Simulate Sync Response Echo Markers"><i class="fa-solid fa-face-smile"></i> Emoji Simulation</button>
+                            <h3>Cohort Sync Space</h3>
+                            <p class="realtime-status-subtext"><span class="pulse-indicator-node"></span> 225 Architects Online</p>
                         </div>
                     </div>
 
-                    <div id="chat-stream-render-box" class="chat-message-stream-scroller-viewport">
-                        </div>
+                    <div id="chat-stream-render-box" class="chat-message-stream-scroller-viewport"></div>
 
                     <div class="chat-messaging-input-dock-footer">
-                        <input type="text" id="chat-message-input-field" placeholder="Enter secure message string down to network synchronization layers...">
+                        <input type="text" id="chat-message-input-field" placeholder="Share thoughts with the cohort...">
                         <button id="chat-transmit-action-btn" class="chat-send-btn-node">
                             <i class="fa-solid fa-paper-plane"></i>
                         </button>
@@ -217,40 +221,37 @@
             </div>
         </section>
 
+        <!-- CONTACT -->
         <section id="contact" class="spa-section">
             <div class="contact-terminal-layout-wrapper">
                 <div class="contact-terminal-form-card">
                     <div class="terminal-card-header">
-                        <h2>Institutional Contact Terminal</h2>
-                        <p>Submit general support inquiries safely down to site administration managers</p>
+                        <h2>Department Contact</h2>
+                        <p>Reach the graduating cohort administration</p>
                     </div>
                     
                     <form id="general-contact-terminal" class="terminal-form-node" novalidate>
                         <div class="form-field-unit">
-                            <label>Full Representative Identifier Name</label>
-                            <input type="text" name="name" required placeholder="Sadeed Ahmed">
-                            <span class="validation-error-label"><i class="fa-solid fa-circle-exclamation"></i> Full name input context missing.</span>
+                            <label>Your Name</label>
+                            <input type="text" name="name" required>
                         </div>
                         <div class="form-field-unit">
-                            <label>Destination Relay Email Address</label>
-                            <input type="email" name="email" required placeholder="sadeed@example.com">
-                            <span class="validation-error-label"><i class="fa-solid fa-circle-exclamation"></i> Provide a valid destination email address mapping context string.</span>
+                            <label>Email Address</label>
+                            <input type="email" name="email" required>
                         </div>
                         <div class="form-field-unit">
-                            <label>Inquiry Description Message Block</label>
-                            <textarea name="message" rows="5" required placeholder="Write your message block text logs..."></textarea>
-                            <span class="validation-error-label"><i class="fa-solid fa-circle-exclamation"></i> Message description content blocks cannot be committed blank.</span>
+                            <label>Message</label>
+                            <textarea name="message" rows="5" required></textarea>
                         </div>
-                        
                         <button type="submit" class="btn-primary-glow terminal-submit-action">
-                            <i class="fa-solid fa-paper-plane"></i> Forward Terminal Message Package
+                            <i class="fa-solid fa-paper-plane"></i> Send Message
                         </button>
                     </form>
 
                     <div id="terminal-success-view" class="success-state-overlay-card">
                         <i class="fa-solid fa-circle-check success-icon-animation-node"></i>
-                        <h3>Transmission Package Dispatched</h3>
-                        <p>Inquiry written successfully. Terminal relay routes checked and clear.</p>
+                        <h3>Message Received</h3>
+                        <p>The administration team will respond shortly.</p>
                     </div>
                 </div>
             </div>
@@ -258,46 +259,41 @@
 
     </main>
 
-    <button id="scroll-to-top-trigger" title="Return to Core Top Coordinates"><i class="fa-solid fa-arrow-up"></i></button>
+    <button id="scroll-to-top-trigger" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
 
-    <div id="portal-auth-overlay" class="modal-gating-scaffold-overlay" aria-hidden="true">
+    <!-- AUTH MODAL -->
+    <div id="portal-auth-overlay" class="modal-gating-scaffold-overlay">
         <div class="modal-authentication-window-card">
             <button id="portal-auth-close-btn" class="modal-dismiss-close-icon"><i class="fa-solid fa-xmark"></i></button>
             <div class="auth-window-header-block">
                 <i class="fa-solid fa-shield-halved security-shield-icon-node"></i>
-                <h3>Identity Handshake Verification</h3>
-                <p>Enter your institutional credentials to generate a secure profile session token</p>
+                <h3>Architect Portal Access</h3>
+                <p>Sign in with your institutional credentials</p>
             </div>
-            
             <div class="auth-modal-form-inputs-deck">
-                <div class="screenshot-prevention-alert-badge">
-                    <i class="fa-solid fa-eye-slash"></i> SCREENSHOT PREVENTION active on workspace profiles. Manual sharing is strictly audit-logged.
-                </div>
-
                 <div id="auth-error-output-node" class="auth-processing-error-notification-bubble">
-                    <i class="fa-solid fa-triangle-exclamation"></i> Signature match failure. Check your Unique Tracking ID or account pass codes.
-                </div>
-
-                <div class="form-field-unit">
-                    <label>Unique Matrix Tracking Identifier ID</label>
-                    <input type="text" id="auth-id-input-field" placeholder="e.g., STU26001 or ARC26001" style="text-transform: uppercase;">
+                    Invalid credentials. Please try again.
                 </div>
                 <div class="form-field-unit">
-                    <label>Secured Profile Verification Password</label>
-                    <input type="password" id="auth-password-input-field" placeholder="••••••••">
+                    <label>Architect UID (e.g. ARC26001)</label>
+                    <input type="text" id="auth-id-input-field" placeholder="ARC26001" style="text-transform: uppercase;">
                 </div>
-
+                <div class="form-field-unit">
+                    <label>Password</label>
+                    <input type="password" id="auth-password-input-field">
+                </div>
                 <button id="auth-execute-handshake-btn" class="btn-primary-glow auth-execution-submit-action-btn">
-                    Execute Secure Login Handshake
+                    Sign In
                 </button>
             </div>
         </div>
     </div>
 
+    <!-- VIDEO LIGHTBOX -->
     <div id="cinematic-lightbox-overlay" class="lightbox-player-scaffold-overlay">
-        <button id="lightbox-close-btn" class="lightbox-dismiss-action-node"><i class="fa-solid fa-xmark"></i> Close Video Player</button>
+        <button id="lightbox-close-btn" class="lightbox-dismiss-action-node"><i class="fa-solid fa-xmark"></i></button>
         <div class="lightbox-iframe-media-container-shell">
-            <iframe id="lightbox-iframe-target" src="" title="Cinematic Media Viewer Frame" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe id="lightbox-iframe-target" src="" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 
