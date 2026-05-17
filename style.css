@@ -1,6 +1,6 @@
 /* =============================================
-   BRAC ARCHI SUMMER 26 - Full Style Sheet
-   Color Palette inspired by BRAC University Campus
+   BRAC ARCHI SUMMER 26 — Polished Upgrade
+   Enhanced Glassmorphism + Cinematic Experience
    ============================================= */
 
 :root {
@@ -9,9 +9,11 @@
     --beige: #E8D9C0;
     --concrete: #4A4A4A;
     --dark-bg: #0F0F0F;
-    --glass-bg: rgba(255, 255, 255, 0.09);
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.15);
     --text-light: #f0f0f0;
     --accent-green: #2E5A3F;
+    --glow-blue: rgba(42, 74, 140, 0.4);
 }
 
 * {
@@ -26,268 +28,364 @@ body {
     color: var(--text-light);
     line-height: 1.6;
     overflow-x: hidden;
+    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
 }
 
-/* ====================== GLASSMORPHIC CARDS ====================== */
+/* ====================== GLASSMORPHISM UPGRADE ====================== */
 .glass-card {
     background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 24px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--glass-border);
+    border-radius: 28px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255,255,255,0.08);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    overflow: hidden;
 }
 
 .glass-card:hover {
-    box-shadow: 0 20px 50px rgba(42, 74, 140, 0.25);
-    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 25px 60px rgba(42, 74, 140, 0.35),
+                inset 0 1px 0 rgba(255,255,255,0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-8px);
 }
 
-/* ====================== NAVBAR ====================== */
+/* ====================== SPA SECTION TRANSITIONS ====================== */
+.spa-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    pointer-events: none;
+}
+
+.spa-section.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: all;
+    position: relative;
+}
+
+/* ====================== NAVIGATION UPGRADE ====================== */
 .navbar-wrapper {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(15, 15, 15, 0.95);
-    backdrop-filter: blur(12px);
+    background: rgba(15, 15, 15, 0.85);
+    backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .navbar {
-    max-width: 1300px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 1rem 2rem;
+    padding: 1.1rem 2.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.nav-logo {
-    display: flex;
-    align-items: center;
+/* Desktop Icon Navigation */
+.desktop-nav-icons {
+    display: none;
     gap: 12px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 1.5rem;
+    align-items: center;
 }
 
-.logo-text {
-    background: linear-gradient(90deg, #E8D9C0, #fff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* ====================== TIRE 360° CAROUSEL ====================== */
-.tire-carousel {
-    position: relative;
-    height: 460px;
+.nav-icon-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #ddd;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 40px 0;
+    font-size: 1.35rem;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    backdrop-filter: blur(10px);
+}
+
+.nav-icon-btn:hover {
+    background: rgba(42, 74, 140, 0.3);
+    color: white;
+    transform: scale(1.1);
+}
+
+.nav-icon-btn.active {
+    background: var(--primary-blue);
+    color: white;
+    box-shadow: 0 0 25px var(--glow-blue);
+}
+
+/* Mobile Floating Glass Dock */
+.mobile-glass-dock {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 15, 15, 0.75);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 9999px;
+    padding: 10px 16px;
+    display: flex;
+    gap: 8px;
+    z-index: 999;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.dock-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    transition: all 0.4s ease;
+}
+
+.dock-icon.active,
+.dock-icon:hover {
+    background: var(--primary-blue);
+    color: white;
+    transform: scale(1.15) translateY(-4px);
+    box-shadow: 0 0 20px var(--glow-blue);
+}
+
+@media (min-width: 1024px) {
+    .desktop-nav-icons { display: flex; }
+    .mobile-glass-dock { display: none; }
+}
+
+/* ====================== TRUE 360° ORBITAL SYSTEM ====================== */
+.orbital-3d-container {
+    height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1400px;
+    margin: 60px 0;
     overflow: hidden;
 }
 
-.tire-ring {
+.orbital-stage {
+    position: relative;
     width: 420px;
     height: 420px;
-    border: 22px solid rgba(196, 74, 47, 0.25);
-    border-radius: 50%;
-    position: relative;
-    animation: rotateTire 40s linear infinite;
-    box-shadow: 
-        0 0 60px rgba(196, 74, 47, 0.3),
-        inset 0 0 40px rgba(255,255,255,0.1);
+    transform-style: preserve-3d;
+    animation: orbitalRotate 50s linear infinite;
 }
 
-@keyframes rotateTire {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.tire-image {
+.orbital-item {
     position: absolute;
-    width: 110px;
-    height: 110px;
+    width: 140px;
+    height: 100px;
     border-radius: 16px;
     overflow: hidden;
-    border: 4px solid #fff;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    border: 3px solid rgba(255,255,255,0.2);
     transition: all 0.4s ease;
+    backface-visibility: hidden;
+}
+
+.orbital-item img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    transition: transform 0.6s ease;
 }
 
-.tire-image:hover {
-    transform: scale(1.18) !important;
-    border-color: var(--terracotta);
-    z-index: 20;
+.orbital-item:hover {
+    box-shadow: 0 20px 50px rgba(196, 74, 47, 0.5);
+    transform: scale(1.08) !important;
 }
 
-/* ====================== STUDENT DASHBOARDS ====================== */
-.student-dashboard {
-    padding: 28px 20px;
+.orbital-item:hover img {
+    transform: scale(1.1);
+}
+
+@keyframes orbitalRotate {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+/* ====================== TILT CARDS ====================== */
+.tilt-card {
+    transition: transform 0.2s ease;
+    transform-style: preserve-3d;
+}
+
+.tilt-card:hover {
+    transform: perspective(1000px) rotateX(8deg) rotateY(8deg) translateZ(20px);
+}
+
+/* ====================== STUDENT CARDS UPGRADE ====================== */
+.students-matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.student-profile-card {
+    padding: 2rem;
     text-align: center;
     height: 100%;
 }
 
-.student-dashboard:hover {
-    transform: translateY(-15px) rotate(1.5deg);
+.student-avatar-frame {
+    margin: 1.5rem 0;
 }
 
 .student-avatar-frame img {
-    width: 145px;
-    height: 145px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid var(--terracotta);
-    margin-bottom: 18px;
-    box-shadow: 0 10px 30px rgba(196, 74, 47, 0.3);
+    border: 6px solid var(--terracotta);
+    box-shadow: 0 15px 40px rgba(196, 74, 47, 0.35);
+    transition: all 0.5s ease;
+}
+
+.student-profile-card:hover .student-avatar-frame img {
+    transform: scale(1.06);
+    border-color: #fff;
 }
 
 .student-comms-matrix-deck {
     display: flex;
     justify-content: center;
-    gap: 14px;
-    margin: 20px 0;
-    font-size: 1.5rem;
+    gap: 16px;
+    margin: 1.8rem 0;
+    font-size: 1.6rem;
 }
 
 .comms-pill-link {
-    color: #ddd;
-    transition: all 0.3s ease;
+    color: #ccc;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .comms-pill-link:hover {
     color: var(--terracotta);
-    transform: translateY(-3px);
+    transform: translateY(-6px) scale(1.2);
 }
 
-/* ====================== ACHIEVEMENTS ====================== */
-.achievement-card {
-    padding: 0;
-    overflow: hidden;
-    max-width: 380px;
+/* ====================== ACHIEVEMENT CARDS ====================== */
+.achievements-3d-stage {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
 }
 
-.achievement-card:hover {
-    transform: translateY(-12px) rotate(2deg);
+.achievement-panel {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .panel-media-window {
-    height: 240px;
-    background: #1a1a1a;
+    height: 260px;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
 }
 
-.panel-media-window img, .panel-media-window video {
+.panel-media-window img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.8s ease;
 }
 
-/* ====================== HERO & SECTIONS ====================== */
+.achievement-panel:hover .panel-media-window img {
+    transform: scale(1.08);
+}
+
+/* ====================== HERO & LAYOUT ====================== */
 .hero-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 5rem;
     align-items: center;
     min-height: 100vh;
-    padding: 100px 5%;
+    padding: 110px 5% 80px;
 }
 
 @media (max-width: 968px) {
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 3rem;
+        padding: 100px 5% 60px;
     }
 }
 
-/* ====================== RESPONSIVE ====================== */
+/* Responsive Typography */
+h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.8rem, 5.5vw, 4.2rem); line-height: 1.1; }
+h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.2rem, 4vw, 3rem); }
+
+/* ====================== VIDEO BLOCK ====================== */
+.video-wrapper {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    border-radius: 20px;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ====================== PERFORMANCE & UTILITIES ====================== */
+.will-change {
+    will-change: transform, opacity;
+}
+
 .container {
-    max-width: 1300px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 1.5rem;
 }
 
-/* Mobile Optimization */
+/* Mobile First Optimizations */
 @media (max-width: 768px) {
-    .tire-ring {
-        width: 320px;
-        height: 320px;
+    .orbital-3d-container {
+        height: 380px;
     }
-    .tire-image {
-        width: 80px;
-        height: 80px;
+    .orbital-stage {
+        width: 300px;
+        height: 300px;
+    }
+    .orbital-item {
+        width: 100px;
+        height: 75px;
     }
     
-    h1 { font-size: 2.4rem; }
-    h2 { font-size: 2rem; }
-    
-    .student-avatar-frame img {
-        width: 120px;
-        height: 120px;
+    .mobile-glass-dock {
+        bottom: 15px;
+        padding: 8px 12px;
     }
 }
 
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Additional utilities */
-.section-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.95rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--beige);
-    margin-bottom: 12px;
-}
-
-.btn {
-    padding: 14px 32px;
-    border-radius: 50px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    border: none;
-}
-
-.btn-primary {
-    background: var(--primary-blue);
-    color: white;
-}
-
-.btn-primary:hover {
-    background: #1e3a6e;
-    transform: translateY(-3px);
-}
-
-.btn-secondary {
-    background: transparent;
-    border: 2px solid var(--terracotta);
-    color: var(--terracotta);
-}
-
-.btn-secondary:hover {
-    background: var(--terracotta);
-    color: white;
-}
-
-/* Preloader */
-#preloader {
-    position: fixed;
-    inset: 0;
-    background: #0F0F0F;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
+/* Ultra-wide support */
+@media (min-width: 1600px) {
+    .container { padding: 0 4rem; }
 }
