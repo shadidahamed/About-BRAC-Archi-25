@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <title>BRAC ARCHI SUMMER 26</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -23,6 +23,15 @@
 <div id="custom-cursor"></div>
 <div id="cursor-blur"></div>
 
+<div id="lightboxOverlay" class="lightbox-overlay">
+    <div class="lightbox-content-wrapper">
+        <div class="lightbox-card-inner">
+            <span id="lightboxText">Image View</span>
+            <div class="lightbox-close-tip">Click anywhere inside to zoom back</div>
+        </div>
+    </div>
+</div>
+
 <header class="navbar-wrapper">
     <div class="container navbar">
         <div class="nav-logo" data-target="home">
@@ -36,7 +45,7 @@
             </div>
         </div>
 
-        <button class="mobile-nav-trigger" id="mobileMenuTrigger" aria-label="Toggle Navigation Matrix">
+        <button class="mobile-nav-trigger" id="mobileMenuTrigger" aria-label="Toggle Navigation">
             <span class="bar-line"></span>
             <span class="bar-line"></span>
             <span class="bar-line"></span>
@@ -68,7 +77,7 @@
                     <div class="label-digital-icon"><i class="fa-solid fa-microchip"></i></div>
                     FUTURE ARCHITECTS CORE
                 </div>
-                <h1>BRAC Architecture<br>Summer 26</h1>
+                <h1 class="hero-headline">BRAC ARCHI<br><span class="second-line">SUMMER 26</span></h1>
                 <p>An immersive engineering portal with responsive glassmorphic UI panels, cybernetic navigation systems, and interactive architectural showcases.</p>
                 <div class="hero-actions">
                     <button class="btn btn-primary" data-target="students">Explore Registry</button>
@@ -80,7 +89,7 @@
                     <div class="rotating-ring ring-outer"></div>
                     <div class="rotating-ring ring-inner"></div>
                     <div class="core-globe">
-                        <div class="digital-logo-icon large-node">
+                        <div class="digital-logo-icon hero-perfect-node">
                             <div class="logo-inner-matrix">
                                 <i class="fa-solid fa-city"></i>
                             </div>
@@ -115,7 +124,7 @@
                     <p>Driving institutional trajectory scaling, hardware deployment parameters, environmental infrastructure coordination, and innovative technical educational architectures across all functional university operations.</p>
                 </div>
                 <div class="leader-glass-model-container">
-                    <div class="circular-3d-glass-model" id="mainHeadGlassModel">
+                    <div class="circular-3d-glass-model">
                         <div class="glass-model-inner-content">
                             <div class="digital-logo-icon extreme-node">
                                 <div class="logo-inner-matrix">
@@ -136,7 +145,7 @@
                     <p>Pioneering design education pathways, international structural workshops, research into sustainable urban patterns, and guiding the development arrays of tomorrow's physical spatial designers.</p>
                 </div>
                 <div class="leader-glass-model-container">
-                    <div class="circular-3d-glass-model" id="deptHeadGlassModel">
+                    <div class="circular-3d-glass-model">
                         <div class="glass-model-inner-content">
                             <div class="digital-logo-icon extreme-node variant-purple">
                                 <div class="logo-inner-matrix">
@@ -156,26 +165,26 @@
                         360° CIRCULAR ECOSYSTEM VIEW
                     </div>
                     <h3>360° Circular Architecture Showcase</h3>
-                    <p>Continuous automatic rotational sequence tracking across 15 physical campus structural data panes.</p>
+                    <p>Continuous automatic rotational sequence tracking across 15 physical campus structural data panes. Click any card to expand.</p>
                 </div>
                 
                 <div class="carousel-viewport-wrapper">
                     <div class="carousel-3d-stage" id="campus15Stage3D">
-                        <div class="carousel-3d-panel screenshot-panel-card"><span>01. Main Gate Array</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card"><span>02. Lower Foyer Deck</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card"><span>03. Central Atrium Plenum</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card"><span>04. East Design Lab</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card"><span>05. Library Hub</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card"><span>06. Eco Garden Canopy</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card"><span>07. Studio Core</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card"><span>08. Academic Tier 03</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card"><span>09. Exhibition Deck</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card"><span>10. Auditoria Matrix</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card"><span>11. Upper Roof Canopy</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card"><span>12. Hydro-Basin Track</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card"><span>13. West Critique Zone</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card"><span>14. Faculty Lounge Node</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card"><span>15. Structural Vault</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card" data-index="0"><span>01. Main Gate Array</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card" data-index="1"><span>02. Lower Foyer Deck</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card" data-index="2"><span>03. Central Atrium Plenum</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card" data-index="3"><span>04. East Design Lab</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card" data-index="4"><span>05. Library Hub</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card" data-index="5"><span>06. Eco Garden Canopy</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card" data-index="6"><span>07. Studio Core</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card" data-index="7"><span>08. Academic Tier 03</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card" data-index="8"><span>09. Exhibition Deck</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card" data-index="9"><span>10. Auditoria Matrix</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card" data-index="10"><span>11. Upper Roof Canopy</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card" data-index="11"><span>12. Hydro-Basin Track</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card" data-index="12"><span>13. West Critique Zone</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card" data-index="13"><span>14. Faculty Lounge Node</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card" data-index="14"><span>15. Structural Vault</span></div>
                     </div>
                 </div>
             </div>
@@ -189,27 +198,17 @@
                 <div class="logo-intel-card">
                     <div class="section-label">
                         <div class="label-digital-icon"><i class="fa-solid fa-bezier-curve"></i></div>
-                        BRAND MATRIX Blueprint
+                        BRAND MATRIX BLUEPRINT
                     </div>
                     <h2>The Identity Design & Vision</h2>
                     <p class="logo-paragraph">
                         Bridging computational mechanics with absolute geometric harmony, our identity asset represents an structural blueprint designed to look pristine on mobile arrays.
                     </p>
-                    
                     <div class="designer-bio-subgrid">
-                        <h4>About the Identity Designer & Experience</h4>
-                        <p>Engineered by a specialized structural branding analyst possessing years of operational background mapping advanced interface mechanics onto real-time graphics layers. The conceptual strategy prioritized scalable parametric curves optimized for rapid mobile viewports.</p>
-                    </div>
-
-                    <div class="designer-video-box glass-card">
-                        <div class="video-overlay-preview">
-                            <i class="fa-solid fa-play-box video-play-btn"></i>
-                            <span>Stream Identity Blueprint Reel</span>
-                        </div>
-                        <div class="video-placeholder-container"></div>
+                        <h4>About the Identity Designer</h4>
+                        <p>Engineered by a specialized structural branding analyst possessing years of operational background mapping advanced interface mechanics onto real-time graphics layers.</p>
                     </div>
                 </div>
-
                 <div class="logo-interactive-column">
                     <div class="glass-card interactive-3d-logo-card" id="interactiveLogoCard">
                         <div class="logo-3d-frame-interior">
@@ -222,7 +221,7 @@
                         </div>
                         <div class="logo-frame-footer">
                             <span class="footer-title-main">BRAC ARCHI</span>
-                            <span class="footer-tag-glow">CURSOR RESPONSIVE IDENTITY MODULE</span>
+                            <span class="footer-tag-glow">CURSOR RESPONSIVE MODULE</span>
                         </div>
                     </div>
                 </div>
@@ -241,7 +240,7 @@
                 <p>Allocation parameters containing cross-linked direct action channel pathways for mobile users.</p>
             </div>
             
-            <div id="architectsMatrixGrid" class="students-matrix-grid">
+            <div class="students-matrix-grid">
                 <div class="student-profile-card glass-card">
                     <div class="card-status-strip">
                         <span class="merit-index-tag">POS #001</span>
@@ -254,16 +253,13 @@
                     <p class="student-track">3D Graphics & Systems Architect</p>
                     
                     <div class="student-comms-matrix-deck">
-                        <a href="https://wa.me/8801711XXXXXX" class="comms-pill-link pill-wa" title="WhatsApp Core"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="https://facebook.com/username" target="_blank" class="comms-pill-link pill-fb" title="Facebook Profile"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://instagram.com/username" target="_blank" class="comms-pill-link pill-ig" title="Instagram System"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="mailto:shadid@example.com" class="comms-pill-link pill-mail" title="Direct Mail"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="https://wa.me/8801711XXXXXX" class="comms-pill-link pill-wa"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#" class="comms-pill-link pill-fb"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="comms-pill-link pill-ig"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="mailto:shadid@example.com" class="comms-pill-link pill-mail"><i class="fa-solid fa-envelope"></i></a>
                     </div>
-
                     <div class="student-action-row">
-                        <a href="https://github.com/shadid-zombie-killer" target="_blank" class="btn btn-primary btn-block">
-                            <i class="fa-solid fa-network-wired"></i> System Portfolio
-                        </a>
+                        <button class="btn btn-primary btn-block"><i class="fa-solid fa-network-wired"></i> System Portfolio</button>
                     </div>
                 </div>
             </div>
@@ -272,156 +268,27 @@
 
     <section id="achievements" class="spa-section">
         <div class="container">
-            <div class="section-header-left">
-                <div class="section-label">
-                    <div class="label-digital-icon"><i class="fa-solid fa-trophy"></i></div>
-                    MILESTONE RECORDS
-                </div>
-                <h2>Our Achievements</h2>
-                <p>A procedural 360-degree automatic rotational system tracking deployment models, project specs, and imagery scales.</p>
-            </div>
-
-            <div class="achievements-carousel-wrapper">
-                <div class="achievements-3d-stage" id="achievements3DStage">
-                    
-                    <div class="achievement-panel glass-card">
-                        <div class="panel-media-window">
-                            <div class="digital-logo-icon large-node"><div class="logo-inner-matrix"><i class="fa-solid fa-gamepad"></i></div></div>
-                            <div class="simulated-video-feed-indicator">AUTO MOTION FEED</div>
-                        </div>
-                        <div class="panel-info-window">
-                            <span class="project-tag-index">PROJECT CORE ALPHA</span>
-                            <h4>Shadid the Zombie Killer</h4>
-                            <p>An advanced browser-native 3D tactical deployment platform engineered using Three.js layout configurations and specialized lighting pathways.</p>
-                        </div>
-                    </div>
-
-                    <div class="achievement-panel glass-card">
-                        <div class="panel-media-window">
-                            <div class="digital-logo-icon large-node variant-purple"><div class="logo-inner-matrix"><i class="fa-solid fa-vr-cardboard"></i></div></div>
-                            <div class="simulated-video-feed-indicator">AUTO MOTION FEED</div>
-                        </div>
-                        <div class="panel-info-window">
-                            <span class="project-tag-index">PROJECT CORE BETA</span>
-                            <h4>Avatar Importers</h4>
-                            <p>Algorithmic system optimized inside Godot Engine to efficiently process external .glb character models into real-time operational layers.</p>
-                        </div>
-                    </div>
-
-                    <div class="achievement-panel glass-card">
-                        <div class="panel-media-window">
-                            <div class="digital-logo-icon large-node"><div class="logo-inner-matrix"><i class="fa-solid fa-bezier-curve"></i></div></div>
-                            <div class="simulated-video-feed-indicator">AUTO MOTION FEED</div>
-                        </div>
-                        <div class="panel-info-window">
-                            <span class="project-tag-index">PROJECT CORE GAMMA</span>
-                            <h4>Adaptive SPAs</h4>
-                            <p>High-frame-rate responsive canvas structures deployed utilizing procedural hardware-accelerated transformation matrix engines.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+            <h2>Our Achievements</h2>
+            <p style="color: var(--text-muted); margin-top: 1rem;">Platform system records are operational.</p>
         </div>
     </section>
 
     <section id="developers" class="spa-section">
         <div class="container">
-            <div class="section-header-left">
-                <div class="section-label">
-                    <div class="label-digital-icon"><i class="fa-solid fa-code"></i></div>
-                    DEVELOPMENT ARRAYS
-                </div>
-                <h2>Platform Developers</h2>
-                <p>System architects managing code operations, responsive deployment patterns, and architectural layout parameters.</p>
-            </div>
-
-            <div class="developers-matrix-display-grid">
-                
-                <div class="developer-profile-node-card glass-card">
-                    <div class="dev-node-header">
-                        <div class="digital-logo-icon"><div class="logo-inner-matrix"><i class="fa-solid fa-terminal"></i></div></div>
-                        <div class="dev-title-identity">
-                            <h3>Shadid</h3>
-                            <span class="dev-role-badge">Lead Systems Architect</span>
-                        </div>
-                    </div>
-                    <p class="dev-node-description">Specialized in low-level runtime processes, 3D character pipeline modeling tracks, and high-performance cross-device styling structures.</p>
-                    <div class="dev-node-comms-list">
-                        <div class="comm-item-line"><i class="fa-solid fa-phone-flip"></i><span>+880 1711-XXXXXX</span></div>
-                        <div class="comm-item-line"><i class="fa-solid fa-envelope"></i><span>shadid@example.com</span></div>
-                    </div>
-                    <a href="https://github.com/shadid-zombie-killer" target="_blank" class="btn btn-primary dev-node-action-btn">
-                        <i class="fa-brands fa-github"></i> Launch Portfolio
-                    </a>
-                </div>
-
-                <div class="developer-profile-node-card glass-card">
-                    <div class="dev-node-header">
-                        <div class="digital-logo-icon variant-purple"><div class="logo-inner-matrix"><i class="fa-solid fa-laptop-code"></i></div></div>
-                        <div class="dev-title-identity">
-                            <h3>Lisa</h3>
-                            <span class="dev-role-badge">UI/UX Logic Coordinator</span>
-                        </div>
-                    </div>
-                    <p class="dev-node-description">Focuses on smooth interpolation protocols, real-time animation synchronization, mobile responsive matrix alignments, and component hierarchy trees.</p>
-                    <div class="dev-node-comms-list">
-                        <div class="comm-item-line"><i class="fa-solid fa-phone-flip"></i><span>+880 1911-XXXXXX</span></div>
-                        <div class="comm-item-line"><i class="fa-solid fa-envelope"></i><span>lisa@example.com</span></div>
-                    </div>
-                    <a href="#" class="btn btn-secondary dev-node-action-btn" style="pointer-events: none; opacity: 0.6;">
-                        <i class="fa-solid fa-circle-check"></i> Internal Engine Connected
-                    </a>
-                </div>
-
-            </div>
+            <h2>Developers</h2>
+            <p style="color: var(--text-muted); margin-top: 1rem;">Core development arrays are active.</p>
         </div>
     </section>
 
     <section id="contact" class="spa-section">
-        <div class="container contact-layout-wrapper">
-            <div class="contact-grid-system">
-                
-                <div class="contact-form-block glass-card">
-                    <div class="section-label">
-                        <div class="label-digital-icon"><i class="fa-solid fa-location-crosshairs"></i></div>
-                        ENDPOINT MATRIX
-                    </div>
-                    <h4>Our Location</h4>
-                    <p class="location-descriptor-text">
-                        The core development hub and administrative operations center for the <strong>BRAC Architecture Summer '26</strong> program is situated directly within the main campus facilities.
-                    </p>
-                    
-                    <div class="location-metadata-box">
-                        <div class="meta-line-row">
-                            <i class="fa-solid fa-map-location-dot"></i>
-                            <span>BRAC University Architecture Department, Merul Badda, Dhaka, Bangladesh.</span>
-                        </div>
-                    </div>
-
-                    <a href="mailto:architecture@bracu.ac.bd" class="btn btn-primary btn-block email-direct-transmission-btn">
-                        <i class="fa-solid fa-paper-plane"></i> Transmit Direct Email Packet
-                    </a>
-                </div>
-
-                <div class="contact-gis-block glass-card">
-                    <div class="gis-header-row">
-                        <h5><i class="fa-solid fa-earth-asia"></i> Geospatial Frame</h5>
-                    </div>
-                    <div id="developerLiveMapContainer" class="gis-iframe-frame-enclosure">
-                        <iframe 
-                            src="https://maps.google.com/maps?q=BRAC%20University,%20Merul%20Badda&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                            width="100%" height="100%" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy">
-                        </iframe>
-                    </div>
-                </div>
-
-            </div>
+        <div class="container">
+            <h2>Contact</h2>
+            <p style="color: var(--text-muted); margin-top: 1rem;">Data communication gateway ready.</p>
         </div>
     </section>
 
 </main>
-<script src="app.js">
-</script>
+
+<script src="app.js"></script>
 </body>
 </html>
