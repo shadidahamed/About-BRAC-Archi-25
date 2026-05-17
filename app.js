@@ -1,14 +1,9 @@
 /**
- * BRAC ARCHI SUMMER 26 CORE INTERACTIVE RUNTIME
- * Preserving exact visual classes and functional behaviors
+ * BRAC ARCHI SUMMER 26 ENGINE RUNTIME
+ * Fully responsive, password-free architecture
  */
 
-const ArchitectDashboardState = {
-    authenticatedMeritUser: null,
-    profilesRegistry: Object.create(null)
-};
-
-// --- MODULE 1: HARDWARE INTERACTION ENGINES ---
+// --- MODULE 1: INTERACTIVE HARDWARE ENGINE SETUP ---
 const initializePreloader = () => {
     const loader = document.getElementById("preloader");
     if (!loader) return;
@@ -51,14 +46,18 @@ const initializeSPARouting = () => {
             links.forEach(l => l.classList.remove("active"));
 
             targetSection.classList.add("active");
-            link.classList.add("active");
+            
+            // Sync all duplicate navigation mapping selectors if present
+            document.querySelectorAll(`[data-target="${link.dataset.target}"]`).forEach(activeLink => {
+                activeLink.classList.add("active");
+            });
 
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
     });
 };
 
-// --- MODULE 2: 3D CYLINDRICAL PHYSICS CAROUSEL ---
+// --- MODULE 2: CAMPUS ECOSYSTEM 3D ROTATION ---
 const initialize3DCarousel = () => {
     const stage = document.getElementById("carousel3DStage");
     const panels = stage?.querySelectorAll(".carousel-3d-panel");
@@ -83,80 +82,62 @@ const initialize3DCarousel = () => {
     updateStage();
 };
 
-// --- MODULE 3: STUDENT DATA MATRICES (1 TO 225) ---
-const initializeStudentMatrix = () => {
-    const grid = document.getElementById("architectsMatrixGrid");
-    if (!grid) return;
+// --- MODULE 3: INTERACTIVE CURSOR ORIENTATION ENGINE (OUR LOGO CARD) ---
+const initializeInteractiveLogoCard = () => {
+    const card = document.getElementById("interactiveLogoCard");
+    if (!card) return;
 
-    // Prefill memory stack parameters
-    for (let i = 1; i <= 225; i++) {
-        ArchitectDashboardState.profilesRegistry[i] = {
-            linksVisible: i === 1,
-            roll: `26101${String(i).padStart(3, '0')}`,
-            portfolio: i === 1 ? "https://github.com/shadid-zombie-killer" : ""
-        };
-    }
-    syncPrivacyLocks();
-};
+    card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left; 
+        const y = e.clientY - rect.top; 
+        
+        // Compute percentage deviations
+        const rotateX = ((y / rect.height) - 0.5) * -25; // max tilt 25deg
+        const rotateY = ((x / rect.width) - 0.5) * 25;
 
-const syncPrivacyLocks = () => {
-    const cards = document.querySelectorAll(".student-profile-card");
-    const activeUser = ArchitectDashboardState.authenticatedMeritUser;
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
 
-    cards.forEach(card => {
-        const id = parseInt(card.dataset.merit, 10);
-        const data = ArchitectDashboardState.profilesRegistry[id];
-        const lock = card.querySelector(".privacy-lock-icon");
-        if (!data) return;
-
-        const isUnlocked = data.linksVisible || activeUser === id;
-        if (isUnlocked) {
-            card.classList.remove("profile-links-locked");
-            if (lock) lock.className = "privacy-lock-icon fa-solid fa-lock-open";
-        } else {
-            card.classList.add("profile-links-locked");
-            if (lock) lock.className = "privacy-lock-icon fa-solid fa-lock";
-        }
+    card.addEventListener("mouseleave", () => {
+        // Smoothly restore default stylistic perspective layout rules
+        card.style.transform = `rotateX(10deg) rotateY(-10deg) scale3d(1, 1, 1)`;
     });
 };
 
-window.handleFieldWorkWorkspace = (id) => {
-    const data = ArchitectDashboardState.profilesRegistry[id];
-    if (data?.linksVisible || ArchitectDashboardState.authenticatedMeritUser === id) {
-        alert(`Access Allowed: Spawning encrypted field sandbox window for tracking index allocation ID: #${id}.`);
-    } else {
-        alert("Restricted Access: Provide accurate verification values inside the Portal Access tab.");
-    }
-};
+// --- MODULE 4: UNRESTRICTED AUTOMATIC 360° ACHIEVEMENTS CAROUSEL ---
+const initializeAchievementsEngine = () => {
+    const stage = document.getElementById("achievements3DStage");
+    const panels = stage?.querySelectorAll(".achievement-panel");
+    if (!stage || !panels?.length) return;
 
-// --- MODULE 4: TERMINAL CONTROL PANELS ---
-const initializePortalTerminal = () => {
-    const authView = document.getElementById("portalAuthView");
-    const dashboardView = document.getElementById("portalDashboardView");
+    const total = panels.length;
+    const theta = 360 / total;
+    let radius = Math.round((panels[0].offsetWidth / 2) / Math.tan(Math.PI / total));
+    
+    // Scale tracking fallback adjustment rules for packed modular viewports
+    if (window.innerWidth < 600) radius = 240;
 
-    document.getElementById("executeLoginBtn")?.addEventListener("click", () => {
-        const roll = document.getElementById("authRollInput").value.trim();
-        const pin = document.getElementById("authPinInput").value.trim();
-
-        if (roll === "26101001" && pin === "2026") {
-            ArchitectDashboardState.authenticatedMeritUser = 1;
-            authView.classList.add("hidden-panel-layer");
-            dashboardView.classList.remove("hidden-panel-layer");
-            syncPrivacyLocks();
-        } else {
-            alert("Verification Failed: Cryptographic parameters are invalid.");
-        }
+    panels.forEach((p, i) => {
+        p.style.transform = `rotateY(${theta * i}deg) translateZ(${radius}px)`;
     });
 
-    document.getElementById("executeLogoutBtn")?.addEventListener("click", () => {
-        ArchitectDashboardState.authenticatedMeritUser = null;
-        dashboardView.classList.add("hidden-panel-layer");
-        authView.classList.remove("hidden-panel-layer");
-        syncPrivacyLocks();
+    let currentRotation = 0;
+    const runAutomaticLoop = () => {
+        currentRotation -= theta;
+        stage.style.transform = `translateZ(-500px) rotateY(${currentRotation}deg)`;
+    };
+
+    // Spin matrix automatically every 3.5 seconds
+    let systemLoopId = setInterval(runAutomaticLoop, 3500);
+
+    stage.addEventListener("mouseenter", () => clearInterval(systemLoopId));
+    stage.addEventListener("mouseleave", () => {
+        systemLoopId = setInterval(runAutomaticLoop, 3500);
     });
 };
 
-// --- MODULE 5: GIS MAPPING HUB ---
+// --- MODULE 5: GIS GEOSPATIAL MAP LINKERS ---
 const initializeGISMap = () => {
     const hotspots = document.querySelectorAll(".interactive-map-hotspot");
     const iframe = document.querySelector("#developerLiveMapContainer iframe");
@@ -172,15 +153,15 @@ const initializeGISMap = () => {
     });
 };
 
-// RUN INITIALIZATION BLOCKS
+// INITIALIZE PLATFORM STACK ELEMENTS
 (() => {
     initializePreloader();
     window.addEventListener("DOMContentLoaded", () => {
         initializeCursors();
         initializeSPARouting();
         initialize3DCarousel();
-        initializeStudentMatrix();
-        initializePortalTerminal();
+        initializeInteractiveLogoCard();
+        initializeAchievementsEngine();
         initializeGISMap();
     });
 })();
