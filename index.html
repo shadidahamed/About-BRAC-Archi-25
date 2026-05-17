@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>BRAC ARCHI SUMMER 26</title>
 
-    <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body class="loading">
 
-<!-- PRELOADER -->
 <div id="preloader">
     <div>
         <div class="spinner"></div>
@@ -26,23 +20,29 @@
     </div>
 </div>
 
-<!-- CUSTOM CURSOR -->
 <div id="custom-cursor"></div>
 <div id="cursor-blur"></div>
 
-<!-- NAVBAR -->
 <header class="navbar-wrapper">
     <div class="container navbar">
-        <div class="nav-logo">
-            <div class="logo-gfx">
-                <i class="fa-solid fa-cube"></i>
+        <div class="nav-logo" data-target="home">
+            <div class="digital-logo-icon">
+                <div class="logo-inner-matrix">
+                    <i class="fa-solid fa-square-terminal"></i>
+                </div>
             </div>
             <div class="logo-text">
                 BRAC ARCHI <span class="text-glow">SUMMER 26</span>
             </div>
         </div>
 
-        <ul class="nav-links">
+        <button class="mobile-nav-trigger" id="mobileMenuTrigger" aria-label="Toggle Navigation Matrix">
+            <span class="bar-line"></span>
+            <span class="bar-line"></span>
+            <span class="bar-line"></span>
+        </button>
+
+        <ul class="nav-links" id="navLinksMenu">
             <li><a class="nav-link active" data-target="home">Home</a></li>
             <li><a class="nav-link" data-target="institution">Institution</a></li>
             <li><a class="nav-link" data-target="logo-info">Our Logo</a></li>
@@ -54,10 +54,8 @@
     </div>
 </header>
 
-<!-- MAIN VIEWPORT CONTAINER -->
 <main class="spa-view-container">
 
-    <!-- HOME SECTION -->
     <section id="home" class="spa-section active">
         <div class="interactive-bg">
             <div class="grid-overlay"></div>
@@ -67,13 +65,14 @@
         <div class="container hero-container">
             <div class="hero-content">
                 <div class="section-label">
-                    <i class="fa-solid fa-sparkles"></i> FUTURE ARCHITECTS
+                    <div class="label-digital-icon"><i class="fa-solid fa-microchip"></i></div>
+                    FUTURE ARCHITECTS CORE
                 </div>
                 <h1>BRAC Architecture<br>Summer 26</h1>
-                <p>A futuristic student portal with modern glassmorphism UI, animated systems, neon interactions and premium architecture.</p>
+                <p>An immersive engineering portal with responsive glassmorphic UI panels, cybernetic navigation systems, and interactive architectural showcases.</p>
                 <div class="hero-actions">
-                    <button class="btn btn-primary" data-target="students">Explore Students</button>
-                    <button class="btn btn-secondary" data-target="logo-info">Identity Concept</button>
+                    <button class="btn btn-primary" data-target="students">Explore Registry</button>
+                    <button class="btn btn-secondary" data-target="logo-info">Identity Blueprint</button>
                 </div>
             </div>
             <div class="hero-visual">
@@ -81,116 +80,149 @@
                     <div class="rotating-ring ring-outer"></div>
                     <div class="rotating-ring ring-inner"></div>
                     <div class="core-globe">
-                        <i class="fa-solid fa-building architecture-center-icon"></i>
+                        <div class="digital-logo-icon large-node">
+                            <div class="logo-inner-matrix">
+                                <i class="fa-solid fa-city"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- INSTITUTION SECTION -->
     <section id="institution" class="spa-section">
         <div class="container institutional-layout-container">
+            
             <div class="institution-brief-grid">
                 <div class="brief-intel-card">
                     <div class="section-label">
-                        <i class="fa-solid fa-university"></i> ABOUT INSTITUTION
+                        <div class="label-digital-icon"><i class="fa-solid fa-network-wired"></i></div>
+                        CAMPUS MATRIX
                     </div>
                     <h2>BRAC University</h2>
                     <p class="inst-paragraph">
-                        BRAC University is an architectural and educational milestone. It stands as a beacon of progressive, sustainable design and visionary leadership. Focused on cultivating the next generation of global designers and thinkers, the campus ecosystem functions as a live environment where creative design, engineering precision, and social values deeply intersect.
+                        BRAC University is an architectural milestone. It functions as a progressive live laboratory where sustainable paradigms, systemic building parameters, and green structural layout algorithms directly intercept local landscapes.
                     </p>
                 </div>
-                <div class="glass-card leadership-profile-card">
-                    <div class="leader-avatar-wrapper">
-                        <div class="leader-avatar-glow"></div>
-                        <div class="leader-avatar-fallback"><i class="fa-solid fa-user-tie"></i></div>
-                    </div>
-                    <div class="leader-meta">
-                        <span class="leader-title">CURRENT LEADERSHIP / MAIN HEAD</span>
-                        <h3 class="leader-name">Professor Syed Mahfuzul Aziz, PhD</h3>
-                        <p class="leader-bio">Acting Vice-Chancellor driving systemic growth, environmental sustainability, and technological excellence across all academic departments.</p>
+            </div>
+
+            <div class="leadership-tier-block glass-card">
+                <div class="leader-brief-text-panel">
+                    <span class="leader-title-tag">ACADEMIC EXECUTIVE / MAIN HEAD</span>
+                    <h3>Professor Syed Mahfuzul Aziz, PhD</h3>
+                    <span class="leader-role-subtitle">Acting Vice-Chancellor</span>
+                    <p>Driving institutional trajectory scaling, hardware deployment parameters, environmental infrastructure coordination, and innovative technical educational architectures across all functional university operations.</p>
+                </div>
+                <div class="leader-glass-model-container">
+                    <div class="circular-3d-glass-model" id="mainHeadGlassModel">
+                        <div class="glass-model-inner-content">
+                            <div class="digital-logo-icon extreme-node">
+                                <div class="logo-inner-matrix">
+                                    <i class="fa-solid fa-user-gear"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="model-light-scanner"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- 360° CIRCULAR ECOSYSTEM VIEWER -->
-            <div class="carousel-showcase-block">
-                <div class="carousel-header-center">
-                    <div class="section-label"><i class="fa-solid fa-circle-nodes"></i> CAMPUS ECOSYSTEM VIEW</div>
-                    <h3>360° Circular Architecture Showcase</h3>
-                    <p>Smooth automatic rotation with interactive manual depth control.</p>
+            <div class="leadership-tier-block glass-card reverse-row">
+                <div class="leader-brief-text-panel">
+                    <span class="leader-title-tag">DEPARTMENTAL CHIEF DIRECTIVE</span>
+                    <h3>Dr. Zainab Faruqui Ali</h3>
+                    <span class="leader-role-subtitle">Professor & Chairperson, Department of Architecture</span>
+                    <p>Pioneering design education pathways, international structural workshops, research into sustainable urban patterns, and guiding the development arrays of tomorrow's physical spatial designers.</p>
                 </div>
-                <div class="carousel-viewport-wrapper">
-                    <div class="carousel-3d-stage" id="carousel3DStage">
-                        <div class="carousel-3d-panel glass-card">
-                            <i class="fa-solid fa-leaf panel-icon-accent"></i>
-                            <h4>Biophilic Frameworks</h4>
-                            <p>Integrated green structural canopies.</p>
+                <div class="leader-glass-model-container">
+                    <div class="circular-3d-glass-model" id="deptHeadGlassModel">
+                        <div class="glass-model-inner-content">
+                            <div class="digital-logo-icon extreme-node variant-purple">
+                                <div class="logo-inner-matrix">
+                                    <i class="fa-solid fa-compass-drafting"></i>
+                                </div>
+                            </div>
                         </div>
-                        <div class="carousel-3d-panel glass-card">
-                            <i class="fa-solid fa-solar-panel panel-icon-accent"></i>
-                            <h4>Energy Matrices</h4>
-                            <p>Net-zero energy harvesting grid surfaces.</p>
-                        </div>
-                        <div class="carousel-3d-panel glass-card">
-                            <i class="fa-solid fa-droplet panel-icon-accent"></i>
-                            <h4>Hydrological Loops</h4>
-                            <p>Closed-loop greywater purification basins.</p>
-                        </div>
-                        <div class="carousel-3d-panel glass-card">
-                            <i class="fa-solid fa-lightbulb panel-icon-accent"></i>
-                            <h4>Daylighting Systems</h4>
-                            <p>Prismatic optical daylight channels.</p>
-                        </div>
+                        <div class="model-light-scanner"></div>
                     </div>
                 </div>
-                <div class="carousel-nav-controls">
-                    <button class="btn btn-secondary btn-carousel-nav" id="prevCarouselBtn"><i class="fa-solid fa-arrow-left"></i></button>
-                    <button class="btn btn-secondary btn-carousel-nav" id="nextCarouselBtn"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <div class="carousel-showcase-block matching-screenshot-style">
+                <div class="carousel-header-center">
+                    <div class="section-label">
+                        <div class="label-digital-icon"><i class="fa-solid fa-circle-nodes"></i></div>
+                        360° CIRCULAR ECOSYSTEM VIEW
+                    </div>
+                    <h3>360° Circular Architecture Showcase</h3>
+                    <p>Continuous automatic rotational sequence tracking across 15 physical campus structural data panes.</p>
+                </div>
+                
+                <div class="carousel-viewport-wrapper">
+                    <div class="carousel-3d-stage" id="campus15Stage3D">
+                        <div class="carousel-3d-panel screenshot-panel-card"><span>01. Main Gate Array</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card"><span>02. Lower Foyer Deck</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card"><span>03. Central Atrium Plenum</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card"><span>04. East Design Lab</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card"><span>05. Library Hub</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card"><span>06. Eco Garden Canopy</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card"><span>07. Studio Core</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card"><span>08. Academic Tier 03</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card"><span>09. Exhibition Deck</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card"><span>10. Auditoria Matrix</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card"><span>11. Upper Roof Canopy</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card"><span>12. Hydro-Basin Track</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card"><span>13. West Critique Zone</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card"><span>14. Faculty Lounge Node</span></div>
+                        <div class="carousel-3d-panel screenshot-panel-card"><span>15. Structural Vault</span></div>
+                    </div>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- NEW SECTION: OUR LOGO DESIGN IDENTITY -->
     <section id="logo-info" class="spa-section">
-        <div class="container logo-info-container">
+        <div class="container">
             <div class="logo-brief-grid">
                 <div class="logo-intel-card">
-                    <div class="section-label"><i class="fa-solid fa-compass-drafting"></i> DESIGN IDENTITY</div>
+                    <div class="section-label">
+                        <div class="label-digital-icon"><i class="fa-solid fa-bezier-curve"></i></div>
+                        BRAND MATRIX Blueprint
+                    </div>
                     <h2>The Identity Design & Vision</h2>
                     <p class="logo-paragraph">
-                        Our platform core visual symbol was engineered to bridge computational design metrics with classical spatial proportions. Driven by structural symmetry, it represents the evolution of parametric architectural layout modeling.
+                        Bridging computational mechanics with absolute geometric harmony, our identity asset represents an structural blueprint designed to look pristine on mobile arrays.
                     </p>
                     
                     <div class="designer-bio-subgrid">
-                        <h4>About the Lead Designer & Experience</h4>
-                        <p>With over half a decade of specialization in structural system iconography and geometric branding architectures, the design team spent months mapping fluid spatial wireframes onto rigid glassmorphism interfaces to complete this custom visual asset framework.</p>
+                        <h4>About the Identity Designer & Experience</h4>
+                        <p>Engineered by a specialized structural branding analyst possessing years of operational background mapping advanced interface mechanics onto real-time graphics layers. The conceptual strategy prioritized scalable parametric curves optimized for rapid mobile viewports.</p>
                     </div>
 
-                    <!-- DESIGNER EXPERIENCE VIDEO SHOWCASE -->
                     <div class="designer-video-box glass-card">
                         <div class="video-overlay-preview">
-                            <i class="fa-solid fa-circle-play video-play-btn"></i>
-                            <span>Watch Experience Reel & Conceptual Blueprint Drafting</span>
+                            <i class="fa-solid fa-play-box video-play-btn"></i>
+                            <span>Stream Identity Blueprint Reel</span>
                         </div>
-                        <div class="video-placeholder-container">
-                            <div class="simulated-wavebar"></div>
-                        </div>
+                        <div class="video-placeholder-container"></div>
                     </div>
                 </div>
 
-                <!-- RIGHT COLUMN: INTERACTIVE MOUSE-RESPONSIVE 3D CUBE LOGO CARD -->
                 <div class="logo-interactive-column">
                     <div class="glass-card interactive-3d-logo-card" id="interactiveLogoCard">
                         <div class="logo-3d-frame-interior">
-                            <i class="fa-solid fa-cube design-isometric-cube-icon"></i>
+                            <div class="digital-logo-icon giant-node">
+                                <div class="logo-inner-matrix">
+                                    <i class="fa-solid fa-cube"></i>
+                                </div>
+                            </div>
                             <div class="pulsing-glow-layer"></div>
                         </div>
                         <div class="logo-frame-footer">
                             <span class="footer-title-main">BRAC ARCHI</span>
-                            <span class="footer-tag-glow">SUMMER 26 IDENTITY FRAME</span>
+                            <span class="footer-tag-glow">CURSOR RESPONSIVE IDENTITY MODULE</span>
                         </div>
                     </div>
                 </div>
@@ -198,28 +230,39 @@
         </div>
     </section>
 
-    <!-- STUDENTS SECTION -->
     <section id="students" class="spa-section">
         <div class="container">
             <div class="section-header-left">
-                <div class="section-label"><i class="fa-solid fa-users"></i> REGISTRY</div>
+                <div class="section-label">
+                    <div class="label-digital-icon"><i class="fa-solid fa-users-gear"></i></div>
+                    REGISTRY CORES
+                </div>
                 <h2>Future Architects</h2>
-                <p>Allocation entries mapped cleanly across indices 1 through 225.</p>
+                <p>Allocation parameters containing cross-linked direct action channel pathways for mobile users.</p>
             </div>
             
             <div id="architectsMatrixGrid" class="students-matrix-grid">
-                <!-- Merit Node 1 -->
                 <div class="student-profile-card glass-card">
                     <div class="card-status-strip">
                         <span class="merit-index-tag">POS #001</span>
-                        <i class="fa-solid fa-globe-asia" style="color: var(--neon-primary);"></i>
+                        <div class="digital-logo-icon small-node"><div class="logo-inner-matrix"><i class="fa-solid fa-shield-halved"></i></div></div>
                     </div>
-                    <div class="student-avatar-frame"><i class="fa-solid fa-user-astronaut"></i></div>
+                    <div class="student-avatar-frame">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
                     <h4>Shadid</h4>
-                    <p class="student-track">3D Systems & Graphics Developer</p>
+                    <p class="student-track">3D Graphics & Systems Architect</p>
+                    
+                    <div class="student-comms-matrix-deck">
+                        <a href="https://wa.me/8801711XXXXXX" class="comms-pill-link pill-wa" title="WhatsApp Core"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://facebook.com/username" target="_blank" class="comms-pill-link pill-fb" title="Facebook Profile"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/username" target="_blank" class="comms-pill-link pill-ig" title="Instagram System"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="mailto:shadid@example.com" class="comms-pill-link pill-mail" title="Direct Mail"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+
                     <div class="student-action-row">
-                        <a href="https://github.com/shadid-zombie-killer" target="_blank" class="btn btn-primary">
-                            <i class="fa-brands fa-github"></i> Open Portfolio
+                        <a href="https://github.com/shadid-zombie-killer" target="_blank" class="btn btn-primary btn-block">
+                            <i class="fa-solid fa-network-wired"></i> System Portfolio
                         </a>
                     </div>
                 </div>
@@ -227,52 +270,53 @@
         </div>
     </section>
 
-    <!-- NEW SECTION: OUR ACHIEVEMENTS PLATFORM (360° AUTOMATIC ROTATION) -->
     <section id="achievements" class="spa-section">
         <div class="container">
             <div class="section-header-left">
-                <div class="section-label"><i class="fa-solid fa-trophy"></i> PLATFORM MILESTONES</div>
+                <div class="section-label">
+                    <div class="label-digital-icon"><i class="fa-solid fa-trophy"></i></div>
+                    MILESTONE RECORDS
+                </div>
                 <h2>Our Achievements</h2>
-                <p>A procedural 360-degree interactive rotation matrix profiling completed engines, operational parameters, and deployment modules.</p>
+                <p>A procedural 360-degree automatic rotational system tracking deployment models, project specs, and imagery scales.</p>
             </div>
 
             <div class="achievements-carousel-wrapper">
                 <div class="achievements-3d-stage" id="achievements3DStage">
                     
-                    <!-- PROJECT ASSET NODE 1 -->
                     <div class="achievement-panel glass-card">
                         <div class="panel-media-window">
-                            <i class="fa-solid fa-cubes-blur media-fallback-icon"></i>
-                            <div class="simulated-video-feed-indicator">AUTOMATIC ROTATION LOOP</div>
+                            <div class="digital-logo-icon large-node"><div class="logo-inner-matrix"><i class="fa-solid fa-gamepad"></i></div></div>
+                            <div class="simulated-video-feed-indicator">AUTO MOTION FEED</div>
                         </div>
                         <div class="panel-info-window">
-                            <span class="project-tag-index">PROJECT ALPHA</span>
+                            <span class="project-tag-index">PROJECT CORE ALPHA</span>
                             <h4>Shadid the Zombie Killer</h4>
-                            <p>An immersive, browser-native 3D shooter built with Three.js. Features complex lighting systems, automated zombie spatial behavior logic, and interactive weapon asset rendering tracks.</p>
+                            <p>An advanced browser-native 3D tactical deployment platform engineered using Three.js layout configurations and specialized lighting pathways.</p>
                         </div>
                     </div>
 
-                    <!-- PROJECT ASSET NODE 2 -->
                     <div class="achievement-panel glass-card">
                         <div class="panel-media-window">
-                            <i class="fa-solid fa-vr-cardboard media-fallback-icon"></i>
+                            <div class="digital-logo-icon large-node variant-purple"><div class="logo-inner-matrix"><i class="fa-solid fa-vr-cardboard"></i></div></div>
+                            <div class="simulated-video-feed-indicator">AUTO MOTION FEED</div>
                         </div>
                         <div class="panel-info-window">
-                            <span class="project-tag-index">PROJECT BETA</span>
+                            <span class="project-tag-index">PROJECT CORE BETA</span>
                             <h4>Avatar Importers</h4>
-                            <p>A continuous pipeline integration system built inside Godot Engine to dynamically process and translate external .glb asset configurations directly into running 3D instances.</p>
+                            <p>Algorithmic system optimized inside Godot Engine to efficiently process external .glb character models into real-time operational layers.</p>
                         </div>
                     </div>
 
-                    <!-- PROJECT ASSET NODE 3 -->
                     <div class="achievement-panel glass-card">
                         <div class="panel-media-window">
-                            <i class="fa-solid fa-network-wired media-fallback-icon"></i>
+                            <div class="digital-logo-icon large-node"><div class="logo-inner-matrix"><i class="fa-solid fa-bezier-curve"></i></div></div>
+                            <div class="simulated-video-feed-indicator">AUTO MOTION FEED</div>
                         </div>
                         <div class="panel-info-window">
-                            <span class="project-tag-index">PROJECT GAMMA</span>
-                            <h4>Glassmorphism SPAs</h4>
-                            <p>Optimized reactive layout viewports structured entirely with functional CSS matrix arrays to yield 60 FPS spatial translation performance scores.</p>
+                            <span class="project-tag-index">PROJECT CORE GAMMA</span>
+                            <h4>Adaptive SPAs</h4>
+                            <p>High-frame-rate responsive canvas structures deployed utilizing procedural hardware-accelerated transformation matrix engines.</p>
                         </div>
                     </div>
 
@@ -281,92 +325,77 @@
         </div>
     </section>
 
-    <!-- DEVELOPERS SECTION -->
     <section id="developers" class="spa-section">
         <div class="container">
             <div class="section-header-left">
-                <div class="section-label"><i class="fa-solid fa-terminal"></i> OPERATIONS CORE</div>
+                <div class="section-label">
+                    <div class="label-digital-icon"><i class="fa-solid fa-code"></i></div>
+                    DEVELOPMENT ARRAYS
+                </div>
                 <h2>Platform Developers</h2>
-                <p>System architects responsible for programming workflows, 3D logic integration, and structural interface layouts.</p>
+                <p>System architects managing code operations, responsive deployment patterns, and architectural layout parameters.</p>
             </div>
 
             <div class="developers-matrix-display-grid">
                 
-                <!-- LEAD DEVELOPER DECK -->
                 <div class="developer-profile-node-card glass-card">
                     <div class="dev-node-header">
-                        <div class="dev-avatar-shell"><i class="fa-solid fa-code"></i></div>
+                        <div class="digital-logo-icon"><div class="logo-inner-matrix"><i class="fa-solid fa-terminal"></i></div></div>
                         <div class="dev-title-identity">
                             <h3>Shadid</h3>
                             <span class="dev-role-badge">Lead Systems Architect</span>
                         </div>
                     </div>
-                    <p class="dev-node-description">
-                        Specializes in low-level rendering optimizations, modular asset integration paths across real-time graphic layers, and procedural engine design.
-                    </p>
+                    <p class="dev-node-description">Specialized in low-level runtime processes, 3D character pipeline modeling tracks, and high-performance cross-device styling structures.</p>
                     <div class="dev-node-comms-list">
-                        <div class="comm-item-line">
-                            <i class="fa-solid fa-phone-volume"></i>
-                            <span>+880 1711-XXXXXX</span>
-                        </div>
-                        <div class="comm-item-line">
-                            <i class="fa-solid fa-network-wired"></i>
-                            <span>Core Operations Node 01</span>
-                        </div>
+                        <div class="comm-item-line"><i class="fa-solid fa-phone-flip"></i><span>+880 1711-XXXXXX</span></div>
+                        <div class="comm-item-line"><i class="fa-solid fa-envelope"></i><span>shadid@example.com</span></div>
                     </div>
                     <a href="https://github.com/shadid-zombie-killer" target="_blank" class="btn btn-primary dev-node-action-btn">
-                        <i class="fa-brands fa-github"></i> Launch Portfolio Grid
+                        <i class="fa-brands fa-github"></i> Launch Portfolio
                     </a>
                 </div>
 
-                <!-- ASSISTANT/OPERATOR CORE MODULE -->
                 <div class="developer-profile-node-card glass-card">
                     <div class="dev-node-header">
-                        <div class="dev-avatar-shell"><i class="fa-solid fa-bezier-curve"></i></div>
+                        <div class="digital-logo-icon variant-purple"><div class="logo-inner-matrix"><i class="fa-solid fa-laptop-code"></i></div></div>
                         <div class="dev-title-identity">
                             <h3>Lisa</h3>
-                            <span class="dev-role-badge">Interface & Logic Coordinator</span>
+                            <span class="dev-role-badge">UI/UX Logic Coordinator</span>
                         </div>
                     </div>
-                    <p class="dev-node-description">
-                        Focuses on interaction matrices, responsive CSS positioning, and real-time animation synchronization for structural system showcases.
-                    </p>
+                    <p class="dev-node-description">Focuses on smooth interpolation protocols, real-time animation synchronization, mobile responsive matrix alignments, and component hierarchy trees.</p>
                     <div class="dev-node-comms-list">
-                        <div class="comm-item-line">
-                            <i class="fa-solid fa-phone-volume"></i>
-                            <span>+880 1911-XXXXXX</span>
-                        </div>
-                        <div class="comm-item-line">
-                            <i class="fa-solid fa-circle-nodes"></i>
-                            <span>Core Operations Node 02</span>
-                        </div>
+                        <div class="comm-item-line"><i class="fa-solid fa-phone-flip"></i><span>+880 1911-XXXXXX</span></div>
+                        <div class="comm-item-line"><i class="fa-solid fa-envelope"></i><span>lisa@example.com</span></div>
                     </div>
-                    <button class="btn btn-secondary dev-node-action-btn" style="pointer-events: none; opacity: 0.7;">
-                        <i class="fa-solid fa-terminal"></i> Internal Sandbox Connected
-                    </button>
+                    <a href="#" class="btn btn-secondary dev-node-action-btn" style="pointer-events: none; opacity: 0.6;">
+                        <i class="fa-solid fa-circle-check"></i> Internal Engine Connected
+                    </a>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
     <section id="contact" class="spa-section">
         <div class="container contact-layout-wrapper">
             <div class="contact-grid-system">
                 
-                <!-- RECONFIGURED DETAILS PANEL -->
                 <div class="contact-form-block glass-card">
-                    <div class="section-label"><i class="fa-solid fa-map-location-dot"></i> REGIONAL ARRAY</div>
+                    <div class="section-label">
+                        <div class="label-digital-icon"><i class="fa-solid fa-location-crosshairs"></i></div>
+                        ENDPOINT MATRIX
+                    </div>
                     <h4>Our Location</h4>
                     <p class="location-descriptor-text">
-                        The physical operations hub for the <strong>BRAC Architecture Summer '26</strong> platform is hosted within the central campus system architecture. All incoming requests, hardware sync alignments, and developer workshops route from this location.
+                        The core development hub and administrative operations center for the <strong>BRAC Architecture Summer '26</strong> program is situated directly within the main campus facilities.
                     </p>
                     
                     <div class="location-metadata-box">
                         <div class="meta-line-row">
-                            <i class="fa-solid fa-building-user"></i>
-                            <span>BRAC University Architecture Department, Dhaka, Bangladesh.</span>
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            <span>BRAC University Architecture Department, Merul Badda, Dhaka, Bangladesh.</span>
                         </div>
                     </div>
 
@@ -375,18 +404,13 @@
                     </a>
                 </div>
 
-                <!-- GIS LOCATION OVERRIDE COMPONENT -->
                 <div class="contact-gis-block glass-card">
                     <div class="gis-header-row">
-                        <h5><i class="fa-solid fa-map-pin"></i> Core Geospatial Array</h5>
-                        <div class="gis-hotspot-tabs">
-                            <button class="interactive-map-hotspot active" data-coordinates="1m18!1m12!1m3!1d14607.606213799638!2d90.39864275!3d23.75087115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b85c8041076f%3A0xad5bd86b4f7e2740!2sDhaka!5e0!3m2!1sen!2sbd!4v1715939200000!5m2!1sen!2sbd">Merit HQ</button>
-                            <button class="interactive-map-hotspot" data-coordinates="1m18!1m12!1m3!1d59044.13524677761!2d91.77524945!3d22.35685105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd8a640d3b705%3A0x11185d41aed946f!2sChittagong!5e0!3m2!1sen!2sbd!4v1715939300000!5m2!1sen!2sbd">Data Node</button>
-                        </div>
+                        <h5><i class="fa-solid fa-earth-asia"></i> Geospatial Frame</h5>
                     </div>
                     <div id="developerLiveMapContainer" class="gis-iframe-frame-enclosure">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14607.606213799638!2d90.39864275!3d23.75087115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b85c8041076f%3A0xad5bd86b4f7e2740!2sDhaka!5e0!3m2!1sen!2sbd!4v1715939200000!5m2!1sen!2sbd" 
+                            src="https://maps.google.com/maps?q=BRAC%20University,%20Merul%20Badda&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                             width="100%" height="100%" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy">
                         </iframe>
                     </div>
@@ -398,7 +422,6 @@
 
 </main>
 
-<!-- JAVASCRIPT -->
 <script src="app.js"></script>
 </body>
 </html>
