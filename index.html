@@ -1,276 +1,404 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Architectural SPA Dashboard</title>
-    <!-- Fonts / Icons FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Link to style.css -->
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>BRAC ARCHI SUMMER 26</title>
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body class="loading">
 
-    <!-- MODULE 1: HARDWARE UTILITIES -->
-    <div id="preloader">
-        <div class="preloader-spinner"></div>
-    </div>
-    <div id="custom-cursor"></div>
-    <div id="cursor-blur"></div>
+<!-- PRELOADER -->
+<div id="preloader">
 
-    <!-- GLOBAL APPARATUS APP HEADER CONTAINER -->
-    <header class="app-header">
-        <div class="header-logo">
-            <i class="fa-solid fa-compass-drafting"></i>
-            <span>NEXUS ARCHITECTURE</span>
+    <div>
+        <div class="spinner"></div>
+        <div class="preload-text">
+            BRAC ARCHI SUMMER 26
         </div>
-        <nav class="header-nav">
-            <a href="#" class="nav-link active" data-target="showcaseSection">Showcase</a>
-            <a href="#" class="nav-link" data-target="architectsSection">Future Architects</a>
-            <a href="#" class="nav-link" data-target="developersSection">Developers</a>
-            <!-- Dynamic Modal Management Hub Toggle Trigger Link Element -->
-            <button id="openPortalModalBtn" class="btn btn-primary menu-portal-trigger">
-                <i class="fa-solid fa-user-gear"></i> Manage Profile
-            </button>
-        </nav>
-    </header>
+    </div>
 
-    <!-- MAIN INTERACTIVE SPA VIEWPORTS LAYER -->
-    <main class="spa-container">
+</div>
 
-        <!-- ======================================================================== -->
-        <!-- SECTION 1: SHOWCASE ENGINE VIEWPORT LAYER                                -->
-        <!-- ======================================================================== -->
-        <section id="showcaseSection" class="spa-section active">
-            
-            <!-- SUB-COMPONENT 1: LOGO DISPLAY MATRIX GRID -->
-            <div class="showcase-block logo-matrix-block">
-                <h2 class="section-title">Institutional Collaborators</h2>
-                <div class="logo-showcase-grid">
-                    <div class="logo-item-card glass-module"><i class="fa-brands fa-buffer"></i><span>Alpha Group</span></div>
-                    <div class="logo-item-card glass-module"><i class="fa-brands fa-codepen"></i><span>Design Lab</span></div>
-                    <div class="logo-item-card glass-module"><i class="fa-brands fa-sketch"></i><span>Studio Spatial</span></div>
-                    <div class="logo-item-card glass-module"><i class="fa-brands fa-vaadin"></i><span>Vanguard Struct</span></div>
-                </div>
+<!-- CUSTOM CURSOR -->
+<div id="custom-cursor"></div>
+<div id="cursor-blur"></div>
+
+<!-- NAVBAR -->
+<header class="navbar-wrapper">
+
+    <div class="container navbar">
+
+        <div class="nav-logo">
+
+            <div class="logo-gfx">
+                <i class="fa-solid fa-cube"></i>
             </div>
 
-            <!-- SUB-COMPONENT 2: 3D REVOLVING PROFILE STAGE CAROUSEL -->
-            <div class="showcase-block carousel-spatial-block">
-                <h2 class="section-title">Institutional Showcase</h2>
-                <div class="carousel-3d-viewport-container">
-                    <div id="carousel3DStage" class="carousel-3d-stage-transformer">
-                        <!-- Mathematical 3D Node Panel Structures -->
-                        <div class="carousel-3d-panel glass-module">
-                            <div class="panel-icon"><i class="fa-solid fa-building-columns"></i></div>
-                            <h3>Metropolitan Civic Center</h3>
-                            <p>Sustainable civic design infrastructure optimization framework.</p>
+            <div class="logo-text">
+                BRAC ARCHI
+                <span class="text-glow">SUMMER 26</span>
+            </div>
+
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a class="nav-link active" data-target="home">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a class="nav-link" data-target="institution">
+                   Institution
+                </a>
+            </li>
+
+            <li>
+                <a class="nav-link" data-target="students">
+                    Future Architects
+                </a>
+            </li>
+
+            <li>
+                <a class="nav-link" data-target="developers">
+                    Developers
+                </a>
+            </li>
+
+            <li>
+                <a class="nav-link" data-target="contact">
+                    Contact
+                </a>
+            </li>
+
+            <li>
+                 <a class="nav-link" data-target="portal">
+                    Portal Access
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</header>
+
+<!-- MAIN -->
+<main class="spa-view-container">
+
+    <!-- HOME -->
+    <section id="home" class="spa-section active">
+        <div class="interactive-bg">
+            <div class="grid-overlay"></div>
+            <div class="glow-blob blob-1"></div>
+            <div class="glow-blob blob-2"></div>
+        </div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="section-label">
+                    <i class="fa-solid fa-sparkles"></i>
+                    FUTURE ARCHITECTS
+                </div>
+                <h1>
+                    BRAC Architecture<br>Summer 26
+                </h1>
+                <p>
+                    A futuristic student portal with modern
+                    glassmorphism UI, animated systems,
+                    neon interactions and premium architecture.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" data-target="students">
+                        Explore Students
+                    </button>
+                    <button class="btn btn-secondary" data-target="developers">
+                        Meet Developers
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="canvas-3d-wrapper">
+                    <div class="rotating-ring ring-outer"></div>
+                    <div class="rotating-ring ring-inner"></div>
+                    <div class="core-globe">
+                        <i class="fa-solid fa-building architecture-center-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BRANDING & LOGO CONCEPT SHOWCASE -->
+        <div class="container brand-showcase-container">
+            <div class="glass-card brand-concept-card">
+                <div class="brand-visual-column">
+                    <div class="brand-logo-display">
+                        <div class="logo-3d-glowing-frame">
+                            <i class="fa-solid fa-cube logo-icon-main"></i>
+                            <div class="glow-ring-back"></div>
                         </div>
-                        <div class="carousel-3d-panel glass-module">
-                            <div class="panel-icon"><i class="fa-solid fa-gopuram"></i></div>
-                            <h3>Cultural Heritage Pavilion</h3>
-                            <p>Merging traditional geometry with modern parameters metrics.</p>
-                        </div>
-                        <div class="carousel-3d-panel glass-module">
-                            <div class="panel-icon"><i class="fa-solid fa-city"></i></div>
-                            <h3>Zenith Skyscraper Complex</h3>
-                            <p>High-density structural engineering with responsive climate facades.</p>
-                        </div>
-                        <div class="carousel-3d-panel glass-module">
-                            <div class="panel-icon"><i class="fa-solid fa-warehouse"></i></div>
-                            <h3>Eco-Industrial Depot</h3>
-                            <p>Zero-emission logistical centers with modular configuration matrices.</p>
+                        <div class="brand-title-sub">
+                            <span class="brand-title-main">BRAC ARCHI</span>
+                            <span class="brand-tag-glow">SUMMER 26</span>
                         </div>
                     </div>
                 </div>
-                <!-- Manual Mechanical Rotation Hardware Controls -->
-                <div class="carousel-navigation-row">
-                    <button id="prevCarouselBtn" class="btn btn-navigation"><i class="fa-solid fa-arrow-left"></i></button>
-                    <button id="nextCarouselBtn" class="btn btn-navigation"><i class="fa-solid fa-arrow-right"></i></button>
+                <div class="brand-intel-column">
+                    <div class="section-label">
+                        <i class="fa-solid fa-compass-drafting"></i>
+                        VISUAL IDENTITY & CONCEPT
+                    </div>
+                    <h3 class="brand-intel-title">The Cyber-Cube Core</h3>
+                    <p class="brand-intel-text">
+                        The visual identity of the <strong>BRAC Architecture Summer '26</strong> platform centers around an isometric hyper-cube design framework...
+                    </p>
+                    
+                    <div class="symbolism-matrix">
+                        <div class="matrix-item">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span>Structural Layering</span>
+                        </div>
+                        <div class="matrix-item">
+                            <i class="fa-solid fa-bezier-curve"></i>
+                            <span>Parametric Math</span>
+                        </div>
+                    </div>
+                    
+                    <div class="designers-note-block">
+                        <p><strong>Designer's Note:</strong> Built to bridge procedural programming blueprints with pure spatial form expression matrices.</p>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ======================================================================== -->
-        <!-- SECTION 2: FUTURE ARCHITECTS ROSTER VIEWPORT LAYER                        -->
-        <!-- ======================================================================== -->
-        <section id="architectsSection" class="spa-section">
-            <div class="roster-header-container">
-                <h2 class="section-title">Future Architects</h2>
-                <p class="section-subtitle">National Merit Registry Allocation Array Positions (1 to 225)</p>
+    <!-- ==================== INSTITUTION SECTION ==================== -->
+    <section id="institution" class="spa-section">
+        <div class="container institutional-layout-container">
+            
+            <div class="institution-brief-grid">
+                <div class="brief-intel-card">
+                    <div class="section-label">
+                        <i class="fa-solid fa-university"></i>
+                        ABOUT INSTITUTION
+                    </div>
+                    <h2>BRAC University</h2>
+                    <p class="inst-paragraph">
+                        BRAC University is an architectural and educational milestone. It stands as a beacon of progressive, sustainable design and visionary leadership. Focused on cultivating the next generation of global designers and thinkers, the campus ecosystem functions as a live environment where creative design, engineering precision, and social values deeply intersect.
+                    </p>
+                </div>
+                <div class="glass-card leadership-profile-card">
+                    <div class="leader-avatar-wrapper">
+                        <div class="leader-avatar-glow"></div>
+                        <div class="leader-avatar-fallback">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                    </div>
+                    <div class="leader-meta">
+                        <span class="leader-title">CURRENT LEADERSHIP / MAIN HEAD</span>
+                        <h3 class="leader-name">Professor Syed Mahfuzul Aziz, PhD</h3>
+                        <p class="leader-bio">
+                            Acting Vice-Chancellor driving systemic growth, environmental sustainability, and technological excellence across all academic departments.
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <!-- Matrix Framework Grid populating architect dynamic cards profiles -->
-            <div id="architectsMatrixGrid" class="architects-matrix-grid-framework">
+            <!-- 3D IMAGE CAROUSEL SUB-SECTION -->
+            <div class="carousel-showcase-block">
+                <div class="carousel-header-center">
+                    <div class="section-label">
+                        <i class="fa-solid fa-circle-nodes"></i>
+                        CAMPUS ECOSYSTEM VIEW
+                    </div>
+                    <h3>360° Circular Architecture Showcase</h3>
+                    <p>Smooth automatic rotation with interactive manual depth control. Optimized for flawless mobile touch-gestures.</p>
+                </div>
+                <div class="carousel-viewport-wrapper">
+                    <div class="carousel-3d-stage" id="carousel3DStage">
+                        <!-- Dynamic Math Driven Interactive 3D Panels -->
+                        <div class="carousel-3d-panel glass-card">
+                            <i class="fa-solid fa-leaf panel-icon-accent"></i>
+                            <h4>Biophilic Frameworks</h4>
+                            <p>Integrated green structural canopies.</p>
+                        </div>
+                        <div class="carousel-3d-panel glass-card">
+                            <i class="fa-solid fa-solar-panel panel-icon-accent"></i>
+                            <h4>Energy Matrices</h4>
+                            <p>Net-zero energy harvesting grid surfaces.</p>
+                        </div>
+                        <div class="carousel-3d-panel glass-card">
+                            <i class="fa-solid fa-droplet panel-icon-accent"></i>
+                            <h4>Hydrological Loops</h4>
+                            <p>Closed-loop greywater purification basins.</p>
+                        </div>
+                        <div class="carousel-3d-panel glass-card">
+                            <i class="fa-solid fa-lightbulb panel-icon-accent"></i>
+                            <h4>Daylighting Systems</h4>
+                            <p>Prismatic optical daylight channels.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav-controls">
+                    <button class="btn btn-secondary btn-carousel-nav" id="prevCarouselBtn">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <button class="btn btn-secondary btn-carousel-nav" id="nextCarouselBtn">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== STUDENTS SECTION ==================== -->
+    <section id="students" class="spa-section">
+        <div class="container">
+            <div class="section-header-left">
+                <div class="section-label"><i class="fa-solid fa-users"></i> REGISTRY</div>
+                <h2>Future Architects</h2>
+                <p>Allocation entries mapped cleanly across indices 1 through 225.</p>
+            </div>
+            
+            <div id="architectsMatrixGrid" class="students-matrix-grid">
+                <!-- Merit Card Node 1: Explicitly Authored Target Account -->
+                <div class="student-profile-card glass-card" data-merit="1">
+                    <div class="card-status-strip">
+                        <span class="merit-index-tag">POS #001</span>
+                        <i class="privacy-lock-icon fa-solid fa-lock-open"></i>
+                    </div>
+                    <div class="student-avatar-frame">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
+                    <h4>Shadid</h4>
+                    <p class="student-track">3D Systems & Graphics Developer</p>
+                    <div class="student-action-row">
+                        <a href="https://github.com/shadid-zombie-killer" target="_blank" class="link-portfolio btn btn-primary">
+                            <i class="fa-brands fa-github"></i> Open Portfolio
+                        </a>
+                        <button onclick="handleFieldWorkWorkspace(1)" class="btn btn-secondary">
+                            <i class="fa-solid fa-network-wired"></i> Work Sandbox
+                        </button>
+                    </div>
+                </div>
+                <!-- Extra generated array nodes (2-225) stream systematically here via app.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PORTAL SECTION ==================== -->
+    <section id="portal" class="spa-section">
+        <div class="container portal-layout-container">
+            <div class="portal-system-card glass-card">
                 
-                <!-- Profile Node 1: Registered Administrator State (Shadid) -->
-                <div class="architect-profile-card glass-module" data-merit="1">
-                    <div class="profile-card-header">
-                        <span class="merit-badge">Merit 001</span>
-                        <i class="lock-status-indicator fa-solid fa-lock-open"></i>
+                <!-- SUB-INTERFACE A: SECURE ACCESS DECK -->
+                <div id="portalAuthView" class="portal-panel-view">
+                    <h3><i class="fa-solid fa-shield-halved"></i> Cluster Verification Terminal</h3>
+                    <p>Provide specific entry logs to calibrate dynamic properties manually.</p>
+                    <div class="form-input-wrapper">
+                        <input type="text" id="authRollInput" placeholder="System Identification Code (Roll Number)" autocomplete="off">
                     </div>
-                    <div class="profile-avatar-wrapper">
-                        <i class="fa-solid fa-user-astronaut avatar-icon-placeholder"></i>
+                    <div class="form-input-wrapper">
+                        <input type="password" id="authPinInput" placeholder="Security PIN Pass" autocomplete="off">
                     </div>
-                    <h3 class="profile-name">Shadid</h3>
-                    <p class="profile-role">Lead 3D Developer & Architect</p>
-                    <div class="profile-meta-row">
-                        <span class="meta-tag"><i class="fa-solid fa-code"></i> Three.js</span>
-                        <span class="meta-tag"><i class="fa-solid fa-cube"></i> Godot</span>
+                    <button id="executeLoginBtn" class="btn btn-primary btn-block">Verify Identity Matrix</button>
+                </div>
+
+                <!-- SUB-INTERFACE B: PRIVILEGED OPERATIONS SUITE -->
+                <div id="portalDashboardView" class="portal-panel-view hidden-panel-layer">
+                    <h3><i class="fa-solid fa-user-gear"></i> Architect Command Suite</h3>
+                    <p>Identity confirmed: Operational configuration parameters for <span style="color: #00ffcc; font-weight:700;">Shadid</span> are now alterable.</p>
+                    <div class="form-input-wrapper">
+                        <label class="input-label-tag">Active Project Portfolio Source Link</label>
+                        <input type="url" id="editPortfolioUrl" value="https://github.com/shadid-zombie-killer">
                     </div>
-                    <div class="profile-action-links">
-                        <a href="https://github.com/shadid-zombie-killer" target="_blank" class="link-portfolio btn btn-card-action">
-                            <i class="fa-brands fa-github"></i> Project Portfolio
-                        </a>
-                        <button onclick="handleFieldWorkNavigation(1)" class="btn btn-card-secondary">
-                            <i class="fa-solid fa-network-wired"></i> Field Work Workspace
-                        </button>
+                    <div class="form-checkbox-wrapper">
+                        <input type="checkbox" id="editPrivacyToggle" checked>
+                        <label for="editPrivacyToggle">Expose functional links and project sandboxes publicly to the grid network</label>
+                    </div>
+                    <div class="portal-action-button-group">
+                        <button id="saveProfileChangesBtn" class="btn btn-primary">Commit Cluster Settings</button>
+                        <button id="executeLogoutBtn" class="btn btn-secondary">Disconnect Session</button>
                     </div>
                 </div>
 
-                <!-- Profile Node 2: Restricted Matrix Example -->
-                <div class="architect-profile-card glass-module profile-links-locked" data-merit="2">
-                    <div class="profile-card-header">
-                        <span class="merit-badge">Merit 002</span>
-                        <i class="lock-status-indicator fa-solid fa-lock"></i>
-                    </div>
-                    <div class="profile-avatar-wrapper">
-                        <i class="fa-solid fa-user avatar-icon-placeholder"></i>
-                    </div>
-                    <h3 class="profile-name">A. Rahman</h3>
-                    <p class="profile-role">Associate Urban Planner</p>
-                    <div class="profile-meta-row">
-                        <span class="meta-tag"><i class="fa-solid fa-compass"></i> BIM</span>
-                        <span class="meta-tag"><i class="fa-solid fa-pen-ruler"></i> CAD</span>
-                    </div>
-                    <div class="profile-action-links">
-                        <a href="#" target="_blank" class="link-portfolio btn btn-card-action">
-                            <i class="fa-solid fa-link-slash"></i> Links Restricted
-                        </a>
-                        <button onclick="handleFieldWorkNavigation(2)" class="btn btn-card-secondary">
-                            <i class="fa-solid fa-lock"></i> Verify Secure View
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Additional runtime rendering indexes 3 through 225 automatically populated by script variables -->
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ======================================================================== -->
-        <!-- SECTION 3: DEVELOPERS SECTION GRID STRUCTURE VIEWPORT LAYER               -->
-        <!-- ======================================================================== -->
-        <section id="developersSection" class="spa-section">
-            <h2 class="section-title">Developers Infrastructure Dashboard</h2>
-            
-            <div class="developers-two-column-layout">
-                <!-- COLUMN LEFT: LIVE DATA FEEDBACK COMMUNICATION CORE -->
-                <div class="developer-profile-column glass-module">
-                    <div class="dev-card-identity">
-                        <div class="dev-avatar"><i class="fa-solid fa-laptop-code"></i></div>
-                        <h3>Nexus Engine Core Devs</h3>
-                        <p>Systems Optimization & Interactive Geospatial Pipelines</p>
-                    </div>
-                    <hr class="dev-divider">
-                    <!-- Secure Communications Terminal Form -->
-                    <form id="developerContactForm" class="developer-contact-form-apparatus">
-                        <h4><i class="fa-solid fa-paper-plane"></i> Dispatch Core Message</h4>
-                        <div class="form-group">
-                            <label for="devContactName">Developer Identifier</label>
-                            <input type="text" id="devContactName" placeholder="Enter full identity token" required autocomplete="off">
+    <!-- ==================== DEVELOPERS SECTION ==================== -->
+    <section id="developers" class="spa-section">
+        <div class="container">
+            <div class="developer-showcase-matrix glass-card">
+                <div class="dev-meta-header">
+                    <div class="dev-icon-hub"><i class="fa-solid fa-terminal"></i></div>
+                    <h3>Core Operations Platform</h3>
+                    <p>Procedural optimization engines and interactive geolocation controls.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section id="contact" class="spa-section">
+        <div class="container contact-layout-wrapper">
+            <div class="contact-grid-system">
+                <!-- FORM CONTROLLER -->
+                <div class="contact-form-block glass-card">
+                    <h4><i class="fa-solid fa-envelope"></i> Send Transmission</h4>
+                    <form id="developerContactForm">
+                        <div class="form-input-wrapper">
+                            <input type="text" id="devContactName" placeholder="Operator Identity Signature" required>
                         </div>
-                        <div class="form-group">
-                            <label for="devContactEmail">Secure Routing Email</label>
-                            <input type="email" id="devContactEmail" placeholder="e.g., node@nexus.internal" required autocomplete="off">
+                        <div class="form-input-wrapper">
+                            <input type="email" id="devContactEmail" placeholder="Return Communication Node Email" required>
                         </div>
-                        <div class="form-group">
-                            <label for="devContactMessage">Encrypted Message Payload</label>
-                            <textarea id="devContactMessage" rows="4" placeholder="Input operational dispatch parameters..." required></textarea>
+                        <div class="form-input-wrapper">
+                            <textarea id="devContactMessage" rows="5" placeholder="Input string payload..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-accent btn-full-width">Transmit Query Packet</button>
+                        <button type="submit" class="btn btn-primary">Transmit Packet</button>
                     </form>
                 </div>
 
-                <!-- COLUMN RIGHT: GEOSPATIAL MAP INTERACTION INFRASTRUCTURE -->
-                <div class="developer-mapping-column glass-module">
-                    <div class="mapping-control-header">
-                        <h4><i class="fa-solid fa-earth-asia"></i> Geospatial Node Registry</h4>
-                        <p>Select an operational zone hotspot marker link to recalibrate active live mapping coordination views.</p>
-                        
-                        <!-- Hotspot Operational Anchors Array Row -->
-                        <div class="map-hotspot-navigation-strip">
-                            <button class="interactive-map-hotspot btn btn-small" data-location-name="Dhaka Headquarters" data-coordinates="1m18!1m12!1m3!1d14607.606213799638!2d90.39864275!3d23.75087115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b85c8041076f%3A0xad5bd86b4f7e2740!2sDhaka!5e0!3m2!1sen!2sbd!4v1715939200000!5m2!1sen!2sbd">
-                                <i class="fa-solid fa-location-dot"></i> Dhaka HQ
-                            </button>
-                            <button class="interactive-map-hotspot btn btn-small" data-location-name="Chittagong Data Node" data-coordinates="1m18!1m12!1m3!1d59044.13524677761!2d91.77524945!3d22.35685105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd8a640d3b705%3A0x11185d41aed946f!2sChittagong!5e0!3m2!1sen!2sbd!4v1715939300000!5m2!1sen!2sbd">
-                                <i class="fa-solid fa-server"></i> Chittagong Center
-                            </button>
+                <!-- GIS LOCATION OVERRIDE COMPONENT -->
+                <div class="contact-gis-block glass-card">
+                    <div class="gis-header-row">
+                        <h5><i class="fa-solid fa-map-pin"></i> Core Geospatial Array</h5>
+                        <div class="gis-hotspot-tabs">
+                            <button class="interactive-map-hotspot active" data-coordinates="1m18!1m12!1m3!1d14607.606213799638!2d90.39864275!3d23.75087115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b85c8041076f%3A0xad5bd86b4f7e2740!2sDhaka!5e0!3m2!1sen!2sbd!4v1715939200000!5m2!1sen!2sbd">Merit HQ</button>
+                            <button class="interactive-map-hotspot" data-coordinates="1m18!1m12!1m3!1d59044.13524677761!2d91.77524945!3d22.35685105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd8a640d3b705%3A0x11185d41aed946f!2sChittagong!5e0!3m2!1sen!2sbd!4v1715939300000!5m2!1sen!2sbd">Data Node</button>
                         </div>
                     </div>
-
-                    <!-- Live Render Iframe Container Frame Module -->
-                    <div id="developerLiveMapContainer" class="developer-live-map-container-frame">
+                    <div id="developerLiveMapContainer" class="gis-iframe-frame-enclosure">
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14607.606213799638!2d90.39864275!3d23.75087115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b85c8041076f%3A0xad5bd86b4f7e2740!2sDhaka!5e0!3m2!1sen!2sbd!4v1715939200000!5m2!1sen!2sbd" 
-                            width="100%" 
-                            height="100%" 
-                            style="border:0; border-radius:12px;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
+                            width="100%" height="100%" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy">
                         </iframe>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <!-- ======================================================================== -->
-    <!-- OVERLAY LAYERS: MODULE 4 MODAL GLASSMORPHISM INTERFACE LAYER               -->
-    <!-- ======================================================================== -->
-    <div id="portalModalOverlay" class="portal-modal-overlay">
-        <div class="portal-modal-card">
-            <button id="closePortalModalBtn" class="modal-close-btn" aria-label="Close Portal Modal">&times;</button>
-            
-            <!-- SUB-VIEWPORT PANEL 1: SECURE CRYPTOGRAPHIC ENTRY TERM -->
-            <div id="portalAuthView" class="portal-view-layer">
-                <h3><i class="fa-solid fa-shield-halved"></i> Secure Portal Access</h3>
-                <p>Enter cryptographic identity parameters to modify authorization fields.</p>
-                <div class="form-group">
-                    <input type="text" id="authRollInput" placeholder="Roll Number (e.g., 26101001)" autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <input type="password" id="authPinInput" placeholder="Security PIN Code" autocomplete="off">
-                </div>
-                <button id="executeLoginBtn" class="btn btn-accent btn-full-width">Verify Matrix Credentials</button>
-                <div class="fallback-note-block">
-                    <p><i class="fa-solid fa-circle-info"></i> <strong>Roster Access Note:</strong> Dev account override requires position matching roll number parameters.</p>
-                </div>
-            </div>
-
-            <!-- SUB-VIEWPORT PANEL 2: PRIVILEGED USER PROFILE EDITOR -->
-            <div id="portalDashboardView" class="portal-view-layer hidden-workspace-layer">
-                <h3><i class="fa-solid fa-id-card"></i> Architect Control Panel</h3>
-                <p>Welcome back, <strong style="color: #00ffcc;">Shadid</strong>. Update your live registry node specifications safely.</p>
-                
-                <div class="form-group">
-                    <label for="editPortfolioUrl">Dynamic Project Portfolio URL Link</label>
-                    <input type="url" id="editPortfolioUrl" placeholder="https://github.com/profile-url" value="https://github.com/shadid-zombie-killer">
-                </div>
-                
-                <div class="form-check-wrapper">
-                    <input type="checkbox" id="editPrivacyToggle" checked>
-                    <label for="editPrivacyToggle">Grant absolute visibility to external tracking links and workspaces</label>
-                </div>
-                
-                <div class="modal-action-row-layout">
-                    <button id="saveProfileChangesBtn" class="btn btn-success">Deploy Cluster Changes</button>
-                    <button id="executeLogoutBtn" class="btn btn-danger">Terminate Session</button>
-                </div>
-            </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Script include anchor link -->
-    <script src="app.js"></script>
+</main>
+
+<!-- JAVASCRIPT -->
+<script src="app.js"></script>
+
 </body>
 </html>
