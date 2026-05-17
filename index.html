@@ -2,293 +2,190 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>BRAC ARCHI SUMMER 26</title>
-
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <style>
+        :root {
+            --primary: #2A4A8C;      /* Logo Blue */
+            --accent: #C44A2F;       /* Terracotta/Brick */
+            --beige: #E8D9C0;
+            --concrete: #5C5C5C;
+            --green: #2E5A3F;
+        }
 
-    <link rel="stylesheet" href="style.css">
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: #0F0F0F;
+            color: #eee;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        /* ================== TIRE CAROUSEL ================== */
+        .tire-carousel {
+            position: relative;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        .tire-ring {
+            width: 380px;
+            height: 380px;
+            border: 18px solid rgba(200, 140, 80, 0.3);
+            border-radius: 50%;
+            position: relative;
+            animation: rotateTire 35s linear infinite;
+        }
+        @keyframes rotateTire {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .tire-image {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: transform 0.4s ease;
+        }
+        .tire-image:hover { transform: scale(1.15); z-index: 10; }
+
+        /* ================== STUDENT CARDS ================== */
+        .student-dashboard {
+            transition: all 0.4s cubic-bezier(0.23,1,0.32,1);
+        }
+        .student-dashboard:hover {
+            transform: translateY(-12px) rotate(1deg);
+            box-shadow: 0 20px 40px rgba(42,74,140,0.3);
+        }
+
+        /* ================== ACHIEVEMENTS ================== */
+        .achievement-card {
+            transition: all 0.5s ease;
+        }
+        .achievement-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+        }
+
+        .hero-visual img, .logo-video-container video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px;
+        }
+    </style>
 </head>
-<body class="loading">
+<body>
 
-<div id="preloader">
-    <div>
-        <div class="spinner"></div>
-        <div class="preload-text">BRAC ARCHI SUMMER 26</div>
-    </div>
-</div>
-
-<div id="custom-cursor"></div>
-<div id="cursor-blur"></div>
-
-<div id="lightboxOverlay" class="lightbox-overlay">
-    <div class="lightbox-content-wrapper">
-        <div class="lightbox-card-inner">
-            <span id="lightboxText">Image View</span>
-            <div class="lightbox-close-tip">Click anywhere inside to zoom back</div>
+<header class="navbar-wrapper" style="background:rgba(15,15,15,0.95); backdrop-filter:blur(12px);">
+    <div class="container navbar" style="max-width:1200px; margin:auto; padding:1rem;">
+        <div style="display:flex; align-items:center; gap:12px;">
+            <img src="https://i.imgur.com/BRAC-logo.png" alt="BRAC" width="48" height="48"> <!-- Replace with actual logo -->
+            <h2 style="color:white;">BRAC ARCHI <span style="color:#C44A2F;">SUMMER 26</span></h2>
         </div>
-    </div>
-</div>
-
-<header class="navbar-wrapper">
-    <div class="container navbar">
-        <div class="nav-logo" data-target="home">
-            <div class="digital-logo-icon">
-                <div class="logo-inner-matrix">
-                    <i class="fa-solid fa-square-terminal"></i>
-                </div>
-            </div>
-            <div class="logo-text">
-                BRAC ARCHI <span class="text-glow">SUMMER 26</span>
-            </div>
-        </div>
-
-        <button class="mobile-nav-trigger" id="mobileMenuTrigger" aria-label="Toggle Navigation">
-            <span class="bar-line"></span>
-            <span class="bar-line"></span>
-            <span class="bar-line"></span>
-        </button>
-
-        <ul class="nav-links" id="navLinksMenu">
-            <li><a class="nav-link active" data-target="home">Home</a></li>
-            <li><a class="nav-link" data-target="institution">Institution</a></li>
-            <li><a class="nav-link" data-target="logo-info">Our Logo</a></li>
-            <li><a class="nav-link" data-target="students">Future Architects</a></li>
-            <li><a class="nav-link" data-target="achievements">Our Achievements</a></li>
-            <li><a class="nav-link" data-target="developers">Developers</a></li>
-            <li><a class="nav-link" data-target="contact">Contact</a></li>
-        </ul>
     </div>
 </header>
 
-<main class="spa-view-container">
-
-    <section id="home" class="spa-section active">
-        <div class="interactive-bg">
-            <div class="grid-overlay"></div>
-            <div class="glow-blob blob-1"></div>
-            <div class="glow-blob blob-2"></div>
-        </div>
-        <div class="container hero-container">
-            <div class="hero-content">
-                <div class="section-label">
-                    <div class="label-digital-icon"><i class="fa-solid fa-microchip"></i></div>
-                    FUTURE ARCHITECTS CORE
-                </div>
-                <h1 class="hero-headline">BRAC ARCHI<br><span class="second-line">SUMMER 26</span></h1>
-                <p>An immersive engineering portal with responsive glassmorphic UI panels, cybernetic navigation systems, and interactive architectural showcases.</p>
-                <div class="hero-actions">
-                    <button class="btn btn-primary" data-target="students">Explore Registry</button>
-                    <button class="btn btn-secondary" data-target="logo-info">Identity Blueprint</button>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="canvas-3d-wrapper">
-                    <div class="rotating-ring ring-outer"></div>
-                    <div class="rotating-ring ring-inner"></div>
-                    <div class="core-globe">
-                        <div class="digital-logo-icon hero-perfect-node">
-                            <div class="logo-inner-matrix">
-                                <i class="fa-solid fa-city"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="institution" class="spa-section">
-        <div class="container institutional-layout-container">
+<main>
+    <!-- ================== LOGO SECTION ================== -->
+    <section id="logo-info" class="spa-section" style="padding:80px 20px; background:linear-gradient(to bottom, #0F0F0F, #1A2521);">
+        <div class="container" style="max-width:1100px; margin:auto; text-align:center;">
+            <h1 style="font-size:2.8rem; margin-bottom:20px;">The Identity</h1>
+            <p style="max-width:700px; margin:0 auto 40px; font-size:1.1rem; color:#ddd;">
+                Inspired by the iconic BRAC University architecture — a perfect blend of brutalist strength, natural greenery, and modern vision.
+            </p>
             
-            <div class="institution-brief-grid">
-                <div class="brief-intel-card">
-                    <div class="section-label">
-                        <div class="label-digital-icon"><i class="fa-solid fa-network-wired"></i></div>
-                        CAMPUS MATRIX
-                    </div>
-                    <h2>BRAC University</h2>
-                    <p class="inst-paragraph">
-                        BRAC University is an architectural milestone. It functions as a progressive live laboratory where sustainable paradigms, systemic building parameters, and green structural layout algorithms directly intercept local landscapes.
-                    </p>
-                </div>
+            <div class="logo-video-container glass-card" style="max-width:800px; margin:0 auto; padding:20px;">
+                <video controls poster="https://your-image-link.jpg" style="width:100%; border-radius:16px;">
+                    <source src="your-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
-
-            <div class="leadership-tier-block glass-card">
-                <div class="leader-brief-text-panel">
-                    <span class="leader-title-tag">ACADEMIC EXECUTIVE / MAIN HEAD</span>
-                    <h3>Professor Syed Mahfuzul Aziz, PhD</h3>
-                    <span class="leader-role-subtitle">Acting Vice-Chancellor</span>
-                    <p>Driving institutional trajectory scaling, hardware deployment parameters, environmental infrastructure coordination, and innovative technical educational architectures across all functional university operations.</p>
-                </div>
-                <div class="leader-glass-model-container">
-                    <div class="circular-3d-glass-model">
-                        <div class="glass-model-inner-content">
-                            <div class="digital-logo-icon extreme-node">
-                                <div class="logo-inner-matrix">
-                                    <i class="fa-solid fa-user-gear"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="model-light-scanner"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="leadership-tier-block glass-card reverse-row">
-                <div class="leader-brief-text-panel">
-                    <span class="leader-title-tag">DEPARTMENTAL CHIEF DIRECTIVE</span>
-                    <h3>Dr. Zainab Faruqui Ali</h3>
-                    <span class="leader-role-subtitle">Professor & Chairperson, Department of Architecture</span>
-                    <p>Pioneering design education pathways, international structural workshops, research into sustainable urban patterns, and guiding the development arrays of tomorrow's physical spatial designers.</p>
-                </div>
-                <div class="leader-glass-model-container">
-                    <div class="circular-3d-glass-model">
-                        <div class="glass-model-inner-content">
-                            <div class="digital-logo-icon extreme-node variant-purple">
-                                <div class="logo-inner-matrix">
-                                    <i class="fa-solid fa-compass-drafting"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="model-light-scanner"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="carousel-showcase-block matching-screenshot-style">
-                <div class="carousel-header-center">
-                    <div class="section-label">
-                        <div class="label-digital-icon"><i class="fa-solid fa-circle-nodes"></i></div>
-                        360° CIRCULAR ECOSYSTEM VIEW
-                    </div>
-                    <h3>360° Circular Architecture Showcase</h3>
-                    <p>Continuous automatic rotational sequence tracking across 15 physical campus structural data panes. Click any card to expand.</p>
-                </div>
-                
-                <div class="carousel-viewport-wrapper">
-                    <div class="carousel-3d-stage" id="campus15Stage3D">
-                        <div class="carousel-3d-panel screenshot-panel-card" data-index="0"><span>01. Main Gate Array</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card" data-index="1"><span>02. Lower Foyer Deck</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card" data-index="2"><span>03. Central Atrium Plenum</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card" data-index="3"><span>04. East Design Lab</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card" data-index="4"><span>05. Library Hub</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card" data-index="5"><span>06. Eco Garden Canopy</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card" data-index="6"><span>07. Studio Core</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card" data-index="7"><span>08. Academic Tier 03</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card" data-index="8"><span>09. Exhibition Deck</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card" data-index="9"><span>10. Auditoria Matrix</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card" data-index="10"><span>11. Upper Roof Canopy</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card" data-index="11"><span>12. Hydro-Basin Track</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card" data-index="12"><span>13. West Critique Zone</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card" data-index="13"><span>14. Faculty Lounge Node</span></div>
-                        <div class="carousel-3d-panel screenshot-panel-card" data-index="14"><span>15. Structural Vault</span></div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <section id="logo-info" class="spa-section">
-        <div class="container">
-            <div class="logo-brief-grid">
-                <div class="logo-intel-card">
-                    <div class="section-label">
-                        <div class="label-digital-icon"><i class="fa-solid fa-bezier-curve"></i></div>
-                        BRAND MATRIX BLUEPRINT
-                    </div>
-                    <h2>The Identity Design & Vision</h2>
-                    <p class="logo-paragraph">
-                        Bridging computational mechanics with absolute geometric harmony, our identity asset represents an structural blueprint designed to look pristine on mobile arrays.
-                    </p>
-                    <div class="designer-bio-subgrid">
-                        <h4>About the Identity Designer</h4>
-                        <p>Engineered by a specialized structural branding analyst possessing years of operational background mapping advanced interface mechanics onto real-time graphics layers.</p>
-                    </div>
-                </div>
-                <div class="logo-interactive-column">
-                    <div class="glass-card interactive-3d-logo-card" id="interactiveLogoCard">
-                        <div class="logo-3d-frame-interior">
-                            <div class="digital-logo-icon giant-node">
-                                <div class="logo-inner-matrix">
-                                    <i class="fa-solid fa-cube"></i>
-                                </div>
-                            </div>
-                            <div class="pulsing-glow-layer"></div>
-                        </div>
-                        <div class="logo-frame-footer">
-                            <span class="footer-title-main">BRAC ARCHI</span>
-                            <span class="footer-tag-glow">CURSOR RESPONSIVE MODULE</span>
-                        </div>
-                    </div>
+    <!-- ================== 360° TIRE CAROUSEL (Campus) ================== -->
+    <section style="padding:60px 20px; background:#1A2521;">
+        <div class="container" style="text-align:center;">
+            <h2 style="margin-bottom:40px; color:white;">Campus in 360° Rotation</h2>
+            <div class="tire-carousel">
+                <div class="tire-ring" id="tireRing">
+                    <!-- Images will be added by JS -->
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="students" class="spa-section">
-        <div class="container">
-            <div class="section-header-left">
-                <div class="section-label">
-                    <div class="label-digital-icon"><i class="fa-solid fa-users-gear"></i></div>
-                    REGISTRY CORES
-                </div>
-                <h2>Future Architects</h2>
-                <p>Allocation parameters containing cross-linked direct action channel pathways for mobile users.</p>
-            </div>
-            
-            <div class="students-matrix-grid">
-                <div class="student-profile-card glass-card">
-                    <div class="card-status-strip">
-                        <span class="merit-index-tag">POS #001</span>
-                        <div class="digital-logo-icon small-node"><div class="logo-inner-matrix"><i class="fa-solid fa-shield-halved"></i></div></div>
-                    </div>
-                    <div class="student-avatar-frame">
-                        <i class="fa-solid fa-user-astronaut"></i>
-                    </div>
-                    <h4>Shadid</h4>
-                    <p class="student-track">3D Graphics & Systems Architect</p>
-                    
-                    <div class="student-comms-matrix-deck">
-                        <a href="https://wa.me/8801711XXXXXX" class="comms-pill-link pill-wa"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="#" class="comms-pill-link pill-fb"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="comms-pill-link pill-ig"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="mailto:shadid@example.com" class="comms-pill-link pill-mail"><i class="fa-solid fa-envelope"></i></a>
-                    </div>
-                    <div class="student-action-row">
-                        <button class="btn btn-primary btn-block"><i class="fa-solid fa-network-wired"></i> System Portfolio</button>
-                    </div>
-                </div>
+    <!-- ================== FUTURE ARCHITECTS ================== -->
+    <section id="students" style="padding:80px 20px;">
+        <div class="container" style="max-width:1200px; margin:auto;">
+            <h2 style="text-align:center; margin-bottom:50px;">Future Architects</h2>
+            <div id="studentsGrid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:30px;">
+                <!-- Populated by JS or manually -->
             </div>
         </div>
     </section>
 
-    <section id="achievements" class="spa-section">
-        <div class="container">
-            <h2>Our Achievements</h2>
-            <p style="color: var(--text-muted); margin-top: 1rem;">Platform system records are operational.</p>
+    <!-- ================== ACHIEVEMENTS ================== -->
+    <section id="achievements" style="padding:80px 20px; background:#0F0F0F;">
+        <div class="container" style="max-width:1200px; margin:auto;">
+            <h2 style="text-align:center; margin-bottom:50px;">Our Achievements</h2>
+            <div style="display:flex; flex-wrap:wrap; gap:25px; justify-content:center;">
+                <!-- Add your achievement cards here with class="achievement-card glass-card" -->
+            </div>
         </div>
     </section>
-
-    <section id="developers" class="spa-section">
-        <div class="container">
-            <h2>Developers</h2>
-            <p style="color: var(--text-muted); margin-top: 1rem;">Core development arrays are active.</p>
-        </div>
-    </section>
-
-    <section id="contact" class="spa-section">
-        <div class="container">
-            <h2>Contact</h2>
-            <p style="color: var(--text-muted); margin-top: 1rem;">Data communication gateway ready.</p>
-        </div>
-    </section>
-
 </main>
 
-<script src="app.js"></script>
+<script>
+// Tire Carousel Images (replace with your actual campus photos)
+const campusImages = [
+    "https://your-image-link-1.jpg",  // Main Gate
+    "https://your-image-link-2.jpg",
+    "https://your-image-link-3.jpg",
+    // Add more...
+];
+
+const tireRing = document.getElementById('tireRing');
+campusImages.forEach((src, i) => {
+    const angle = (i * 360) / campusImages.length;
+    const img = document.createElement('img');
+    img.src = src;
+    img.className = 'tire-image';
+    img.style.transform = `rotate(${angle}deg) translate(170px) rotate(-${angle}deg)`;
+    tireRing.appendChild(img);
+});
+
+// Example Student Card
+const studentsGrid = document.getElementById('studentsGrid');
+const studentHTML = `
+<div class="glass-card student-dashboard" style="padding:25px; text-align:center;">
+    <img src="student-photo.jpg" style="width:140px; height:140px; border-radius:50%; object-fit:cover; border:4px solid #C44A2F;">
+    <h3 style="margin:15px 0 5px;">Shadid Islam</h3>
+    <p><strong>Merit: 01</strong> | Roll: 231-15-XXX | Dept: Architecture</p>
+    <div style="margin:20px 0; display:flex; justify-content:center; gap:12px; font-size:1.4rem;">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fas fa-envelope"></i></a>
+    </div>
+</div>`;
+studentsGrid.innerHTML += studentHTML;
+</script>
+
 </body>
 </html>
