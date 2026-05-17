@@ -1,812 +1,407 @@
+# Polished `index.html`
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- ========================================================= -->
-    <!-- BRAC ARCHI SUMMER 26 | FUTURISTIC SPA SHOWCASE PLATFORM -->
-    <!-- Preserved Original Identity • Professionally Refined -->
-    <!-- ========================================================= -->
-
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="theme-color" content="#ff6600"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BRACU Architecture Summer '26</title>
 
-    <title>BRAC ARCHI SUMMER '26</title>
-
-    <!-- Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- Main Styles -->
+    <!-- Main CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-
-<body class="loading" data-theme="dark">
+<body class="loading">
 
     <!-- ========================================================= -->
     <!-- PRELOADER -->
     <!-- ========================================================= -->
-
     <div id="preloader">
         <div class="preloader-content">
             <div class="spinner"></div>
-            <div class="preload-text">BRAC_ARCHI_SUMMER_26</div>
+            <p class="preload-text">INITIALIZING ARCHITECTURE MATRIX</p>
         </div>
     </div>
 
     <!-- ========================================================= -->
-    <!-- CURSOR FX -->
+    <!-- CUSTOM CURSOR -->
     <!-- ========================================================= -->
-
     <div id="custom-cursor"></div>
     <div id="cursor-blur"></div>
 
     <!-- ========================================================= -->
     <!-- NAVBAR -->
     <!-- ========================================================= -->
-
     <header class="navbar-wrapper">
-
         <div class="container navbar">
 
-            <!-- Logo -->
-            <div class="nav-logo" data-target="home">
-
-                <div class="digital-logo-icon">
-                    <div class="logo-inner-matrix">
-                        <i class="fa-solid fa-square-terminal"></i>
-                    </div>
-                </div>
-
-                <div class="logo-text">
-                    BRAC ARCHI
-                    <span class="text-glow">SUMMER 26</span>
-                </div>
-
-            </div>
-
-            <!-- Desktop Navigation -->
-            <nav class="desktop-nav-icons" id="desktopNav">
-
-                <button class="nav-icon-btn active" data-target="home" aria-label="Home">
-                    <i class="fa-solid fa-house"></i>
-                </button>
-
-                <button class="nav-icon-btn" data-target="institution" aria-label="Institution">
-                    <i class="fa-solid fa-building-columns"></i>
-                </button>
-
-                <button class="nav-icon-btn" data-target="logo-info" aria-label="Identity">
-                    <i class="fa-solid fa-cube"></i>
-                </button>
-
-                <button class="nav-icon-btn" data-target="students" aria-label="Students">
-                    <i class="fa-solid fa-users"></i>
-                </button>
-
-                <button class="nav-icon-btn" data-target="achievements" aria-label="Achievements">
-                    <i class="fa-solid fa-trophy"></i>
-                </button>
-
-                <button class="nav-icon-btn" data-target="developers" aria-label="Developers">
-                    <i class="fa-solid fa-code"></i>
-                </button>
-
-                <button class="nav-icon-btn" data-target="contact" aria-label="Contact">
-                    <i class="fa-solid fa-envelope"></i>
-                </button>
-
-            </nav>
-
-            <!-- Mobile Trigger -->
-            <button class="mobile-nav-trigger" id="mobileMenuTrigger" aria-label="Open Navigation">
-
-                <span class="bar-line"></span>
-                <span class="bar-line"></span>
-                <span class="bar-line"></span>
-
+            <button class="hamburger" id="mobile-menu-trigger">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
 
-        </div>
+            <div class="nav-logo" data-target="home">
+                <i class="fa-solid fa-cubes-stacked logo-gfx"></i>
+                <span>BRACU ARCHITECTURE</span>
+            </div>
 
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active" data-target="home"><i class="fa-solid fa-house"></i></a></li>
+                <li><a href="#directory" class="nav-link" data-target="directory"><i class="fa-solid fa-layer-group"></i></a></li>
+                <li><a href="#dashboard" class="nav-link" data-target="dashboard"><i class="fa-solid fa-chart-line"></i></a></li>
+                <li><a href="#contact" class="nav-link" data-target="contact"><i class="fa-solid fa-envelope"></i></a></li>
+            </ul>
+
+            <div class="nav-actions-desktop">
+                <button class="btn btn-primary" id="global-auth-btn">
+                    <i class="fa-solid fa-lock"></i>
+                    Portal Login
+                </button>
+            </div>
+        </div>
     </header>
 
     <!-- ========================================================= -->
-    <!-- MOBILE FLOATING GLASS DOCK -->
+    <!-- MOBILE DRAWER -->
     <!-- ========================================================= -->
-
-    <div class="mobile-glass-dock" id="mobileDock">
-
-        <button class="dock-icon active" data-target="home">
-            <i class="fa-solid fa-house"></i>
-        </button>
-
-        <button class="dock-icon" data-target="institution">
-            <i class="fa-solid fa-building-columns"></i>
-        </button>
-
-        <button class="dock-icon" data-target="logo-info">
-            <i class="fa-solid fa-cube"></i>
-        </button>
-
-        <button class="dock-icon" data-target="students">
-            <i class="fa-solid fa-users"></i>
-        </button>
-
-        <button class="dock-icon" data-target="achievements">
-            <i class="fa-solid fa-trophy"></i>
-        </button>
-
-        <button class="dock-icon" data-target="developers">
-            <i class="fa-solid fa-code"></i>
-        </button>
-
-        <button class="dock-icon" data-target="contact">
-            <i class="fa-solid fa-envelope"></i>
-        </button>
-
-    </div>
+    <aside class="mobile-nav-drawer" id="mobile-nav-drawer">
+        <ul class="mobile-drawer-links">
+            <li><a href="#home" data-target="home"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#directory" data-target="directory"><i class="fa-solid fa-layer-group"></i> Directory</a></li>
+            <li><a href="#dashboard" data-target="dashboard"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+            <li><a href="#contact" data-target="contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+        </ul>
+    </aside>
 
     <!-- ========================================================= -->
-    <!-- MAIN SPA VIEW -->
+    <!-- MAIN SPA -->
     <!-- ========================================================= -->
-
     <main class="spa-view-container">
 
         <!-- ===================================================== -->
         <!-- HOME -->
         <!-- ===================================================== -->
-
-        <section id="home" class="spa-section active">
+        <section class="spa-section active" id="home">
 
             <div class="interactive-bg">
-
                 <div class="grid-overlay"></div>
-
                 <div class="glow-blob blob-1"></div>
                 <div class="glow-blob blob-2"></div>
-
             </div>
 
             <div class="container hero-container">
 
-                <!-- Hero Content -->
                 <div class="hero-content">
-
-                    <div class="section-label">
-
-                        <div class="label-digital-icon">
-                            <i class="fa-solid fa-microchip"></i>
-                        </div>
-
-                        HOME OF FUTURE ARCHITECTS
-
-                    </div>
+                    <span class="section-label">
+                        <i class="fa-solid fa-sparkles"></i>
+                        BRAC UNIVERSITY
+                    </span>
 
                     <h1>
-                        BRAC Architecture
-                        <br>
-                        Summer-26
+                        Designing the Future Through
+                        <span class="text-gradient">Architecture & Innovation</span>
                     </h1>
 
                     <p>
-                        An immersive engineering portal with responsive portals
-                        featuring architecture students of BRAC University
-                        Summer Intake 2026 — designed to connect batchmates,
-                        showcase creative identity, and build collaborative systems.
+                        A cinematic showcase platform for BRAC University Architecture students,
+                        graduate portfolios, design systems, studio explorations and futuristic
+                        architectural innovation.
                     </p>
 
                     <div class="hero-actions">
-
-                        <button class="btn btn-primary" data-target="students">
-                            Current ARCHITECTS 👩‍🎓 👨‍🎓
+                        <button class="btn btn-primary" data-target="directory">
+                            Explore Architects
                         </button>
 
-                        <button class="btn btn-secondary" data-target="logo-info">
-                            Identity Blueprint
+                        <button class="btn btn-secondary" data-target="dashboard">
+                            Open Dashboard
                         </button>
-
                     </div>
-
                 </div>
 
-                <!-- Hero Visual -->
-                <div class="hero-visual">
-
+                <div class="hero-visual-zone">
                     <div class="canvas-3d-wrapper">
-
                         <div class="rotating-ring ring-outer"></div>
                         <div class="rotating-ring ring-inner"></div>
 
                         <div class="core-globe">
-
-                            <div class="digital-logo-icon large-node">
-
-                                <div class="logo-inner-matrix">
-                                    <i class="fa-solid fa-city"></i>
-                                </div>
-
-                            </div>
-
+                            <i class="fa-solid fa-building architecture-center-icon"></i>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
         <!-- ===================================================== -->
-        <!-- INSTITUTION -->
+        <!-- DIRECTORY -->
         <!-- ===================================================== -->
-
-        <section id="institution" class="spa-section">
-
-            <div class="container institutional-layout-container">
-
-                <!-- Intro -->
-                <div class="institution-brief-grid">
-
-                    <div class="brief-intel-card glass-card">
-
-                        <div class="section-label">
-
-                            <div class="label-digital-icon">
-                                <i class="fa-solid fa-network-wired"></i>
-                            </div>
-
-                            OUR ECO FRIENDLY CAMPUS 🍃♻️🏞️💚🌱
-
-                        </div>
-
-                        <h2>BRAC University</h2>
-
-                        <p class="inst-paragraph">
-                            BRAC University is an architectural milestone functioning
-                            as a progressive live laboratory where sustainable paradigms,
-                            structural innovation, and green computational systems
-                            integrate directly into modern educational ecosystems.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <!-- Leadership -->
-                <div class="leadership-tier-block glass-card">
-
-                    <div class="leader-brief-text-panel">
-
-                        <span class="leader-title-tag">
-                            ACADEMIC EXECUTIVE / MAIN HEAD
-                        </span>
-
-                        <h3>Sir Fazle Hasan Abed</h3>
-
-                        <span class="leader-role-subtitle">
-                            Acting Vice-Chancellor
-                        </span>
-
-                        <p>
-                            Education was a key component in his vision of
-                            reducing inequality and empowering communities.
-                            BRAC University continues that mission by developing
-                            future leaders equipped with critical thinking,
-                            creativity, and social responsibility.
-                        </p>
-
-                    </div>
-
-                    <div class="leader-glass-model-container">
-
-                        <div class="circular-3d-glass-model" id="mainHeadGlassModel">
-
-                            <div class="glass-model-inner-content">
-
-                                <div class="digital-logo-icon extreme-node">
-
-                                    <div class="logo-inner-matrix">
-                                        <i class="fa-solid fa-user-gear"></i>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="model-light-scanner"></div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- Department -->
-                <div class="leadership-tier-block glass-card reverse-row">
-
-                    <div class="leader-brief-text-panel">
-
-                        <span class="leader-title-tag">
-                            DEPARTMENT CHAIRPERSON
-                        </span>
-
-                        <h3>Zainab Faruqui Ali, PhD</h3>
-
-                        <span class="leader-role-subtitle">
-                            Professor & Chairperson, Department of Architecture
-                        </span>
-
-                        <p>
-                            Leading the Department of Architecture with
-                            interdisciplinary research, sustainable design thinking,
-                            and progressive urban frameworks integrated into modern education.
-                        </p>
-
-                    </div>
-
-                    <div class="leader-glass-model-container">
-
-                        <div class="circular-3d-glass-model" id="deptHeadGlassModel">
-
-                            <div class="glass-model-inner-content">
-
-                                <div class="digital-logo-icon extreme-node variant-purple">
-
-                                    <div class="logo-inner-matrix">
-                                        <i class="fa-solid fa-compass-drafting"></i>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="model-light-scanner"></div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- Campus Orbit -->
-                <div class="carousel-showcase-block matching-screenshot-style">
-
-                    <div class="carousel-header-center">
-
-                        <div class="section-label">
-
-                            <div class="label-digital-icon">
-                                <i class="fa-solid fa-circle-nodes"></i>
-                            </div>
-
-                            360° OF OUR ECO FRIENDLY CAMPUS VIEW
-
-                        </div>
-
-                        <h3>Cinematic Campus Orbit</h3>
-
-                        <p>
-                            Real 3D circular orbital motion with cinematic
-                            depth and immersive infinite rotation.
-                        </p>
-
-                    </div>
-
-                    <div class="orbital-3d-container">
-
-                        <div class="orbital-stage" id="campusOrbital">
-
-                            <div class="orbital-item tilt-card">
-                                <img src="https://picsum.photos/id/1015/600/400" alt="Campus">
-                            </div>
-
-                            <div class="orbital-item tilt-card">
-                                <img src="https://picsum.photos/id/1016/600/400" alt="Atrium">
-                            </div>
-
-                            <div class="orbital-item tilt-card">
-                                <img src="https://picsum.photos/id/1018/600/400" alt="Studio">
-                            </div>
-
-                            <div class="orbital-item tilt-card">
-                                <img src="https://picsum.photos/id/102/600/400" alt="Library">
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- ===================================================== -->
-        <!-- LOGO INFO -->
-        <!-- ===================================================== -->
-
-        <section id="logo-info" class="spa-section">
-
+        <section class="spa-section" id="directory">
             <div class="container">
 
-                <div class="logo-brief-grid">
+                <div class="directory-control-header">
+                    <div>
+                        <span class="section-label">
+                            <i class="fa-solid fa-grid"></i>
+                            STUDENT DIRECTORY
+                        </span>
 
-                    <!-- Info -->
-                    <div class="logo-intel-card glass-card">
-
-                        <div class="section-label">
-
-                            <div class="label-digital-icon">
-                                <i class="fa-solid fa-bezier-curve"></i>
-                            </div>
-
-                            BRAND MATRIX BLUEPRINT
-
-                        </div>
-
-                        <h2>The Identity Design & Vision</h2>
-
-                        <p class="logo-paragraph">
-                            Bridging futuristic computational systems with
-                            geometric harmony, this identity module was designed
-                            to represent modern architectural innovation.
-                        </p>
-
-                        <div class="designer-bio-subgrid">
-
-                            <h4>
-                                About the Identity Designer & Experience
-                            </h4>
-
-                            <p>
-                                Developed with immersive interface systems,
-                                responsive interaction architecture, and
-                                cinematic visual layering inspired by elite
-                                futuristic operating systems.
-                            </p>
-
-                        </div>
-
-                        <!-- Video -->
-                        <div class="designer-video-box glass-card">
-
-                            <div class="video-wrapper">
-
-                                <video muted loop autoplay playsinline>
-
-                                    <source src="your-video-url.mp4" type="video/mp4">
-
-                                </video>
-
-                            </div>
-
-                        </div>
-
+                        <h2 class="text-gradient">Architecture Matrix</h2>
                     </div>
 
-                    <!-- Interactive -->
-                    <div class="logo-interactive-column">
+                    <div class="search-filter-dock">
 
-                        <div class="glass-card interactive-3d-logo-card tilt-card" id="interactiveLogoCard">
-
-                            <div class="logo-3d-frame-interior">
-
-                                <div class="digital-logo-icon giant-node">
-
-                                    <div class="logo-inner-matrix">
-                                        <i class="fa-solid fa-cube"></i>
-                                    </div>
-
-                                </div>
-
-                                <div class="pulsing-glow-layer"></div>
-
-                            </div>
-
-                            <div class="logo-frame-footer">
-
-                                <span class="footer-title-main">
-                                    BRAC ARCHI
-                                </span>
-
-                                <span class="footer-tag-glow">
-                                    CURSOR RESPONSIVE IDENTITY MODULE
-                                </span>
-
-                            </div>
-
+                        <div class="search-field-wrapper">
+                            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                            <input type="text" id="student-search" placeholder="Search students...">
                         </div>
 
+                        <div class="filter-tab-row">
+                            <button class="filter-btn filter-tab active" data-filter="all">All</button>
+                            <button class="filter-btn filter-tab" data-filter="Studio IX">Studio IX</button>
+                            <button class="filter-btn filter-tab" data-filter="Studio X">Studio X</button>
+                        </div>
                     </div>
-
                 </div>
 
+                <div class="directory-matrix-render-grid" id="student-matrix-target"></div>
             </div>
-
         </section>
 
         <!-- ===================================================== -->
-        <!-- STUDENTS -->
+        <!-- DASHBOARD -->
         <!-- ===================================================== -->
-
-        <section id="students" class="spa-section">
-
+        <section class="spa-section" id="dashboard">
             <div class="container">
-
-                <div class="section-header-left">
-
-                    <div class="section-label">
-
-                        <div class="label-digital-icon">
-                            <i class="fa-solid fa-users-gear"></i>
-                        </div>
-
-                        REGISTRY CORES
-
-                    </div>
-
-                    <h2>Future Architects</h2>
-
-                    <p>
-                        Premium interactive dashboards with professional
-                        networking systems and dynamic profile modules.
-                    </p>
-
-                </div>
-
-                <!-- Dynamic Grid -->
-                <div id="architectsMatrixGrid" class="students-matrix-grid">
-
-                    <!-- Dynamic JS Injection -->
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- ===================================================== -->
-        <!-- ACHIEVEMENTS -->
-        <!-- ===================================================== -->
-
-        <section id="achievements" class="spa-section">
-
-            <div class="container">
-
-                <div class="section-header-left">
-
-                    <div class="section-label">
-
-                        <div class="label-digital-icon">
-                            <i class="fa-solid fa-trophy"></i>
-                        </div>
-
-                        MILESTONE RECORDS
-
-                    </div>
-
-                    <h2>Our Achievements</h2>
-
-                </div>
-
-                <div class="achievements-carousel-wrapper">
-
-                    <div class="achievements-3d-stage" id="achievements3DStage">
-
-                        <div class="achievement-panel glass-card tilt-card">
-
-                            <div class="panel-media-window">
-
-                                <img src="https://picsum.photos/id/201/600/400" alt="Achievement">
-
-                            </div>
-
-                            <div class="panel-info-window">
-
-                                <span class="project-tag-index">
-                                    PROJECT ALPHA
-                                </span>
-
-                                <h4>Shadid the Zombie Killer</h4>
-
-                                <p>
-                                    An advanced browser-native tactical 3D
-                                    deployment platform engineered using Three.js.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- ===================================================== -->
-        <!-- DEVELOPERS -->
-        <!-- ===================================================== -->
-
-        <section id="developers" class="spa-section">
-
-            <div class="container">
-
-                <div class="section-header-left">
-
-                    <div class="section-label">
-
-                        <div class="label-digital-icon">
-                            <i class="fa-solid fa-code"></i>
-                        </div>
-
-                        CORE DEVELOPMENT MATRIX
-
-                    </div>
-
-                    <h2>System Developers</h2>
-
-                </div>
 
                 <div class="glass-card">
 
-                    <p>
-                        Elite futuristic interface systems engineered with
-                        immersive glassmorphism architecture, cinematic motion,
-                        and dynamic SPA engineering logic.
-                    </p>
+                    <div class="dashboard-user-hero">
+                        <div class="user-profile-summary-row">
+                            <div class="user-avatar-placeholder-frame">
+                                <i class="fa-solid fa-user fallback-avatar-icon"></i>
+                            </div>
 
+                            <div>
+                                <div class="badge-row">
+                                    <span class="user-type-tag">ARCHITECT</span>
+                                    <span class="security-clearance-tag">SYSTEM VERIFIED</span>
+                                </div>
+
+                                <h2>Creative Dashboard Workspace</h2>
+                                <p class="user-system-id-label">Interactive Editing & Portfolio Control Center</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-workspace-grid">
+
+                        <div class="glass-card">
+                            <div class="workspace-card-header">
+                                <h3>Profile Management</h3>
+                                <p>Update your architecture portfolio structure.</p>
+                            </div>
+
+                            <div class="input-element-container">
+                                <input type="text" placeholder=" " id="edit-name-dashboard">
+                                <label>Architect Name</label>
+                            </div>
+
+                            <div class="input-element-container">
+                                <textarea rows="4" placeholder=" " id="edit-focus-dashboard"></textarea>
+                                <label>Research & Design Focus</label>
+                            </div>
+
+                            <button class="btn btn-primary btn-block">
+                                Save Workspace Changes
+                            </button>
+                        </div>
+
+                        <div class="glass-card">
+                            <div class="workspace-card-header">
+                                <h3>Communication Hub</h3>
+                                <p>Secure architecture network communication node.</p>
+                            </div>
+
+                            <div class="chat-messages-viewport">
+                                <div class="chat-system-status-bubble">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    Secure Channel Active
+                                </div>
+
+                                <div class="msg-node incoming">
+                                    <span class="msg-meta-header">Studio IX</span>
+                                    <div class="msg-payload-bubble">
+                                        Your parametric urbanism proposal was reviewed successfully.
+                                    </div>
+                                </div>
+
+                                <div class="msg-node outgoing">
+                                    <span class="msg-meta-header">You</span>
+                                    <div class="msg-payload-bubble">
+                                        Thank you. Uploading revised structural renderings tonight.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="chat-input-control-deck">
+                                <div class="chat-entry-row">
+                                    <input type="text" placeholder="Transmit secure message...">
+
+                                    <button class="chat-send-btn">
+                                        <i class="fa-solid fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-
             </div>
-
         </section>
 
         <!-- ===================================================== -->
         <!-- CONTACT -->
         <!-- ===================================================== -->
-
-        <section id="contact" class="spa-section">
-
+        <section class="spa-section" id="contact">
             <div class="container">
-
-                <div class="section-header-left">
-
-                    <div class="section-label">
-
-                        <div class="label-digital-icon">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-
-                        CONTACT NETWORK
-
-                    </div>
-
-                    <h2>Get Connected</h2>
-
-                </div>
-
                 <div class="glass-card">
 
-                    <form class="contact-form-grid">
+                    <span class="section-label">
+                        <i class="fa-solid fa-envelope-open-text"></i>
+                        CONTACT NETWORK
+                    </span>
 
-                        <div class="input-element-container">
+                    <h2 class="text-gradient">Connect With The Architecture Network</h2>
 
-                            <input type="text" placeholder=" " required>
-                            <label>Your Name</label>
+                    <div style="margin-top:40px; display:grid; grid-template-columns:1fr 1fr; gap:32px;">
 
+                        <div>
+                            <div class="input-element-container">
+                                <input type="text" placeholder=" ">
+                                <label>Full Name</label>
+                            </div>
+
+                            <div class="input-element-container">
+                                <input type="email" placeholder=" ">
+                                <label>Email Address</label>
+                            </div>
                         </div>
 
-                        <div class="input-element-container">
-
-                            <input type="email" placeholder=" " required>
-                            <label>Email Address</label>
-
+                        <div>
+                            <div class="input-element-container">
+                                <textarea rows="7" placeholder=" "></textarea>
+                                <label>Your Message</label>
+                            </div>
                         </div>
+                    </div>
 
-                        <div class="input-element-container">
-
-                            <textarea rows="6" placeholder=" " required></textarea>
-                            <label>Your Message</label>
-
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">
-                            Send Transmission
-                        </button>
-
-                    </form>
-
+                    <button class="btn btn-primary">
+                        Send Message
+                    </button>
                 </div>
-
             </div>
-
         </section>
-
     </main>
 
     <!-- ========================================================= -->
     <!-- FOOTER -->
     <!-- ========================================================= -->
-
     <footer class="footer-matrix">
-
         <div class="container">
 
             <div class="footer-grid-layout">
 
                 <div class="footer-brand-summary">
-
-                    <div class="nav-logo" data-target="home">
-
-                        <div class="digital-logo-icon">
-
-                            <div class="logo-inner-matrix">
-                                <i class="fa-solid fa-square-terminal"></i>
-                            </div>
-
-                        </div>
-
-                        <div class="logo-text">
-                            BRAC ARCHI
-                            <span class="text-glow">SUMMER 26</span>
-                        </div>
-
+                    <div class="nav-logo">
+                        <i class="fa-solid fa-cubes-stacked logo-gfx"></i>
+                        <span>BRACU ARCHITECTURE</span>
                     </div>
 
                     <p>
-                        A futuristic architecture showcase ecosystem engineered
-                        for BRAC University Summer Intake 2026.
+                        Premium architectural showcase ecosystem crafted for BRAC University
+                        graduate architecture innovators and future urban visionaries.
                     </p>
-
                 </div>
 
                 <div class="footer-index-links">
-
                     <h4>NAVIGATION</h4>
 
                     <ul>
-
-                        <li><a href="#" data-target="home">Home</a></li>
-                        <li><a href="#" data-target="students">Students</a></li>
-                        <li><a href="#" data-target="achievements">Achievements</a></li>
-                        <li><a href="#" data-target="contact">Contact</a></li>
-
+                        <li><a href="#home" data-target="home">Home</a></li>
+                        <li><a href="#directory" data-target="directory">Directory</a></li>
+                        <li><a href="#dashboard" data-target="dashboard">Dashboard</a></li>
+                        <li><a href="#contact" data-target="contact">Contact</a></li>
                     </ul>
-
                 </div>
-
             </div>
 
             <div class="footer-legal-baseline">
-
-                <span>
-                    © 2026 BRAC ARCHI SUMMER 26 — All Rights Reserved.
-                </span>
+                <span>© 2026 BRAC University Architecture Summer Showcase</span>
 
                 <button class="scroll-top-btn" id="scroll-to-top-action">
-
                     <i class="fa-solid fa-arrow-up"></i>
-
                 </button>
-
             </div>
-
         </div>
-
     </footer>
+
+    <!-- ========================================================= -->
+    <!-- AUTH MODAL -->
+    <!-- ========================================================= -->
+    <div class="video-modal-overlay" id="auth-modal">
+
+        <div class="modal-box-containment identity-auth-card">
+
+            <button class="modal-close-trigger" id="close-auth-trigger">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="auth-card-interior">
+
+                <div class="auth-icon-shield">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+
+                <h3>Secure Portal Access</h3>
+
+                <p>
+                    Administrative verification required to access protected architecture systems.
+                </p>
+
+                <div class="auth-error-feedback-banner" id="auth-error-output">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    Invalid credentials detected.
+                </div>
+
+                <div class="input-element-container">
+                    <input type="text" id="auth-id-input" placeholder=" ">
+                    <label>Portal ID</label>
+                </div>
+
+                <div class="input-element-container">
+                    <input type="password" id="auth-pass-input" placeholder=" ">
+                    <label>Security Password</label>
+                </div>
+
+                <button class="btn btn-primary btn-block" id="execute-auth-action">
+                    Authenticate Session
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- ========================================================= -->
     <!-- MAIN SCRIPT -->
     <!-- ========================================================= -->
-
-    <script src="app.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
