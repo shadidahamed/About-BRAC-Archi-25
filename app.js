@@ -1,222 +1,201 @@
-/**
- * BRAC ARCHI SUMMER 26 RUNTIME ARCHITECTURE
- * Fully Optimized for Smooth 360 Rotation, Zoom Lightbox & Mobile Scroll Safety Lock
- */
+// =============================================
+// BRAC ARCHI SUMMER 26 - Full JavaScript
+// =============================================
 
-// --- MODULE 1: HARDWARE LAYER PRELOADER & ADAPTIVE CURSOR ---
-const initializePreloader = () => {
-    const loader = document.getElementById("preloader");
-    if (!loader) return;
-    window.addEventListener("load", () => {
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // ================== PRELOADER ==================
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
         setTimeout(() => {
-            loader.classList.add("fade-out");
-            document.body.classList.remove("loading");
-        }, 400);
-    }, { once: true });
-};
-
-const initializeAdaptiveCursors = () => {
-    const cursor = document.getElementById("custom-cursor");
-    const blur = document.getElementById("cursor-blur");
-    if (!cursor || !blur) return;
-
-    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-        cursor.style.display = 'none';
-        blur.style.display = 'none';
-        return;
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 800);
+        }, 1800);
     }
 
-    document.body.classList.add("custom-cursor-enabled");
-    let frameId = null;
+    // ================== CUSTOM CURSOR ==================
+    const cursor = document.getElementById('custom-cursor');
+    const cursorBlur = document.getElementById('cursor-blur');
 
-    window.addEventListener("mousemove", (e) => {
-        if (frameId) cancelAnimationFrame(frameId);
-        frameId = requestAnimationFrame(() => {
-            cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
-            blur.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+    if (cursor && cursorBlur) {
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+            cursorBlur.style.left = `${e.clientX}px`;
+            cursorBlur.style.top = `${e.clientY}px`;
         });
-    }, { passive: true });
-};
+    }
 
-// --- MODULE 2: NAVIGATION CHANNELS WITH MOBILE BACKGROUND SCROLL LOCK ---
-const initializeSPARoutingAndMobileMenu = () => {
-    const trigger = document.getElementById("mobileMenuTrigger");
-    const menu = document.getElementById("navLinksMenu");
-    const links = document.querySelectorAll("[data-target]");
-    const sections = document.querySelectorAll(".spa-section");
+    // ================== MOBILE MENU ==================
+    const mobileTrigger = document.getElementById('mobileMenuTrigger');
+    const navLinks = document.getElementById('navLinksMenu');
 
-    const closeMobileMenu = () => {
-        trigger?.classList.remove("active");
-        menu?.classList.remove("open");
-        // Remove scroll lock to restore native user interaction
-        document.body.classList.remove("menu-open-locked");
-    };
+    if (mobileTrigger && navLinks) {
+        mobileTrigger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileTrigger.classList.toggle('active');
+        });
+    }
 
-    trigger?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const isOpen = menu?.classList.toggle("open");
-        trigger.classList.toggle("active");
-        
-        // FLAWLESS FIX: Prevent background context moving if mobile navigation menu layer is open
-        if (isOpen) {
-            document.body.classList.add("menu-open-locked");
-        } else {
-            document.body.classList.remove("menu-open-locked");
-        }
-    });
+    // ================== SPA NAVIGATION ==================
+    const navLinksAll = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.spa-section');
 
-    document.addEventListener("click", () => closeMobileMenu());
+    function switchSection(targetId) {
+        sections.forEach(section => {
+            section.classList.remove('active');
+            if (section.id === targetId) {
+                section.classList.add('active');
+            }
+        });
 
-    links.forEach(link => {
-        link.addEventListener("click", (e) => {
+        navLinksAll.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('data-target') === targetId) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    navLinksAll.forEach(link => {
+        link.addEventListener('click', (e) => {
             e.preventDefault();
-            e.stopPropagation();
+            const target = link.getAttribute('data-target');
+            switchSection(target);
             
-            const targetId = link.dataset.target;
-            const targetSection = document.getElementById(targetId);
-            if (!targetSection) return;
+            // Close mobile menu
+            if (navLinks) navLinks.classList.remove('active');
+        });
+    });
 
-            sections.forEach(s => s.classList.remove("active"));
+    // ================== TIRE CAROUSEL (360° Rotating Images) ==================
+    function initTireCarousel() {
+        const tireRing = document.getElementById('tireRing');
+        if (!tireRing) return;
+
+        // Replace these with your actual campus image URLs
+        const campusImages = [
+            "https://via.placeholder.com/600x400/2A4A8C/ffffff?text=Main+Gate",
+            "https://via.placeholder.com/600x400/C44A2F/ffffff?text=Central+Atrium",
+            "https://via.placeholder.com/600x400/2E5A3F/ffffff?text=Eco+Garden",
+            "https://via.placeholder.com/600x400/E8D9C0/000000?text=Library+Hub",
+            "https://via.placeholder.com/600x400/4A4A4A/ffffff?text=Design+Studio",
+            "https://via.placeholder.com/600x400/2A4A8C/ffffff?text=Auditorium",
+            // Add more images here (recommended 8-12)
+        ];
+
+        tireRing.innerHTML = ''; // Clear existing
+
+        campusImages.forEach((src, index) => {
+            const angle = (index * 360) / campusImages.length;
+            const img = document.createElement('img');
             
-            document.querySelectorAll("[data-target]").forEach(l => {
-                if (l.dataset.target === targetId) l.classList.add("active");
-                else l.classList.remove("active");
+            img.src = src;
+            img.alt = `Campus View ${index + 1}`;
+            img.className = 'tire-image';
+            
+            // Position image on the edge of the tire
+            img.style.transform = `rotate(${angle}deg) translateX(175px) rotate(-${angle}deg)`;
+            
+            tireRing.appendChild(img);
+        });
+    }
+
+    // ================== STUDENT DASHBOARDS ==================
+    function createStudentCard(student) {
+        return `
+            <div class="glass-card student-dashboard">
+                <div class="student-avatar-frame">
+                    <img src="${student.photo}" alt="${student.name}">
+                </div>
+                <h3>${student.name}</h3>
+                <p style="margin:8px 0 16px; color:#ccc;">
+                    <strong>Merit: ${student.merit}</strong> | 
+                    Roll: ${student.roll} <br>
+                    ${student.department}
+                </p>
+                <div class="student-comms-matrix-deck">
+                    ${student.whatsapp ? `<a href="${student.whatsapp}" class="comms-pill-link" target="_blank"><i class="fab fa-whatsapp"></i></a>` : ''}
+                    ${student.facebook ? `<a href="${student.facebook}" class="comms-pill-link" target="_blank"><i class="fab fa-facebook-f"></i></a>` : ''}
+                    ${student.instagram ? `<a href="${student.instagram}" class="comms-pill-link" target="_blank"><i class="fab fa-instagram"></i></a>` : ''}
+                    ${student.linkedin ? `<a href="${student.linkedin}" class="comms-pill-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>` : ''}
+                    ${student.email ? `<a href="mailto:${student.email}" class="comms-pill-link"><i class="fas fa-envelope"></i></a>` : ''}
+                </div>
+            </div>
+        `;
+    }
+
+    function loadSampleStudents() {
+        const grid = document.getElementById('studentsGrid') || document.getElementById('architectsMatrixGrid');
+        if (!grid) return;
+
+        const students = [
+            {
+                name: "Shadid Islam",
+                merit: "01",
+                roll: "231-15-XXX",
+                department: "Department of Architecture",
+                photo: "https://via.placeholder.com/300x300/2A4A8C/fff?text=Shadid",
+                whatsapp: "https://wa.me/88017XXXXXXXX",
+                facebook: "#",
+                instagram: "#",
+                linkedin: "#",
+                email: "shadid@example.com"
+            },
+            // Add more students here
+        ];
+
+        grid.innerHTML = students.map(student => createStudentCard(student)).join('');
+    }
+
+    // ================== ACHIEVEMENTS HOVER ENHANCEMENT ==================
+    function enhanceAchievements() {
+        const cards = document.querySelectorAll('.achievement-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width;
+                const y = (e.clientY - rect.top) / rect.height;
+                
+                card.style.transform = `perspective(1000px) rotateX(${(y - 0.5) * -12}deg) rotateY(${(x - 0.5) * 18}deg)`;
             });
-
-            targetSection.classList.add("active");
-            closeMobileMenu();
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            });
         });
-    });
-};
+    }
 
-// --- MODULE 3: 360 DEGREE ROTATION CYLINDER PORTAL ENGINE (15 PANELS) ---
-const initializeCampus15Carousel = () => {
-    const stage = document.getElementById("campus15Stage3D");
-    const panels = stage?.querySelectorAll(".screenshot-panel-card");
-    const lightbox = document.getElementById("lightboxOverlay");
-    const lightboxText = document.getElementById("lightboxText");
-    if (!stage || !panels?.length) return;
+    // ================== INITIALIZE EVERYTHING ==================
+    function init() {
+        initTireCarousel();
+        loadSampleStudents();
+        enhanceAchievements();
 
-    const totalNodes = panels.length; // Exactly 15 Items
-    const theta = 360 / totalNodes;   // 24 Degrees separation mapping
-    let currentIndex = 0;             // Track current element facing front
-    let autoRotationInterval = null;
+        // Activate home section by default
+        const homeSection = document.getElementById('home');
+        if (homeSection) homeSection.classList.add('active');
 
-    // Computational Radius formulation to eliminate overlap completely
-    const computeLayoutDimensions = () => {
-        const cardWidth = panels[0].offsetWidth;
-        // Core mathematical formula to keep objects equidistant in space: r = w / (2 * tan(PI / n))
-        let radius = Math.round((cardWidth / 2) / Math.tan(Math.PI / totalNodes));
-        
-        // Manual scaling check buffer safeguards for compact device screen layers
-        if (window.innerWidth <= 1024) radius = window.innerWidth <= 480 ? 220 : 310;
-
-        panels.forEach((panel, i) => {
-            panel.style.transform = `rotateY(${theta * i}deg) translateZ(${radius}px)`;
-        });
-        
-        syncCenterNodeHighlight();
-    };
-
-    // Highlight and scale the single node currently presented in front
-    const syncCenterNodeHighlight = () => {
-        // Calculate the positive normalized node index facing the front viewport coordinates
-        let visualFrontIndex = Math.round(-currentIndex % totalNodes);
-        if (visualFrontIndex < 0) visualFrontIndex += totalNodes;
-
-        panels.forEach((p, idx) => {
-            if (idx === visualFrontIndex) {
-                p.classList.add("active-center-node");
-            } else {
-                p.classList.remove("active-center-node");
+        // Keyboard navigation support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === '/' && document.activeElement.tagName !== "INPUT" && document.activeElement.tagName !== "TEXTAREA") {
+                e.preventDefault();
+                const search = prompt("Go to section (home, institution, logo-info, students, achievements):");
+                if (search) {
+                    const sectionId = search.trim().toLowerCase();
+                    const targetSection = document.getElementById(sectionId);
+                    if (targetSection) {
+                        switchSection(sectionId);
+                    }
+                }
             }
         });
-    };
 
-    const updateStageRotation = () => {
-        const angle = theta * currentIndex;
-        // Keep precise fixed screenshot perspective pitch while updating dynamic yaw values
-        stage.style.transform = `translateZ(-850px) rotateX(-5deg) rotateY(${angle}deg)`;
-        syncCenterNodeHighlight();
-    };
+        console.log('%cBRAC ARCHI SUMMER 26 - Website Initialized Successfully ✅', 'color:#C44A2F; font-size:14px; font-weight:bold');
+    }
 
-    // SPEED DECREASED BY 1 SECOND (Runs auto rotation tracking every 2000ms safely)
-    const runAutoCycleEngine = () => {
-        autoRotationInterval = setInterval(() => {
-            currentIndex--; // Step smoothly counter-clockwise
-            updateStageRotation();
-        }, 2000);
-    };
-
-    const killAutoCycleEngine = () => {
-        if (autoRotationInterval) clearInterval(autoRotationInterval);
-    };
-
-    // Click To Zoom Portal Logic Implementation
-    panels.forEach(panel => {
-        panel.addEventListener("click", (e) => {
-            e.stopPropagation();
-            killAutoCycleEngine();
-
-            // Populate text parameters inside the dynamic glass overlay frame structure
-            if (lightbox && lightboxText) {
-                lightboxText.textContent = panel.querySelector("span")?.textContent || "Campus View";
-                lightbox.classList.add("active");
-                document.body.classList.add("menu-open-locked"); // Frame lock for absolute stability
-            }
-        });
-    });
-
-    // Dismiss zoom state and return elements to native positions gracefully
-    lightbox?.addEventListener("click", () => {
-        lightbox.classList.remove("active");
-        document.body.classList.remove("menu-open-locked");
-        killAutoCycleEngine();
-        runAutoCycleEngine();
-    });
-
-    // Layout events
-    computeLayoutDimensions();
-    window.addEventListener("resize", computeLayoutDimensions, { passive: true });
-    
-    // Core engine activation
-    runAutoCycleEngine();
-
-    // Interaction stability configurations
-    stage.addEventListener("mouseenter", killAutoCycleEngine);
-    stage.addEventListener("touchstart", killAutoCycleEngine, { passive: true });
-    stage.addEventListener("mouseleave", () => {
-        if (!lightbox?.classList.contains("active")) runAutoCycleEngine();
-    });
-};
-
-// --- MODULE 4: BRAND PROFILE IDENTITY ENGAGEMENT MOUSE MATHS ---
-const initializeLogoCardInteraction = () => {
-    const card = document.getElementById("interactiveLogoCard");
-    if (!card || 'ontouchstart' in window || navigator.maxTouchPoints > 0) return;
-
-    card.addEventListener("mousemove", (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const rX = ((y / rect.height) - 0.5) * -15;
-        const rY = ((x / rect.width) - 0.5) * 15;
-        card.style.transform = `rotateX(${rX}deg) rotateY(${rY}deg) scale3d(1.02, 1.02, 1.02)`;
-    });
-
-    card.addEventListener("mouseleave", () => {
-        card.style.transform = `rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-    });
-};
-
-// MASTER ENGINE BOOTSTRAP INITIALIZATION
-(() => {
-    initializePreloader();
-    window.addEventListener("DOMContentLoaded", () => {
-        initializeAdaptiveCursors();
-        initializeSPARoutingAndMobileMenu();
-        initializeCampus15Carousel();
-        initializeLogoCardInteraction();
-    });
-})();
+    // Run initialization
+    init();
+});
